@@ -3,7 +3,8 @@ import { motion } from 'motion-v'
 
 const draw = {
   hidden: { pathLength: 0, opacity: 0 },
-  visible: (i) => {
+  visible: (j: unknown) => {
+    const i = j as number
     const delay = i * 0.5
     return {
       pathLength: 1,
