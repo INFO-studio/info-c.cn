@@ -1,32 +1,14 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
-
-/** 存储logo图片对象 */
-const logoImg = ref<LogoImg>()
-
-// 获取canvas画布
+import { ref, onMounted } from 'vue'
 const canvas = ref<HTMLCanvasElement | null>(null)
-
-// 获取上下文
 let context = ref<CanvasRenderingContext2D | null>(null)
-
-/** canvas实体对象 */
 let particleCanvas = ref<ParticleCanvas>()
-
-// 设置画布大小
-const width = 400,
-  height = 400
-
-// 设置粒子动画时长
+const width = 400, height = 400
 const animateTime = 10
 const opacityStep = 1 / animateTime
-
-/** 中心影响的半径 */
 const Radius = 40
-/** 排斥/吸引 力度 */
-const Inten = 0.95
+const Force = 0.95
 
-/** 粒子类 */
 class Particle {
   x: number
   y: number
@@ -73,8 +55,8 @@ class Particle {
       let angle = Math.atan2(dy, dx)
       let cos = Math.cos(angle)
       let sin = Math.sin(angle)
-      let repX = cos * disPercent * -Inten
-      let repY = sin * disPercent * -Inten
+      let repX = cos * disPercent * -Force
+      let repY = sin * disPercent * -Force
       this.vx += repX
       this.vy += repY
     }
@@ -84,7 +66,6 @@ class Particle {
   }
 }
 
-/** Logo图片类 */
 class LogoImg {
   src: string
   name: string
@@ -129,7 +110,6 @@ class LogoImg {
   }
 }
 
-// 画布类
 class ParticleCanvas {
   canvasEle: HTMLCanvasElement
   ctx: CanvasRenderingContext2D
@@ -177,9 +157,7 @@ onMounted(async () => {
   if (canvas.value) {
     context.value = canvas.value.getContext('2d')
     particleCanvas.value = new ParticleCanvas(canvas.value)
-
-    // 初始化并加载唯一logo
-    const logo = new LogoImg('/public/logo_rhine.png', 'rhine')
+    const logo = new LogoImg('/public/images/chattering/logo_rhine.png', 'rhine')
     await logo.onLoad
     particleCanvas.value.changeImg(logo)
     particleCanvas.value.drawCanvas()

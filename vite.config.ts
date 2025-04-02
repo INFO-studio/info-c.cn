@@ -12,7 +12,9 @@ export default defineConfig({
     vue(),
     vueJsx(),
     vueDevTools(),
-    svgLoader()
+    svgLoader({
+      defaultImport: 'url' // or 'raw'
+    })
   ],
   resolve: {
     alias: {
