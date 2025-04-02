@@ -36,21 +36,21 @@ const ContentStyle: CSSProperties = {
   <n-config-provider :theme="themeStore.theme">
     <n-layout vertical :content-style="LayoutStyle">
       <n-layout-header bordered>
-        <AppHeader />
+        <app-header />
       </n-layout-header>
       <n-layout has-sider class="body" :content-style="BodyStyle">
-        <AppSidebar />
+        <app-sidebar />
         <n-layout :content-style="MainStyle">
           <n-layout-header class="content-breadcrumb">
-            <AppBreadcrumb />
+            <app-breadcrumb />
           </n-layout-header>
           <n-layout :native-scrollbar="false" class="content-layout" :content-style="ContentStyle">
-            <RouterView />
+            <router-view />
           </n-layout>
         </n-layout>
       </n-layout>
       <n-layout-footer bordered>
-        <AppFooter />
+        <app-footer />
       </n-layout-footer>
     </n-layout>
   </n-config-provider>

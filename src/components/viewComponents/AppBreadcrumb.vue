@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import { FileAltRegular } from '@vicons/fa'
+import { File } from 'lucide-vue-next'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { routes } from '@/router/routes'
+import { getRoutePath } from '@/router/utils/getRoutePath.ts'
+import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 
 const route = useRoute()
 const router = useRouter()
 const breadcrumbs = computed(() => {
-  return route.matched.map((item) => ({
+  return getRoutePath(route.path, getRouteTree(routes)).map((item) => ({
     path: item.path,
     name: item.name,
-    icon: item.meta?.icon || FileAltRegular,
+    icon: item?.icon || File,
   }))
 })
 const handleBreadcrumbClick = (path: string) => {
@@ -19,17 +22,20 @@ const handleBreadcrumbClick = (path: string) => {
 
 <template>
   <n-breadcrumb class="breadcrumb">
-    <n-breadcrumb-item v-for="item in breadcrumbs" :key="item.path" @click="handleBreadcrumbClick(item.path)" class="breadcrumb-item">
-        <n-icon :component="item.icon" />
-        {{ item.name }}
+    <n-breadcrumb-item
+      v-for="item in breadcrumbs"
+      :key="item.path"
+      @click="handleBreadcrumbClick(item.path)"
+      class="breadcrumb-item"
+    >
+      <n-icon :component="item.icon" />
+      {{ item.name }}
     </n-breadcrumb-item>
   </n-breadcrumb>
 </template>
 
 <style>
 .breadcrumb {
-  padding: .5rem;
+  padding: 0.5rem;
 }
 </style>
-
-

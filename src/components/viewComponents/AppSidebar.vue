@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { NEllipsis, NIcon } from 'naive-ui'
 import { h, computed, ref } from 'vue'
-import { useRoute, useRouter, type RouteRecord } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import type { Component } from 'vue'
 import type { MenuOption } from 'naive-ui'
-import { FileAltRegular } from '@vicons/fa'
+import { File } from 'lucide-vue-next'
+import { getRouteTree } from '@/router/utils/getRouteTree.ts'
+import { routes } from '@/router/routes'
+import type { DocumentRouteTree } from '@/router/interfaces'
 
 const collapsed = ref(true)
 const collapsedWidth = 64
@@ -13,22 +16,22 @@ const collapsedIconSize = 22
 const handleCollapse = () => (collapsed.value = true)
 const handleExpand = () => (collapsed.value = false)
 
-const router = useRouter()
-const routes = router.getRoutes()
-const routesSidebarTop = routes.filter((route) => route.meta?.isSidebarTop)
 const route = useRoute()
+const router = useRouter()
+const routeTree = getRouteTree(routes)
+const routesSidebarTop = routeTree.children?.filter((route) => route.isSidebarTop)
 
 const renderIcon = (icon: Component) => {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 
-const transformRoute = (routes: RouteRecord[]): MenuOption[] => {
+const transformRoute = (routes: DocumentRouteTree[]): MenuOption[] => {
   return routes.map((route) => ({
     label: () => h(NEllipsis, null, { default: () => route.name }),
     key: route.path,
-    icon: route.meta?.icon ? renderIcon(route.meta.icon) : renderIcon(FileAltRegular),
+    icon: route.icon ? renderIcon(route.icon) : renderIcon(File),
     children: route.children?.length
-      ? transformRoute(route.children.filter((child) => !child.meta?.hideInMenu) as RouteRecord[])
+      ? transformRoute(route.children.filter((child) => !child.hideInSidebar))
       : undefined,
   }))
 }
@@ -38,21 +41,19 @@ const divider: MenuOption = {
   type: 'divider',
 }
 
-const transformHome = (routes: RouteRecord[]): MenuOption[] => {
-  return routes
-    .filter((route) => route.meta?.isSidebarHome)
-    .map((route) => ({
-      label: route.name,
-      key: route.path,
-      icon: route.meta?.icon ? renderIcon(route.meta.icon) : renderIcon(FileAltRegular),
-    }))
+const transformHome = (routeTree: DocumentRouteTree): MenuOption => {
+  return {
+    label: routeTree.name,
+    key: routeTree.path,
+    icon: routeTree.icon ? renderIcon(routeTree.icon) : renderIcon(File),
+  }
 }
 
-const menuOptions = computed(() => [
-  ...transformHome(routes),
-  divider,
-  ...transformRoute(routesSidebarTop),
-])
+const routeHome = transformHome(routeTree)
+
+const routesSidebar = transformRoute(routesSidebarTop ?? [])
+
+const menuOptions = computed(() => [routeHome, divider, ...routesSidebar])
 
 const activeKey = computed({
   get: () => route.path,

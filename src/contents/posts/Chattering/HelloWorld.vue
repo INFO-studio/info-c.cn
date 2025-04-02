@@ -4,6 +4,8 @@ import ArticleDate from '@/components/articleComponents/common/ArticleDate.vue'
 const writtenDate = new Date(2025, 3, 2, 0, 57)
 import MotionConicGradientPointer from '@/components/articleComponents/specific/chattering/helloWorld/MotionConicGradientPointer.vue'
 import MotionReorderAnimation from '@/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue'
+import ArknightsParticle
+  from '@/components/articleComponents/specific/chattering/helloWorld/ArknightsParticle.vue'
 </script>
 
 <template>
@@ -27,23 +29,39 @@ import MotionReorderAnimation from '@/components/articleComponents/specific/chat
     <n-p>
       为此，我甚至往库里引入了 Motion 库，毕竟是个人网页，没有性能问题，所以还会添加各种炫酷的东西，可以看看下面的 Motion 官方演示效果
     </n-p>
-    <n-grid cols="2">
-      <n-grid-item>
-        <n-flex align="center" justify="center" class="header-item">
+    <n-grid cols="1 500:2" :x-gap="10" :y-gap="10">
+      <n-grid-item class="test-motion-grid-item">
+        <n-flex align="center" justify="center">
           <motion-conic-gradient-pointer/>
         </n-flex>
       </n-grid-item>
-      <n-grid-item>
-        <n-flex align="center" justify="center" class="header-item">
+      <n-grid-item class="test-motion-grid-item">
+        <n-flex align="center" justify="center">
           <motion-reorder-animation/>
         </n-flex>
       </n-grid-item>
     </n-grid>
     <n-p>
-      总之就是先这样，后面再继续补充
+      ps: 这不是 gif 图，这都是在你的设备上真实渲染的，你甚至可以这样
+    </n-p>
+    <n-grid cols="1">
+      <n-grid-item class="test-particle-grid-item">
+        <n-flex align="center" justify="center" class="header-item">
+          <arknights-particle/>
+        </n-flex>
+      </n-grid-item>
+    </n-grid>
+    <n-p>
+      总之就是先这样，目前功能都还没写好就先不产出文章了，后面再写一些别的吧
     </n-p>
   </div>
 </template>
 
 <style>
+.test-motion-grid-item {
+  min-width: 200px;
+}
+.test-particle-grid-item {
+  position: relative;
+}
 </style>
