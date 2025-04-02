@@ -4,7 +4,7 @@ import image from "@/assets/images/chattering/hello_world/logo_rhine.png"
 const canvas = ref<HTMLCanvasElement | null>(null)
 let context = ref<CanvasRenderingContext2D | null>(null)
 let particleCanvas = ref<ParticleCanvas>()
-const width = 300, height = 300
+const width = 200, height = 200
 const animateTime = 10
 const opacityStep = 1 / animateTime
 const Radius = 40
@@ -92,8 +92,8 @@ class LogoImg {
         tmpCtx?.drawImage(img, 0, 0, imgW, imgH)
         const imgData = tmpCtx?.getImageData(0, 0, imgW, imgH).data
 
-        for (let y = 0; y < imgH; y += y > 300 ? 1 : 5) {
-          for (let x = 0; x < imgW; x += y > 300 ? 1 : 5) {
+        for (let y = 0; y < imgH; y += y > 155 ? 1 : 3) {
+          for (let x = 0; x < imgW; x += y > 155 ? 1 : 3) {
             const index = (x + y * imgW) * 4
             const r = imgData![index]
             const g = imgData![index + 1]
