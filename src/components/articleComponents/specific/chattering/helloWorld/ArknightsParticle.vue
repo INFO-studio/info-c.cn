@@ -4,7 +4,7 @@ import image from "@/assets/images/chattering/hello_world/logo_rhine.png"
 const canvas = ref<HTMLCanvasElement | null>(null)
 let context = ref<CanvasRenderingContext2D | null>(null)
 let particleCanvas = ref<ParticleCanvas>()
-const width = 400, height = 400
+const width = 300, height = 300
 const animateTime = 10
 const opacityStep = 1 / animateTime
 const Radius = 40

@@ -42,7 +42,7 @@ import ArknightsParticle
       </n-grid-item>
     </n-grid>
     <n-p>
-      ps: 这不是 gif 图，这都是在你的设备上真实渲染的，你甚至可以这样
+      ps: 这不是 gif 图，这都是在你的设备上真实渲染的，你甚至可以这样（可以戳一戳下面）
     </n-p>
     <n-grid cols="1">
       <n-grid-item class="test-particle-grid-item">
