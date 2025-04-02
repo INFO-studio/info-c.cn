@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Github from '/public/icons/brand/github.svg?component'
-import Bilibili from '/public/icons/brand/bilibili.svg?component'
+import Github from '@/assets/icons/brand/github.svg?component'
+import Bilibili from '@/assets/icons/brand/bilibili.svg?component'
 import { Mail } from 'lucide-vue-next'
 const yearNow: number = new Date().getFullYear()
 </script>

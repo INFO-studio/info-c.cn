@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import image from "@/assets/images/chattering/hello_world/logo_rhine.png"
 const canvas = ref<HTMLCanvasElement | null>(null)
 let context = ref<CanvasRenderingContext2D | null>(null)
 let particleCanvas = ref<ParticleCanvas>()
@@ -157,7 +158,7 @@ onMounted(async () => {
   if (canvas.value) {
     context.value = canvas.value.getContext('2d')
     particleCanvas.value = new ParticleCanvas(canvas.value)
-    const logo = new LogoImg('/public/images/chattering/logo_rhine.png', 'rhine')
+    const logo = new LogoImg(image, 'rhine')
     await logo.onLoad
     particleCanvas.value.changeImg(logo)
     particleCanvas.value.drawCanvas()
