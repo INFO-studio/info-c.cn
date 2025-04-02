@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { NEllipsis, NIcon } from 'naive-ui'
-import { h, computed, ref } from 'vue'
+import { h, computed, ref, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { Component } from 'vue'
 import type { MenuOption } from 'naive-ui'
@@ -10,11 +10,29 @@ import { routes } from '@/router/routes'
 import type { DocumentRouteTree } from '@/router/interfaces'
 
 const collapsed = ref(true)
-const collapsedWidth = 64
-const collapsedIconSize = 22
+const collapsedWidth = ref(64)
+const width = ref(240)
+const indent = ref(32)
 
-const handleCollapse = () => (collapsed.value = true)
-const handleExpand = () => (collapsed.value = false)
+const handleCollapse = () => {
+  collapsed.value = true
+}
+
+const handleExpand = () => {
+  collapsed.value = false
+}
+
+const updateCollapsedWidth = () => {
+  collapsedWidth.value = window.innerWidth < 600 ? 0 : 64
+  width.value = window.innerWidth < 600 ? 180 : 240
+  indent.value = window.innerWidth < 600 ? 16 : 32
+}
+
+window.addEventListener('resize', updateCollapsedWidth)
+
+updateCollapsedWidth()
+
+const collapsedIconSize = 22
 
 const route = useRoute()
 const router = useRouter()
@@ -59,6 +77,10 @@ const activeKey = computed({
   get: () => route.path,
   set: (path: string) => router.push(path),
 })
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateCollapsedWidth)
+})
 </script>
 
 <template>
@@ -66,7 +88,7 @@ const activeKey = computed({
     bordered
     collapse-mode="width"
     :collapsed-width="collapsedWidth"
-    :width="240"
+    :width="width"
     :collapsed="collapsed"
     show-trigger
     @collapse="handleCollapse"
@@ -78,6 +100,7 @@ const activeKey = computed({
       :collapsed-width="collapsedWidth"
       :collapsed-icon-size="collapsedIconSize"
       :options="menuOptions"
+      :indent="indent"
     />
   </n-layout-sider>
 </template>
