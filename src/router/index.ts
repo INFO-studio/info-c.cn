@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { Home, Code } from '@vicons/fa'
 import HelloWorld from '@/contents/posts/Chattering/HelloWorld.vue'
+import AppHome from '@/contents/posts/AppHome.vue'
+import ChatteringIndex from '@/contents/posts/Chattering/ChatteringIndex.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,7 +10,7 @@ const router = createRouter({
     {
       path: '/',
       name: '首页',
-      component: HelloWorld,
+      component: AppHome,
       meta: {
         icon: Home,
         isSidebarHome: true,
@@ -17,7 +19,7 @@ const router = createRouter({
         {
           path: '/chattering',
           name: '碎碎念',
-          component: HelloWorld,
+          component: ChatteringIndex,
           meta: {
             icon: Code,
             isSidebarTop: true,

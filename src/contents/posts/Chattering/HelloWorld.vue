@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import MotionConicGradientPointer from '@/components/articleComponents/chattering/helloWorld/MotionConicGradientPointer.vue'
-import MotionReorderAnimation from '@/components/articleComponents/chattering/helloWorld/MotionReorderAnimation.vue'
-const writtenTime = new Date(2025, 3, 2, 0, 57)
+import ArticleDate from '@/components/articleComponents/common/ArticleDate.vue'
+
+const writtenDate = new Date(2025, 3, 2, 0, 57)
+import MotionConicGradientPointer from '@/components/articleComponents/specific/chattering/helloWorld/MotionConicGradientPointer.vue'
+import MotionReorderAnimation from '@/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue'
 </script>
 
 <template>
@@ -9,10 +11,7 @@ const writtenTime = new Date(2025, 3, 2, 0, 57)
     <n-h2 prefix="bar" class="article-title">
       <n-text>HelloWorld</n-text>
     </n-h2>
-    <div>
-      编写于：
-      <n-time :time="writtenTime" format="yyyy-MM-dd HH:mm"/>
-    </div>
+    <article-date category="create" :date="writtenDate" />
     <n-p>
       历经两天（？）的艰苦卓绝的奋斗，做了一个比较简陋的个人博客页面出来。
     </n-p>

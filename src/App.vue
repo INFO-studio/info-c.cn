@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import AppHeader from '@/components/AppHeader.vue'
-import AppSidebar from '@/components/AppSidebar.vue'
-import AppBreadcrumb from '@/components/AppBreadcrumb.vue'
+import AppHeader from '@/components/viewComponents/AppHeader.vue'
+import AppSidebar from '@/components/viewComponents/AppSidebar.vue'
+import AppBreadcrumb from '@/components/viewComponents/AppBreadcrumb.vue'
 import type { CSSProperties } from 'vue'
-import AppFooter from '@/components/AppFooter.vue'
+import AppFooter from '@/components/viewComponents/AppFooter.vue'
 import { useThemeStore } from '@/stores/theme.ts'
 
 const themeStore = useThemeStore()
