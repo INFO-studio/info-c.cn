@@ -3,6 +3,8 @@ import { useThemeStore } from '@/stores/theme.ts'
 import { Sun, Moon } from 'lucide-vue-next'
 import { ref, watch } from 'vue'
 import logo from '@/assets/logos/logo.svg?component'
+import titleInfoc from '@/assets/logos/title.svg?component'
+import { themeOverrides } from '@/assets/theme'
 import { motion } from 'motion-v'
 
 const themeStore = useThemeStore()
@@ -20,14 +22,14 @@ watch(
   <n-grid cols="4" class="header">
     <n-grid-item>
       <n-flex align="center" justify="left" class="header-item">
-        <n-icon color="#6CBDED" size="24">
+        <n-icon :color="themeOverrides.common.primaryColor" size="24">
           <logo />
         </n-icon>
       </n-flex>
     </n-grid-item>
     <n-grid-item span="2">
       <n-flex align="center" justify="center" class="header-item">
-        <n-h1 class="title">浮音华章</n-h1>
+        <title-infoc />
       </n-flex>
     </n-grid-item>
     <n-grid-item>
@@ -57,10 +59,5 @@ watch(
 .header-item {
   height: 100%;
   padding: 0 20px;
-}
-
-.title {
-  margin: 0;
-  font-family: serif;
 }
 </style>
