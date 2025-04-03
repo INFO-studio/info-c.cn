@@ -40,7 +40,7 @@ import ArticleImageCaption from '@/components/articleComponents/common/ArticleIm
         <n-flex vertical align="center" justify="center">
           <motion-conic-gradient-pointer/>
           <article-image-caption>
-            @motion example <n-a href="https://examples.motion.dev/vue/path-drawing">Path drawing</n-a>
+            example <n-a href="https://examples.motion.dev/vue/path-drawing">Path drawing</n-a> @motion
           </article-image-caption>
         </n-flex>
       </n-grid-item>
@@ -48,7 +48,7 @@ import ArticleImageCaption from '@/components/articleComponents/common/ArticleIm
         <n-flex vertical align="center" justify="center">
           <motion-reorder-animation/>
           <article-image-caption>
-            @motion example <n-a href="https://examples.motion.dev/vue/reorder-items">Reorder items</n-a>
+            example <n-a href="https://examples.motion.dev/vue/reorder-items">Reorder items</n-a> @motion
           </article-image-caption>
         </n-flex>
       </n-grid-item>
@@ -64,7 +64,7 @@ import ArticleImageCaption from '@/components/articleComponents/common/ArticleIm
         <n-flex vertical align="center" justify="center" class="header-item">
           <arknights-particle/>
           <article-image-caption>
-            @motion example <n-a href="https://examples.motion.dev/vue/reorder-items">Reorder items</n-a>
+            <n-a href="https://github.com/XIwE1/ark-particle-animation">Ark particle animation</n-a> @ 西维
           </article-image-caption>
         </n-flex>
       </n-grid-item>
