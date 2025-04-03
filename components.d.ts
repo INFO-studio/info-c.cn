@@ -13,7 +13,6 @@ declare module 'vue' {
     AppHeader: typeof import('./src/components/viewComponents/AppHeader.vue')['default']
     AppSidebar: typeof import('./src/components/viewComponents/AppSidebar.vue')['default']
     ArknightsParticle: typeof import('./src/components/articleComponents/specific/chattering/helloWorld/ArknightsParticle.vue')['default']
-    ArticleComment: typeof import('./src/components/articleComponents/common/ArticleComment.vue')['default']
     ArticleDate: typeof import('./src/components/articleComponents/common/ArticleDate.vue')['default']
     ArticleFloatButton: typeof import('./src/components/articleComponents/common/ArticleFloatButton.vue')['default']
     ArticleImageCaption: typeof import('./src/components/articleComponents/common/ArticleImageCaption.vue')['default']

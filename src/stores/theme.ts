@@ -10,4 +10,8 @@ export const useThemeStore = defineStore('theme', () => {
   }
 
   return { isDarkTheme, theme, changeTheme }
+},{
+  persist: {
+    pick: ['isDarkTheme'],
+  }
 })
