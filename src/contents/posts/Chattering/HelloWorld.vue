@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import ArticleDate from '@/components/articleComponents/common/ArticleDate.vue'
 
-const writtenDate = new Date(2025, 3, 2, 0, 57)
+const createDate = new Date(2025, 3, 2, 0, 57)
+const modifyDate = new Date(2025, 3, 3, 11, 14)
+
 import MotionConicGradientPointer from '@/components/articleComponents/specific/chattering/helloWorld/MotionConicGradientPointer.vue'
 import MotionReorderAnimation from '@/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue'
 import ArknightsParticle
@@ -13,7 +15,10 @@ import ArknightsParticle
     <n-h2 prefix="bar" class="article-title">
       <n-text>HelloWorld</n-text>
     </n-h2>
-    <article-date category="create" :date="writtenDate" />
+    <n-flex>
+      <article-date category="create" :date="createDate" />
+      <article-date category="modify" :date="modifyDate" />
+    </n-flex>
     <n-p>
       历经两天（？）的艰苦卓绝的奋斗，做了一个比较简陋的个人博客页面出来。
     </n-p>

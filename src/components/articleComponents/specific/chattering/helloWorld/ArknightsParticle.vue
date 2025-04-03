@@ -167,5 +167,5 @@ onMounted(async () => {
 </script>
 
 <template>
-  <canvas ref="canvas" :width="width" :height="height"></canvas>
+  <canvas ref="canvas" :width="width" :height="height" style="display: block" />
 </template>

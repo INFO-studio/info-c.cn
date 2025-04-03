@@ -3,11 +3,13 @@ import { RouterView } from 'vue-router'
 import AppHeader from '@/components/viewComponents/AppHeader.vue'
 import AppSidebar from '@/components/viewComponents/AppSidebar.vue'
 import AppBreadcrumb from '@/components/viewComponents/AppBreadcrumb.vue'
-import type { CSSProperties } from 'vue'
+import { type CSSProperties } from 'vue'
 import AppFooter from '@/components/viewComponents/AppFooter.vue'
 import { useThemeStore } from '@/stores/theme.ts'
+import ArticleFloatButton from '@/components/articleComponents/common/ArticleFloatButton.vue'
 
 const themeStore = useThemeStore()
+
 const LayoutStyle: CSSProperties = {
   minHeight: '100vh',
   maxHeight: '100vh',
@@ -25,10 +27,10 @@ const MainStyle: CSSProperties = {
   gap: '1rem',
 }
 const ContentStyle: CSSProperties = {
-  width: "100%",
-  maxWidth: "800px",
-  minWidth: "200px",
-  margin: "0 auto"
+  width: '100%',
+  maxWidth: '800px',
+  minWidth: '200px',
+  margin: '0 auto',
 }
 </script>
 
@@ -45,7 +47,8 @@ const ContentStyle: CSSProperties = {
             <app-breadcrumb />
           </n-layout-header>
           <n-layout :native-scrollbar="false" class="content-layout" :content-style="ContentStyle">
-            <router-view />
+            <router-view/>
+            <article-float-button/>
           </n-layout>
         </n-layout>
       </n-layout>
