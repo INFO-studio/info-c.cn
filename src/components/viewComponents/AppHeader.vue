@@ -1,6 +1,17 @@
 <script setup lang="ts">
-import {useThemeStore} from '@/stores/theme.ts'
+import { useThemeStore } from '@/stores/theme.ts'
+import { Sun, Moon } from 'lucide-vue-next'
+import { ref, watch } from 'vue'
+import { motion } from 'motion-v'
 const themeStore = useThemeStore()
+const isDark = ref(themeStore.isDarkTheme)
+
+watch(
+  () => themeStore.isDarkTheme,
+  (newVal) => {
+    isDark.value = newVal
+  }
+)
 </script>
 
 <template>
@@ -17,7 +28,18 @@ const themeStore = useThemeStore()
     </n-grid-item>
     <n-grid-item>
       <n-flex align="center" justify="right" class="header-item">
-        <n-button @click="themeStore.changeTheme">更改主题</n-button>
+        <n-button circle quaternary @click="themeStore.changeTheme">
+          <motion.div
+            :key="isDark ? 'moon' : 'sun'"
+            :initial="{ opacity: 0, rotate: -180}"
+            :animate="{ opacity: 1, rotate: 0 }"
+            :whileHover="{ scale: 1.1 }"
+            :whilePress="{ scale: 0.9 }"
+          >
+            <Moon v-if="isDark"/>
+            <Sun v-else/>
+          </motion.div>
+        </n-button>
       </n-flex>
     </n-grid-item>
   </n-grid>

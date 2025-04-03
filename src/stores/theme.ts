@@ -9,5 +9,5 @@ export const useThemeStore = defineStore('theme', () => {
     isDarkTheme.value = !isDarkTheme.value
   }
 
-  return { theme, changeTheme }
+  return { isDarkTheme, theme, changeTheme }
 })

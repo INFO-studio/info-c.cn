@@ -175,5 +175,6 @@ onMounted(async () => {
 <style scoped>
 .arknights-particle-div {
   background-color: #333;
+  border-radius: 25%;
 }
 </style>

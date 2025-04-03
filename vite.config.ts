@@ -14,7 +14,7 @@ export default defineConfig({
     vueDevTools(),
     svgLoader({
       defaultImport: 'url' // or 'raw'
-    })
+    }),
   ],
   resolve: {
     alias: {
