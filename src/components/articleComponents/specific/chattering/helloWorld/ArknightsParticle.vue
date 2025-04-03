@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import image from "@/assets/images/chattering/hello_world/logo_rhine.png"
+import image from '@/assets/images/chattering/hello_world/logo_rhine.png'
+
 const canvas = ref<HTMLCanvasElement | null>(null)
 let context = ref<CanvasRenderingContext2D | null>(null)
 let particleCanvas = ref<ParticleCanvas>()
-const width = 200, height = 200
+const width = 200,
+  height = 200
 const animateTime = 10
 const opacityStep = 1 / animateTime
 const Radius = 40

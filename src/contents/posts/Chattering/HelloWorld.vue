@@ -8,6 +8,7 @@ import MotionConicGradientPointer from '@/components/articleComponents/specific/
 import MotionReorderAnimation from '@/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue'
 import ArknightsParticle
   from '@/components/articleComponents/specific/chattering/helloWorld/ArknightsParticle.vue'
+import ArticleImageCaption from '@/components/articleComponents/common/ArticleImageCaption.vue'
 </script>
 
 <template>
@@ -32,27 +33,39 @@ import ArknightsParticle
       我可以改变页面的所有元素，让他们呈现所有我能想出来的效果，这种一切尽在掌握的感觉是所有的博客结构所不能比拟的。
     </n-p>
     <n-p>
-      为此，我甚至往库里引入了 Motion 库，毕竟是个人网页，没有性能问题，所以还会添加各种炫酷的东西，可以看看下面的 Motion 官方演示效果
+      为此，我甚至往库里引入了 Motion 库，毕竟是个人网页，没有性能问题，所以还会添加各种炫酷的东西，可以看看下面的 Motion 官方演示效果。
     </n-p>
     <n-grid cols="1 500:2" :x-gap="10" :y-gap="10">
       <n-grid-item class="test-motion-grid-item">
-        <n-flex align="center" justify="center">
+        <n-flex vertical align="center" justify="center">
           <motion-conic-gradient-pointer/>
+          <article-image-caption>
+            @motion example <n-a href="https://examples.motion.dev/vue/path-drawing">Path drawing</n-a>
+          </article-image-caption>
         </n-flex>
       </n-grid-item>
       <n-grid-item class="test-motion-grid-item">
-        <n-flex align="center" justify="center">
+        <n-flex vertical align="center" justify="center">
           <motion-reorder-animation/>
+          <article-image-caption>
+            @motion example <n-a href="https://examples.motion.dev/vue/reorder-items">Reorder items</n-a>
+          </article-image-caption>
         </n-flex>
       </n-grid-item>
     </n-grid>
     <n-p>
-      ps: 这不是 gif 图，这都是在你的设备上真实渲染的，你甚至可以这样（可以戳一戳下面）
+      包括右上角主题的切换动画也是使用 Motion 制作的。
+    </n-p>
+    <n-p>
+      ps: 这不是 gif 图，这都是在你的设备上真实渲染的，你甚至可以这样（可以戳一戳下面）。
     </n-p>
     <n-grid cols="1">
       <n-grid-item class="test-particle-grid-item">
-        <n-flex align="center" justify="center" class="header-item">
+        <n-flex vertical align="center" justify="center" class="header-item">
           <arknights-particle/>
+          <article-image-caption>
+            @motion example <n-a href="https://examples.motion.dev/vue/reorder-items">Reorder items</n-a>
+          </article-image-caption>
         </n-flex>
       </n-grid-item>
     </n-grid>

@@ -9,12 +9,24 @@ const yearNow: number = new Date().getFullYear()
   <n-flex vertical align="center" justify="center" :size="2" class="footer">
     <n-p class="copyright">Copyright © 2024 - {{ yearNow }} 茵符草</n-p>
     <n-flex align="center" justify="center" :size="4">
-      <n-button circle quaternary tag="a" target="_blank" href="https://github.com/INFO-studio/info-c.cn">
+      <n-button
+        circle
+        quaternary
+        tag="a"
+        target="_blank"
+        href="https://github.com/INFO-studio/info-c.cn"
+      >
         <n-icon size="24">
           <Github />
         </n-icon>
       </n-button>
-      <n-button circle quaternary tag="a" target="_blank" href="https://space.bilibili.com/397039149">
+      <n-button
+        circle
+        quaternary
+        tag="a"
+        target="_blank"
+        href="https://space.bilibili.com/397039149"
+      >
         <n-icon size="24">
           <Bilibili />
         </n-icon>
@@ -35,7 +47,7 @@ const yearNow: number = new Date().getFullYear()
   & > .copyright {
     line-height: 1;
     padding: 0;
-    margin: .5rem;
+    margin: 0.5rem;
   }
 }
 </style>

@@ -6,10 +6,10 @@ import AppBreadcrumb from '@/components/viewComponents/AppBreadcrumb.vue'
 import { type CSSProperties } from 'vue'
 import AppFooter from '@/components/viewComponents/AppFooter.vue'
 import { useThemeStore } from '@/stores/theme.ts'
+import { themeOverrides } from '@/assets/theme'
 import ArticleFloatButton from '@/components/articleComponents/common/ArticleFloatButton.vue'
 
 const themeStore = useThemeStore()
-
 const LayoutStyle: CSSProperties = {
   minHeight: '100vh',
   maxHeight: '100vh',
@@ -35,7 +35,7 @@ const ContentStyle: CSSProperties = {
 </script>
 
 <template>
-  <n-config-provider :theme="themeStore.theme">
+  <n-config-provider :theme="themeStore.theme" :theme-overrides="themeOverrides">
     <n-layout vertical :content-style="LayoutStyle">
       <n-layout-header bordered>
         <app-header />

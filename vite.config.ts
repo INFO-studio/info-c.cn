@@ -5,6 +5,8 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import svgLoader from 'vite-svg-loader'
+import Components from 'unplugin-vue-components/vite'
+import MotionResolver from 'motion-v/resolver'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,6 +16,12 @@ export default defineConfig({
     vueDevTools(),
     svgLoader({
       defaultImport: 'url' // or 'raw'
+    }),
+    Components({
+      dts: true,
+      resolvers: [
+        MotionResolver()
+      ],
     }),
   ],
   resolve: {

@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import { motion } from 'motion-v'
-import { ref, onMounted, onBeforeUnmount,type CSSProperties } from 'vue'
+import { ref, onMounted, onBeforeUnmount, type CSSProperties } from 'vue'
 
-const initialOrder = [
-  "#ff0088",
-  "#dd00ee",
-  "#9911ff",
-  "#0d63f8",
-]
+const initialOrder = ['#ff0088', '#dd00ee', '#9911ff', '#0d63f8']
 
 const order = ref([...initialOrder])
 
@@ -57,9 +52,9 @@ const container: CSSProperties = {
 }
 
 const item = {
-  width: "95px",
-  height: "95px",
-  borderRadius: "10px",
+  width: '95px',
+  height: '95px',
+  borderRadius: '10px',
 }
 </script>
 

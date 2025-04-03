@@ -10,8 +10,15 @@ const draw = {
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { delay, type: "spring", duration: 1.5, bounce: 0, repeat: Infinity, repeatType: "reverse"},
-        opacity: { delay, duration: 0.01},
+        pathLength: {
+          delay,
+          type: 'spring',
+          duration: 1.5,
+          bounce: 0,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        },
+        opacity: { delay, duration: 0.01 },
       },
     }
   },
@@ -22,13 +29,13 @@ const draw = {
  */
 
 const image = {
-  maxWidth: "80vw",
+  maxWidth: '80vw',
 }
 
 const shape = {
   strokeWidth: 5,
-  strokeLinecap: "round",
-  fill: "transparent",
+  strokeLinecap: 'round',
+  fill: 'transparent',
 }
 </script>
 
