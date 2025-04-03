@@ -92,15 +92,15 @@ class LogoImg {
         tmpCtx?.drawImage(img, 0, 0, imgW, imgH)
         const imgData = tmpCtx?.getImageData(0, 0, imgW, imgH).data
 
-        for (let y = 0; y < imgH; y += y > 155 ? 1 : 3) {
-          for (let x = 0; x < imgW; x += y > 155 ? 1 : 3) {
+        for (let y = 0; y < imgH; y += y > 150 ? 1 : 5) {
+          for (let x = 0; x < imgW; x += y > 150 ? 1 : 5) {
             const index = (x + y * imgW) * 4
             const r = imgData![index]
             const g = imgData![index + 1]
             const b = imgData![index + 2]
             const a = imgData![index + 3]
             const sum = r + g + b + a
-            if (sum >= 100) {
+            if (sum >= 255) {
               this.particleData.push(new Particle(x, y, animateTime, [r, g, b, a]))
             }
           }
@@ -167,5 +167,13 @@ onMounted(async () => {
 </script>
 
 <template>
-  <canvas ref="canvas" :width="width" :height="height" style="display: block" />
+  <div class="arknights-particle-div">
+    <canvas ref="canvas" :width="width" :height="height" />
+  </div>
 </template>
+
+<style scoped>
+.arknights-particle-div {
+  background-color: #333;
+}
+</style>
