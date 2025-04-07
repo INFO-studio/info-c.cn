@@ -13,6 +13,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "katex": "^0.16.21",
+    "katex-vue": "^1.0.0",
     "lucide-vue-next": "^0.487.0",
     "motion-v": "1.0.0-alpha.4",
     "pinia": "^3.0.1",

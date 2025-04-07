@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      katex:
+        specifier: ^0.16.21
+        version: 0.16.21
+      katex-vue:
+        specifier: ^1.0.0
+        version: 1.0.0(katex@0.16.21)(vue@3.5.13(typescript@5.8.2))
       lucide-vue-next:
         specifier: ^0.487.0
         version: 0.487.0(vue@3.5.13(typescript@5.8.2))
@@ -1018,6 +1024,10 @@ packages:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
 
+  commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
@@ -1500,6 +1510,16 @@ packages:
 
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+
+  katex-vue@1.0.0:
+    resolution: {integrity: sha512-ZBiDRRxtUgEAPyeimLcdTDOswo8TbZEwJ86Z7vHfnGkewaBKLkkpRKdymSvCCe8okkcghH1/jjLniuGmxvkqWQ==}
+    peerDependencies:
+      katex: ^0.16.21
+      vue: ^3.5.13
+
+  katex@0.16.21:
+    resolution: {integrity: sha512-XvqR7FgOHtWupfMiigNzmh+MgUVmDGU2kXZm899ZkPfcuoPuFxyHmXsgATDpFZDAXCI8tvinaVcDo8PIIJSo4A==}
+    hasBin: true
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -3138,6 +3158,8 @@ snapshots:
 
   commander@7.2.0: {}
 
+  commander@8.3.0: {}
+
   concat-map@0.0.1: {}
 
   confbox@0.1.8: {}
@@ -3595,6 +3617,15 @@ snapshots:
       universalify: 2.0.1
     optionalDependencies:
       graceful-fs: 4.2.11
+
+  katex-vue@1.0.0(katex@0.16.21)(vue@3.5.13(typescript@5.8.2)):
+    dependencies:
+      katex: 0.16.21
+      vue: 3.5.13(typescript@5.8.2)
+
+  katex@0.16.21:
+    dependencies:
+      commander: 8.3.0
 
   keyv@4.5.4:
     dependencies:

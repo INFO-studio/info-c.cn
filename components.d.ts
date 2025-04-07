@@ -16,6 +16,7 @@ declare module 'vue' {
     ArticleDate: typeof import('./src/components/articleComponents/common/ArticleDate.vue')['default']
     ArticleFloatButton: typeof import('./src/components/articleComponents/common/ArticleFloatButton.vue')['default']
     ArticleImageCaption: typeof import('./src/components/articleComponents/common/ArticleImageCaption.vue')['default']
+    ArticleLatex: typeof import('./src/components/articleComponents/common/ArticleLatex.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']

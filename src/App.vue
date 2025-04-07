@@ -20,13 +20,13 @@ const BodyStyle: CSSProperties = {
   flex: 1,
 }
 const MainStyle: CSSProperties = {
-  padding: '2rem',
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
   gap: '1rem',
 }
 const ContentStyle: CSSProperties = {
+  padding: '0 2rem 2rem 2rem',
   width: '100%',
   maxWidth: '800px',
   minWidth: '200px',
@@ -67,6 +67,7 @@ const ContentStyle: CSSProperties = {
 
 .content-breadcrumb {
   background-color: unset;
+  padding: 2rem 2rem 0 2rem;
 }
 
 .content-layout {
