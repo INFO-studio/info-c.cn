@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Component, ref } from 'vue'
+import { type Component, onUnmounted, ref } from 'vue'
 import { Link } from 'lucide-vue-next'
 import IconCharwind from '@/assets/images/link_exchange/icon-charwind.svg?component'
 
@@ -19,9 +19,21 @@ const friendLinks = ref<FriendLink[]>([
   },
 ])
 
+const displayHeaderExtra = ref<boolean>(window.innerWidth > 600)
+
+const updateDisplayHeaderExtra = () => {
+  displayHeaderExtra.value = window.innerWidth > 600
+}
+
+window.addEventListener('resize', updateDisplayHeaderExtra)
+
 const openLink = (url: string) => {
   window.open(url, '_blank', 'noopener')
 }
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateDisplayHeaderExtra)
+})
 </script>
 
 <template>
@@ -33,24 +45,36 @@ const openLink = (url: string) => {
             <n-icon :component="link.icon ?? Link" />
           </n-avatar>
         </template>
-        <template #header>
-          {{ link.name }}
+        <template #header class="link-change-item-header">
+          <n-p>
+            {{ link.name }}
+          </n-p>
         </template>
-        <template #header-extra>
+        <template v-if="displayHeaderExtra" #header-extra>
           <n-code>
             {{ link.url }}
           </n-code>
         </template>
         <template #description>
+          <n-p v-if="!displayHeaderExtra">
+            <n-code>
+              {{ link.url }}
+            </n-code>
+          </n-p>
           <n-space>
-          <n-tag v-for="tag in link.tag" round :bordered="false">
-            {{ tag }}
-          </n-tag>
+            <n-tag v-for="tag in link.tag" round :bordered="false">
+              {{ tag }}
+            </n-tag>
           </n-space>
         </template>
       </n-thing>
     </n-list-item>
   </n-list>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+.link-change-item-header {
+  min-width: 10em;
+}
+</style>

@@ -9,10 +9,10 @@ import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
 import type { DocumentRouteTree } from '@/router/interfaces'
 
-const collapsed = ref(true)
-const collapsedWidth = ref(64)
-const width = ref(240)
-const indent = ref(32)
+const collapsed = ref<boolean>(true)
+const collapsedWidth = ref<number>(64)
+const width = ref<number>(240)
+const indent = ref<number>(32)
 
 const handleCollapse = () => {
   collapsed.value = true
