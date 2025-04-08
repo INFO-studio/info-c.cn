@@ -15,6 +15,8 @@ declare module 'vue' {
     ArknightsParticle: typeof import('./src/components/articleComponents/specific/chattering/helloWorld/ArknightsParticle.vue')['default']
     ArticleDate: typeof import('./src/components/articleComponents/common/ArticleDate.vue')['default']
     ArticleFloatButton: typeof import('./src/components/articleComponents/common/ArticleFloatButton.vue')['default']
+    ArticleGlowContainer: typeof import('./src/components/articleComponents/common/ArticleGlowContainer.vue')['default']
+    ArticleGlowDiv: typeof import('./src/components/articleComponents/common/ArticleGlowDiv.vue')['default']
     ArticleImageCaption: typeof import('./src/components/articleComponents/common/ArticleImageCaption.vue')['default']
     ArticleLatex: typeof import('./src/components/articleComponents/common/ArticleLatex.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']

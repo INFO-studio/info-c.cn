@@ -3,9 +3,10 @@ import { RouterView } from 'vue-router'
 import AppHeader from '@/components/viewComponents/AppHeader.vue'
 import AppSidebar from '@/components/viewComponents/AppSidebar.vue'
 import AppBreadcrumb from '@/components/viewComponents/AppBreadcrumb.vue'
-import { type CSSProperties } from 'vue'
+import { type CSSProperties, onMounted, onUnmounted } from 'vue'
 import AppFooter from '@/components/viewComponents/AppFooter.vue'
 import { useThemeStore } from '@/stores/theme.ts'
+import { useMouseStore } from '@/stores/mouse.ts'
 import { themeOverrides } from '@/assets/theme'
 import ArticleFloatButton from '@/components/articleComponents/common/ArticleFloatButton.vue'
 
@@ -32,6 +33,21 @@ const ContentStyle: CSSProperties = {
   minWidth: '200px',
   margin: '0 auto',
 }
+
+
+const mouse = useMouseStore()
+
+const handleMouseMove = (e: MouseEvent) => {
+  mouse.updateMouse(e)
+}
+
+onMounted(() => {
+  window.addEventListener('mousemove', handleMouseMove)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('mousemove', handleMouseMove)
+})
 </script>
 
 <template>

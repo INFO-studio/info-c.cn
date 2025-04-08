@@ -28,6 +28,7 @@ watch(
           <n-icon :color="themeOverrides.common.primaryColor" size="24">
             <motion.div
               :animate="{ rotate: 0 }"
+              :whileHover="{ rotate: sidebar.isCollapsed ? -20 : 20 }"
               :whilePress="{ rotate: sidebar.isCollapsed ? -90 : 90 }"
               style="display: inline-block"
             >

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ArticleDate from '@/components/articleComponents/common/ArticleDate.vue'
+import { motion } from 'motion-v'
 
 const createDate = new Date(2025, 3, 2, 0, 57)
 const modifyDate = new Date(2025, 3, 3, 11, 14)
@@ -12,7 +13,11 @@ import ArticleImageCaption from '@/components/articleComponents/common/ArticleIm
 </script>
 
 <template>
-  <div class="article">
+  <motion.div
+    :initial="{ opacity: 0, y: 100 }"
+    :animate="{ opacity: 1, y: 0 }"
+    class="article"
+  >
     <n-h2 prefix="bar" class="article-title">
       <n-text>HelloWorld</n-text>
     </n-h2>
@@ -72,7 +77,7 @@ import ArticleImageCaption from '@/components/articleComponents/common/ArticleIm
     <n-p>
       总之就是先这样，目前功能都还没写好就先不产出文章了，后面再写一些别的吧
     </n-p>
-  </div>
+  </motion.div>
 </template>
 
 <style>

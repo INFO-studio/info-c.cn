@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type Component, onUnmounted, ref } from 'vue'
+import { motion } from 'motion-v'
 import { Link } from 'lucide-vue-next'
 import IconCharwind from '@/assets/images/link_exchange/icon-charwind.svg?component'
 
@@ -37,40 +38,41 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <n-list bordered hoverable clickable>
-    <n-list-item v-for="link in friendLinks" :key="link.name" @click="openLink(link.url)">
-      <n-thing>
-        <template #avatar>
-          <n-avatar>
-            <n-icon :component="link.icon ?? Link" />
-          </n-avatar>
-        </template>
-        <template #header class="link-change-item-header">
-          <n-p>
-            {{ link.name }}
-          </n-p>
-        </template>
-        <template v-if="displayHeaderExtra" #header-extra>
-          <n-code>
-            {{ link.url }}
-          </n-code>
-        </template>
-        <template #description>
-          <n-p v-if="!displayHeaderExtra">
+  <motion.div :initial="{ opacity: 0, y: 100 }" :animate="{ opacity: 1, y: 0 }" class="article">
+    <n-list bordered hoverable clickable>
+      <n-list-item v-for="link in friendLinks" :key="link.name" @click="openLink(link.url)">
+        <n-thing>
+          <template #avatar>
+            <n-avatar>
+              <n-icon :component="link.icon ?? Link" />
+            </n-avatar>
+          </template>
+          <template #header class="link-change-item-header">
+            <n-p>
+              {{ link.name }}
+            </n-p>
+          </template>
+          <template v-if="displayHeaderExtra" #header-extra>
             <n-code>
               {{ link.url }}
             </n-code>
-          </n-p>
-          <n-space>
-            <n-tag v-for="tag in link.tag" round :bordered="false">
-              {{ tag }}
-            </n-tag>
-          </n-space>
-        </template>
-      </n-thing>
-    </n-list-item>
-  </n-list>
-
+          </template>
+          <template #description>
+            <n-p v-if="!displayHeaderExtra">
+              <n-code>
+                {{ link.url }}
+              </n-code>
+            </n-p>
+            <n-space>
+              <n-tag v-for="tag in link.tag" round :bordered="false">
+                {{ tag }}
+              </n-tag>
+            </n-space>
+          </template>
+        </n-thing>
+      </n-list-item>
+    </n-list>
+  </motion.div>
 </template>
 
 <style scoped>

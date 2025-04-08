@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import Github from '@/assets/icons/brand/github.svg?component'
-import Bilibili from '@/assets/icons/brand/bilibili.svg?component'
+import { Github, Bilibili } from '@/assets/icons/brand'
 import { Mail, Link } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 
@@ -57,7 +56,7 @@ const router = useRouter()
       <n-divider vertical />
       <n-tooltip :show-arrow="false" trigger="hover">
         <template #trigger>
-          <n-button circle quaternary @click="router.push('/link_exchange')" >
+          <n-button circle quaternary @click="router.push('/link_exchange')">
             <n-icon size="24">
               <Link />
             </n-icon>

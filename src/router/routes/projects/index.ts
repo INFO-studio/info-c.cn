@@ -1,12 +1,12 @@
 import type { DocumentRoute } from '@/router/interfaces'
-import ChatteringIndex from '@/contents/posts/Chattering/ChatteringIndex.vue'
+import ProjectsIndex from '@/contents/posts/Projects/ProjectsIndex.vue'
 import { FolderCode } from 'lucide-vue-next'
 import KatexVue from '@/contents/posts/Projects/KatexVue.vue'
 
 export const routes: DocumentRoute = {
   path: 'projects',
   name: '小项目',
-  component: ChatteringIndex,
+  component: ProjectsIndex,
   icon: FolderCode,
   isSidebarTop: true,
   children: [
