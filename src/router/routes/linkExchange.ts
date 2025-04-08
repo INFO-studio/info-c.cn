@@ -6,6 +6,7 @@ export const routes: DocumentRoute = {
   path: 'link_exchange',
   name: '友情链接',
   component: LinkExchange,
+  title: '友情链接',
   icon: Link,
   hideInSidebar: true
 }

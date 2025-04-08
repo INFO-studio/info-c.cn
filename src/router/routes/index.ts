@@ -3,6 +3,7 @@ import AppHome from '@/contents/posts/AppHome.vue'
 import { House } from 'lucide-vue-next'
 import { routes as routesChattering } from '@/router/routes/chattering'
 import { routes as routesProjects } from '@/router/routes/projects'
+import { routes as routesConformities } from '@/router/routes/conformities'
 import { routes as routesLinkExchange } from '@/router/routes/linkExchange'
 
 export const routes: DocumentRoute = {
@@ -11,5 +12,5 @@ export const routes: DocumentRoute = {
   component: AppHome,
   icon: House,
   isSidebarHome: true,
-  children: [routesChattering, routesProjects, routesLinkExchange],
+  children: [routesChattering, routesProjects, routesConformities, routesLinkExchange],
 }

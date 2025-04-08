@@ -1,6 +1,5 @@
 import type { DocumentRouteTree } from '@/router/interfaces'
 
-// 生成当前路径的所有父路径数组
 const generateParentPaths = (currentPath: string): string[] => {
   const segments = currentPath.split('/').filter((s) => s !== '')
   const paths: string[] = ['/'] // 包含根路径
@@ -12,7 +11,6 @@ const generateParentPaths = (currentPath: string): string[] => {
   return paths
 }
 
-// 收集所有路由节点
 const collectAllNodes = (
   node: DocumentRouteTree,
   nodes: DocumentRouteTree[] = [],
@@ -38,4 +36,12 @@ export const getRoutePath = (
     }
   })
   return matchedNodes
+}
+
+export const getRouteData = (
+  currentPath: string,
+  routeTree: DocumentRouteTree,
+) => {
+  const routePath = getRoutePath(currentPath, routeTree)
+  return routePath[routePath.length - 1]
 }

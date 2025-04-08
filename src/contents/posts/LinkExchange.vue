@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { type Component, onUnmounted, ref } from 'vue'
-import { motion } from 'motion-v'
 import { Link } from 'lucide-vue-next'
 import IconCharwind from '@/assets/images/link_exchange/icon-charwind.svg?component'
+import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 
 interface FriendLink {
   name: string
@@ -38,7 +38,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <motion.div :initial="{ opacity: 0, y: 100 }" :animate="{ opacity: 1, y: 0 }" class="article">
+  <article-content>
     <n-list bordered hoverable clickable>
       <n-list-item v-for="link in friendLinks" :key="link.name" @click="openLink(link.url)">
         <n-thing>
@@ -72,7 +72,7 @@ onUnmounted(() => {
         </n-thing>
       </n-list-item>
     </n-list>
-  </motion.div>
+  </article-content>
 </template>
 
 <style scoped>

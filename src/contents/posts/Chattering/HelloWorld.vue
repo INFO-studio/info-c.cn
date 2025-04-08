@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import ArticleDate from '@/components/articleComponents/common/ArticleDate.vue'
-import { motion } from 'motion-v'
 
 const createDate = new Date(2025, 3, 2, 0, 57)
 const modifyDate = new Date(2025, 3, 3, 11, 14)
@@ -10,21 +8,11 @@ import MotionReorderAnimation from '@/components/articleComponents/specific/chat
 import ArknightsParticle
   from '@/components/articleComponents/specific/chattering/helloWorld/ArknightsParticle.vue'
 import ArticleImageCaption from '@/components/articleComponents/common/ArticleImageCaption.vue'
+import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 </script>
 
 <template>
-  <motion.div
-    :initial="{ opacity: 0, y: 100 }"
-    :animate="{ opacity: 1, y: 0 }"
-    class="article"
-  >
-    <n-h2 prefix="bar" class="article-title">
-      <n-text>HelloWorld</n-text>
-    </n-h2>
-    <n-flex>
-      <article-date category="create" :date="createDate" />
-      <article-date category="modify" :date="modifyDate" />
-    </n-flex>
+  <article-content>
     <n-p>
       历经两天（？）的艰苦卓绝的奋斗，做了一个比较简陋的个人博客页面出来。
     </n-p>
@@ -77,7 +65,7 @@ import ArticleImageCaption from '@/components/articleComponents/common/ArticleIm
     <n-p>
       总之就是先这样，目前功能都还没写好就先不产出文章了，后面再写一些别的吧
     </n-p>
-  </motion.div>
+  </article-content>
 </template>
 
 <style>

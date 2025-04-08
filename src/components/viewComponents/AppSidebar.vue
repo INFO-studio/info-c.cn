@@ -36,6 +36,7 @@ const route = useRoute()
 const router = useRouter()
 const routeTree = getRouteTree(routes)
 const routesSidebarTop = routeTree.children?.filter((route) => route.isSidebarTop)
+const routesSidebarEnd = routeTree.children?.filter((route) => route.isSidebarEnd)
 
 const renderIcon = (icon: Component) => {
   return () => h(NIcon, null, { default: () => h(icon) })
@@ -65,11 +66,13 @@ const transformHome = (routeTree: DocumentRouteTree): MenuOption => {
   }
 }
 
-const routeHome = transformHome(routeTree)
+const menuOptionsHome = transformHome(routeTree)
 
-const routesSidebar = transformRoute(routesSidebarTop ?? [])
+const menuOptionsSidebarTop = transformRoute(routesSidebarTop ?? [])
 
-const menuOptions = computed(() => [routeHome, divider, ...routesSidebar])
+const menuOptionsSidebarEnd = transformRoute(routesSidebarEnd ?? [])
+
+const menuOptions = computed(() => [menuOptionsHome, divider, ...menuOptionsSidebarTop, divider, ...menuOptionsSidebarEnd])
 
 const activeKey = computed({
   get: () => route.path,

@@ -4,15 +4,12 @@ import { motion } from 'motion-v'
 import { ref } from 'vue'
 import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
 import { Vue, React, Node, Typescript, Python, Rust, DavinciResolve, Mysql } from '@/assets/icons/brand'
+import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 const isAvatarHover = ref(false)
 </script>
 
 <template>
-  <motion.div
-    :initial="{ opacity: 0, y: 100 }"
-    :animate="{ opacity: 1, y: 0 }"
-    class="article"
-  >
+  <article-content>
     <n-flex vertical align="center" justify="center">
       <div
         class="avatar-wrapper"
@@ -82,7 +79,7 @@ const isAvatarHover = ref(false)
         </n-card>
       </n-flex>
     </n-flex>
-  </motion.div>
+  </article-content>
 </template>
 
 <style scoped>

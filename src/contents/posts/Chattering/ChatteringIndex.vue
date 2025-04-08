@@ -1,20 +1,13 @@
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 </script>
 
 <template>
-  <motion.div
-    :initial="{ opacity: 0, y: 100 }"
-    :animate="{ opacity: 1, y: 0 }"
-    class="article"
-  >
-    <n-h2 prefix="bar" class="article-title">
-      <n-text>碎碎念</n-text>
-    </n-h2>
+  <article-content>
     <n-p>
       这里是一些碎碎念，目前这个页面只作为一个临时展览，后续会替换为一个描述+导航的列表。
     </n-p>
-  </motion.div>
+  </article-content>
 </template>
 
 <style>
