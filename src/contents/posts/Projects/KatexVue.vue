@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import EmojiNerdFace from '@/assets/emojis/implements/EmojiNerdFace.vue'
-import EmojiBackhandIndexPointingUp from '@/assets/emojis/implements/EmojiBackhandIndexPointingUp.vue'
-import { Npm } from '@/assets/icons/brand'
-import Github from '@/assets/icons/brand/github.svg?component'
+import { NerdFace, BackhandIndexPointingUp } from '@/assets/emojis'
+import { Npm, Github } from '@/assets/icons/brand'
 import { FileCode2 } from 'lucide-vue-next'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 
@@ -23,8 +21,8 @@ watch(testKatexVueExpression, (value) => {
     <n-p> 正在丰富这个博客的时候忽然灵机一动。</n-p>
     <n-p>
       哎
-      <emoji-nerd-face />
-      <emoji-backhand-index-pointing-up />
+      <nerd-face />
+      <backhand-index-pointing-up />
       ，你说我往博客里加入一个
       <katex-vue expression="\LaTeX" />
       公式的功能是不是很酷！
@@ -64,7 +62,10 @@ watch(testKatexVueExpression, (value) => {
       </n-li>
     </n-ul>
     <n-p>
-      你也可以在这里试一试，更全的可定制内容在 <n-a href="https://katex-vue.info-c.cn/zh/playground" target="_blank">Katex Vue Playground</n-a>
+      你也可以在这里试一试，更全的可定制内容在
+      <n-a href="https://katex-vue.info-c.cn/zh/playground" target="_blank"
+        >Katex Vue Playground</n-a
+      >
     </n-p>
     <katex-vue :expression="testKatexVueExpression" displayMode />
     <n-input
