@@ -8,19 +8,17 @@ import { File } from 'lucide-vue-next'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
 import type { DocumentRouteTree } from '@/router/interfaces'
+import { useSidebarStore } from '@/stores/sidebar.ts'
 
-const collapsed = ref<boolean>(true)
+const sidebar = useSidebarStore()
+
 const collapsedWidth = ref<number>(64)
 const width = ref<number>(240)
 const indent = ref<number>(32)
 
-const handleCollapse = () => {
-  collapsed.value = true
-}
+const handleCollapse = sidebar.handleCollapse
 
-const handleExpand = () => {
-  collapsed.value = false
-}
+const handleExpand = sidebar.handleExpand
 
 const updateCollapsedWidth = () => {
   collapsedWidth.value = window.innerWidth < 600 ? 0 : 64
@@ -89,14 +87,14 @@ onUnmounted(() => {
     collapse-mode="width"
     :collapsed-width="collapsedWidth"
     :width="width"
-    :collapsed="collapsed"
+    :collapsed="sidebar.isCollapsed"
     show-trigger
     @collapse="handleCollapse"
     @expand="handleExpand"
   >
     <n-menu
       v-model:value="activeKey"
-      :collapsed="collapsed"
+      :collapsed="sidebar.isCollapsed"
       :collapsed-width="collapsedWidth"
       :collapsed-icon-size="collapsedIconSize"
       :options="menuOptions"
@@ -104,3 +102,6 @@ onUnmounted(() => {
     />
   </n-layout-sider>
 </template>
+
+<style scoped>
+</style>
