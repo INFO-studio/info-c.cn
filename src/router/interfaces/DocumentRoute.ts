@@ -9,6 +9,7 @@ export interface DocumentRoute {
   icon?: Component
   tags?: string[]
   description?: string
+  indexContent?: string
   createDate?: Date
   modifyDate?: Date
   changelog?: [{date: Date, changeLog: string}]

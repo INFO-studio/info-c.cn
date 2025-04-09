@@ -1,14 +1,15 @@
 import type { DocumentRoute } from '@/router/interfaces'
-import ProjectsIndex from '@/contents/posts/Projects/ProjectsIndex.vue'
-import { FolderCode } from 'lucide-vue-next'
+import ArticleIndex from '@/components/articleComponents/common/ArticleIndex.vue'
 import KatexVue from '@/contents/posts/Projects/KatexVue.vue'
+import { FolderCode } from 'lucide-vue-next'
 
 export const routes: DocumentRoute = {
   path: 'projects',
   name: '小项目',
-  component: ProjectsIndex,
+  component: ArticleIndex,
   title: '小项目',
   icon: FolderCode,
+  indexContent: '这里是我写过的一些项目',
   isSidebarTop: true,
   isConformitiesHidden: true,
   children: [

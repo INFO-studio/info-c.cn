@@ -153,5 +153,6 @@ const articlesHome = [
 
 .article-home {
   flex: 1;
+  min-width: 10em;
 }
 </style>

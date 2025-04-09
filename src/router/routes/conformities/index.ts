@@ -1,16 +1,17 @@
 import type { DocumentRoute } from '@/router/interfaces'
-import { PackageSearch, Tag, PencilLine, Eraser } from 'lucide-vue-next'
-import ConformitiesIndex from '@/contents/posts/Conformities/ConformitiesIndex.vue'
+import ArticleIndex from '@/components/articleComponents/common/ArticleIndex.vue'
 import ConformitiesByTag from '@/contents/posts/Conformities/ConformitiesByTag.vue'
 import ConformitiesByCreateDate from '@/contents/posts/Conformities/ConformitiesByCreateDate.vue'
 import ConformitiesByModifyDate from '@/contents/posts/Conformities/ConformitiesByModifyDate.vue'
+import { PackageSearch, Tag, PencilLine, Eraser } from 'lucide-vue-next'
 
 export const routes: DocumentRoute = {
   path: 'conformities',
   name: '整合',
-  component: ConformitiesIndex,
+  component: ArticleIndex,
   title: '整合',
   icon: PackageSearch,
+  indexContent: '对博客中所有文章的整合',
   isSidebarEnd: true,
   isConformitiesHidden: true,
   children: [

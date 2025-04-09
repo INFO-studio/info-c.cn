@@ -20,6 +20,7 @@ declare module 'vue' {
     ArticleGlowContainer: typeof import('./src/components/articleComponents/common/ArticleGlowContainer.vue')['default']
     ArticleGlowDiv: typeof import('./src/components/articleComponents/common/ArticleGlowDiv.vue')['default']
     ArticleImageCaption: typeof import('./src/components/articleComponents/common/ArticleImageCaption.vue')['default']
+    ArticleIndex: typeof import('./src/components/articleComponents/common/ArticleIndex.vue')['default']
     ArticleLatex: typeof import('./src/components/articleComponents/common/ArticleLatex.vue')['default']
     ArticleTag: typeof import('./src/components/articleComponents/common/ArticleTag.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']

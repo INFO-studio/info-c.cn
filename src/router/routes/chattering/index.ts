@@ -1,14 +1,15 @@
 import type { DocumentRoute } from '@/router/interfaces'
-import ChatteringIndex from '@/contents/posts/Chattering/ChatteringIndex.vue'
-import { MessageCircleMore } from 'lucide-vue-next'
+import ArticleIndex from '@/components/articleComponents/common/ArticleIndex.vue'
 import HelloWorld from '@/contents/posts/Chattering/HelloWorld.vue'
+import { MessageCircleMore } from 'lucide-vue-next'
 
 export const routes: DocumentRoute = {
   path: 'chattering',
   name: '碎碎念',
-  component: ChatteringIndex,
+  component: ArticleIndex,
   title: '碎碎念',
   icon: MessageCircleMore,
+  indexContent: '叨叨一些大概率没啥用的东西',
   isSidebarTop: true,
   isConformitiesHidden: true,
   children: [
