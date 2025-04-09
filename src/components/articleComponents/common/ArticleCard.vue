@@ -47,6 +47,9 @@ const isBlur = computed(() => props.blur)
       }"
     >
       <n-card :title="props.article.title" class="article-card">
+        <template #header-extra v-if="props.article.icon">
+          <n-icon :component="props.article.icon" size="24"/>
+        </template>
         <n-space vertical v-if="props.article.tags || props.article.description">
           <n-space v-if="props.article.tags">
             <article-tag v-for="tag in props.article.tags" :glow="false">{{ tag }}</article-tag>
