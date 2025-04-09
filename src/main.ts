@@ -9,6 +9,10 @@ import router from './router'
 import naive from "naive-ui"
 import KatexVue from 'katex-vue'
 
+import 'highlight.js/styles/atom-one-dark.css'
+import 'highlight.js/lib/common'
+import hljsVuePlugin from '@highlightjs/vue-plugin'
+
 const app = createApp(App)
 const pinia = createPinia()
 
@@ -18,5 +22,6 @@ app.use(pinia)
 app.use(router)
 app.use(naive)
 app.use(KatexVue)
+app.use(hljsVuePlugin)
 
 app.mount('#app')

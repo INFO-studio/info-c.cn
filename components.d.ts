@@ -22,6 +22,7 @@ declare module 'vue' {
     ArticleImageCaption: typeof import('./src/components/articleComponents/common/ArticleImageCaption.vue')['default']
     ArticleIndex: typeof import('./src/components/articleComponents/common/ArticleIndex.vue')['default']
     ArticleLatex: typeof import('./src/components/articleComponents/common/ArticleLatex.vue')['default']
+    ArticleShare: typeof import('./src/components/articleComponents/common/ArticleShare.vue')['default']
     ArticleTag: typeof import('./src/components/articleComponents/common/ArticleTag.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']

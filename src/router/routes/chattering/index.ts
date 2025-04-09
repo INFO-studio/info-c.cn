@@ -1,7 +1,8 @@
 import type { DocumentRoute } from '@/router/interfaces'
-import ArticleIndex from '@/components/articleComponents/common/ArticleIndex.vue'
-import HelloWorld from '@/contents/posts/Chattering/HelloWorld.vue'
 import { MessageCircleMore } from 'lucide-vue-next'
+
+const ArticleIndex = () => import('@/components/articleComponents/common/ArticleIndex.vue')
+const HelloWorld = () => import('@/contents/posts/Chattering/HelloWorld.vue')
 
 export const routes: DocumentRoute = {
   path: 'chattering',

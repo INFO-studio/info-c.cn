@@ -1,9 +1,10 @@
 import type { DocumentRoute } from '@/router/interfaces'
-import ArticleIndex from '@/components/articleComponents/common/ArticleIndex.vue'
-import ConformitiesByTag from '@/contents/posts/Conformities/ConformitiesByTag.vue'
-import ConformitiesByCreateDate from '@/contents/posts/Conformities/ConformitiesByCreateDate.vue'
-import ConformitiesByModifyDate from '@/contents/posts/Conformities/ConformitiesByModifyDate.vue'
 import { PackageSearch, Tag, PencilLine, Eraser } from 'lucide-vue-next'
+
+const ArticleIndex = () => import('@/components/articleComponents/common/ArticleIndex.vue')
+const ConformitiesByTag = () => import('@/contents/posts/Conformities/ConformitiesByTag.vue')
+const ConformitiesByCreateDate = () => import('@/contents/posts/Conformities/ConformitiesByCreateDate.vue')
+const ConformitiesByModifyDate = () => import('@/contents/posts/Conformities/ConformitiesByModifyDate.vue')
 
 export const routes: DocumentRoute = {
   path: 'conformities',

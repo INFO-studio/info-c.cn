@@ -8,6 +8,7 @@ import AppFooter from '@/components/viewComponents/AppFooter.vue'
 import { useThemeStore } from '@/stores/theme.ts'
 import { useMouseStore } from '@/stores/mouse.ts'
 import { themeOverrides } from '@/assets/theme'
+import hljs from 'highlight.js/lib/core'
 import ArticleFloatButton from '@/components/articleComponents/common/ArticleFloatButton.vue'
 
 const themeStore = useThemeStore()
@@ -34,7 +35,6 @@ const ContentStyle: CSSProperties = {
   margin: '0 auto',
 }
 
-
 const mouse = useMouseStore()
 
 const handleMouseMove = (e: MouseEvent) => {
@@ -51,27 +51,35 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <n-config-provider :theme="themeStore.theme" :theme-overrides="themeOverrides">
-    <n-layout vertical :content-style="LayoutStyle">
-      <n-layout-header bordered>
-        <app-header />
-      </n-layout-header>
-      <n-layout has-sider class="body" :content-style="BodyStyle">
-        <app-sidebar />
-        <n-layout :content-style="MainStyle">
-          <n-layout-header class="content-breadcrumb">
-            <app-breadcrumb />
+  <n-config-provider :theme="themeStore.theme" :theme-overrides="themeOverrides" :hljs="hljs">
+    <n-message-provider>
+      <n-dialog-provider>
+        <n-layout vertical :content-style="LayoutStyle">
+          <n-layout-header bordered>
+            <app-header />
           </n-layout-header>
-          <n-layout :native-scrollbar="false" class="content-layout" :content-style="ContentStyle">
-            <router-view/>
-            <article-float-button/>
+          <n-layout has-sider class="body" :content-style="BodyStyle">
+            <app-sidebar />
+            <n-layout :content-style="MainStyle">
+              <n-layout-header class="content-breadcrumb">
+                <app-breadcrumb />
+              </n-layout-header>
+              <n-layout
+                :native-scrollbar="false"
+                class="content-layout"
+                :content-style="ContentStyle"
+              >
+                <router-view />
+                <article-float-button />
+              </n-layout>
+            </n-layout>
           </n-layout>
+          <n-layout-footer bordered>
+            <app-footer />
+          </n-layout-footer>
         </n-layout>
-      </n-layout>
-      <n-layout-footer bordered>
-        <app-footer />
-      </n-layout-footer>
-    </n-layout>
+      </n-dialog-provider>
+    </n-message-provider>
   </n-config-provider>
 </template>
 
@@ -91,5 +99,6 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transform: translate(0);
 }
 </style>
