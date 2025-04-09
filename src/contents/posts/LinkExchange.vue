@@ -2,6 +2,7 @@
 import { type Component, onUnmounted, ref } from 'vue'
 import { Link } from 'lucide-vue-next'
 import IconCharwind from '@/assets/images/link_exchange/icon-charwind.svg?component'
+import IconSealParadise from '@/assets/images/link_exchange/icon-sealparadise.png'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 
 interface FriendLink {
@@ -9,6 +10,7 @@ interface FriendLink {
   url: string
   tag?: string[]
   icon?: Component
+  favicon?: string
 }
 
 const friendLinks = ref<FriendLink[]>([
@@ -17,6 +19,12 @@ const friendLinks = ref<FriendLink[]>([
     url: 'https://charwind.top/',
     tag: ['个人博客', '前端', '嵌入式'],
     icon: IconCharwind,
+  },
+  {
+    name: 'SealParadise',
+    url: 'https://sealparadise.github.io/',
+    tag: ['个人博客', '路边小熊'],
+    favicon: IconSealParadise,
   },
 ])
 
@@ -43,7 +51,8 @@ onUnmounted(() => {
       <n-list-item v-for="link in friendLinks" :key="link.name" @click="openLink(link.url)">
         <n-thing>
           <template #avatar>
-            <n-avatar>
+            <n-avatar v-if="link.favicon" :src="link.favicon" />
+            <n-avatar v-else >
               <n-icon :component="link.icon ?? Link" />
             </n-avatar>
           </template>
