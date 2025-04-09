@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { type Component, onUnmounted, ref } from 'vue'
+import { type Component, onUnmounted, ref, markRaw } from 'vue'
 import { Link } from 'lucide-vue-next'
 import IconCharwind from '@/assets/images/link_exchange/icon-charwind.svg?component'
 import IconSealParadise from '@/assets/images/link_exchange/icon-sealparadise.png'
+import IconAzrmedit0x from '@/assets/images/link_exchange/icon-AzrMedit0x.jpg'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 
 interface FriendLink {
@@ -18,13 +19,19 @@ const friendLinks = ref<FriendLink[]>([
     name: 'gy的笔记本',
     url: 'https://charwind.top/',
     tag: ['个人博客', '前端', '嵌入式'],
-    icon: IconCharwind,
+    icon: markRaw(IconCharwind),
   },
   {
     name: 'SealParadise',
     url: 'https://sealparadise.github.io/',
     tag: ['个人博客', '路边小熊'],
     favicon: IconSealParadise,
+  },
+  {
+    name: 'AzrMedit0x,冥思构造体',
+    url: 'https://www.azrmedit0x.top/',
+    tag: ['个人博客', 'AI4DB'],
+    favicon: IconAzrmedit0x,
   },
 ])
 
@@ -52,7 +59,7 @@ onUnmounted(() => {
         <n-thing>
           <template #avatar>
             <n-avatar v-if="link.favicon" :src="link.favicon" />
-            <n-avatar v-else >
+            <n-avatar v-else>
               <n-icon :component="link.icon ?? Link" />
             </n-avatar>
           </template>
