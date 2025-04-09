@@ -48,7 +48,7 @@ const transformRoute = (routes: DocumentRouteTree[]): MenuOption[] => {
     key: route.path,
     icon: route.icon ? renderIcon(route.icon) : renderIcon(File),
     children: route.children?.length
-      ? transformRoute(route.children.filter((child) => !child.hideInSidebar))
+      ? transformRoute(route.children.filter((child) => !child.isSidebarHidden))
       : undefined,
   }))
 }

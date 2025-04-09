@@ -12,5 +12,6 @@ export const routes: DocumentRoute = {
   component: AppHome,
   icon: House,
   isSidebarHome: true,
+  isConformitiesHidden: true,
   children: [routesChattering, routesProjects, routesConformities, routesLinkExchange],
 }

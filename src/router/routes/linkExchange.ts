@@ -8,5 +8,6 @@ export const routes: DocumentRoute = {
   component: LinkExchange,
   title: '友情链接',
   icon: Link,
-  hideInSidebar: true
+  isSidebarHidden: true,
+  isConformitiesHidden: true,
 }

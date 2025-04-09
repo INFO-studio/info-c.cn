@@ -10,6 +10,7 @@ export const routes: DocumentRoute = {
   title: '小项目',
   icon: FolderCode,
   isSidebarTop: true,
+  isConformitiesHidden: true,
   children: [
     {
       path: 'katex_vue',

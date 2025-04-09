@@ -8,12 +8,14 @@ export interface DocumentRoute {
   title?: string;
   icon?: Component
   tags?: string[]
+  description?: string
   createDate?: Date
   modifyDate?: Date
   changelog?: [{date: Date, changeLog: string}]
   isSidebarHome?: boolean;
   isSidebarTop?: boolean;
   isSidebarEnd?: boolean;
+  isSidebarHidden?: boolean;
+  isConformitiesHidden?: boolean;
   children?: DocumentRoute[]
-  hideInSidebar?: boolean;
 }

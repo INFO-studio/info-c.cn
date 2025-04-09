@@ -1,9 +1,8 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
-This is a blank page.
+目录页，还没写
 </template>
 
 <style scoped>

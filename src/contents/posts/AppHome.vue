@@ -3,9 +3,31 @@ import avatar from '@/assets/images/index/avatar.jpg'
 import { motion } from 'motion-v'
 import { ref } from 'vue'
 import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
-import { Vue, React, Node, Typescript, Python, Rust, DavinciResolve, Mysql } from '@/assets/icons/brand'
+import {
+  Vue,
+  React,
+  Node,
+  Typescript,
+  Python,
+  Rust,
+  DavinciResolve,
+  Mysql,
+} from '@/assets/icons/brand'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
+import ArticleCard from '@/components/articleComponents/common/ArticleCard.vue'
+import { getRouteData } from '@/router/utils/getRoutePath.ts'
+import { getRouteTree } from '@/router/utils/getRouteTree.ts'
+import { routes } from '@/router/routes'
+
 const isAvatarHover = ref(false)
+
+const routeTree = getRouteTree(routes)
+
+const articlesHome = [
+  getRouteData('chattering', routeTree),
+  getRouteData('projects', routeTree),
+  getRouteData('conformities', routeTree),
+]
 </script>
 
 <template>
@@ -16,9 +38,7 @@ const isAvatarHover = ref(false)
         @mouseenter="isAvatarHover = true"
         @mouseleave="isAvatarHover = false"
       >
-        <motion.div
-          :animate="isAvatarHover ? { scale: 0.9, rotate: '-10deg' } : {}"
-        >
+        <motion.div :animate="isAvatarHover ? { scale: 0.9, rotate: '-10deg' } : {}">
           <n-avatar draggable="false" round :size="200" :src="avatar" />
         </motion.div>
         <motion.div
@@ -47,17 +67,33 @@ const isAvatarHover = ref(false)
         </n-space>
         <n-card title="技术栈" :bordered="false" class="no-background-card">
           <n-space>
-            <n-icon color="#4FC08D" size="24"><Vue/></n-icon>
-            <n-icon color="#61DAFB" size="24"><React/></n-icon>
-            <n-icon color="#5FA04E" size="24"><Node/></n-icon>
-            <n-divider vertical/>
-            <n-icon color="#3178C6" size="24"><Typescript/></n-icon>
-            <n-icon color="#3776AB" size="24"><Python/></n-icon>
-            <n-icon size="24"><Rust/></n-icon>
-            <n-divider vertical/>
-            <n-icon color="#233A51" size="24"><DavinciResolve/></n-icon>
-            <n-divider vertical/>
-            <n-icon color="#4479A1" size="24"><Mysql/></n-icon>
+            <n-icon color="#4FC08D" size="24">
+              <Vue />
+            </n-icon>
+            <n-icon color="#61DAFB" size="24">
+              <React />
+            </n-icon>
+            <n-icon color="#5FA04E" size="24">
+              <Node />
+            </n-icon>
+            <n-divider vertical />
+            <n-icon color="#3178C6" size="24">
+              <Typescript />
+            </n-icon>
+            <n-icon color="#3776AB" size="24">
+              <Python />
+            </n-icon>
+            <n-icon size="24">
+              <Rust />
+            </n-icon>
+            <n-divider vertical />
+            <n-icon color="#233A51" size="24">
+              <DavinciResolve />
+            </n-icon>
+            <n-divider vertical />
+            <n-icon color="#4479A1" size="24">
+              <Mysql />
+            </n-icon>
           </n-space>
         </n-card>
         <n-card title="查成分" :bordered="false" class="no-background-card">
@@ -77,6 +113,11 @@ const isAvatarHover = ref(false)
             <n-tag round>炉石传说</n-tag>
           </n-space>
         </n-card>
+        <n-card title="看导航" :bordered="false" class="no-background-card">
+          <n-flex class="article-home-flex">
+            <article-card v-for="article in articlesHome" :article="article" class="article-home" />
+          </n-flex>
+        </n-card>
       </n-flex>
     </n-flex>
   </article-content>
@@ -86,6 +127,7 @@ const isAvatarHover = ref(false)
 .avatar-wrapper {
   position: relative;
   padding: 10px 0;
+
   & > .hover-question {
     position: absolute;
     top: 10px;
@@ -109,4 +151,7 @@ const isAvatarHover = ref(false)
   background: none;
 }
 
+.article-home {
+  flex: 1;
+}
 </style>

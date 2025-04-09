@@ -3,6 +3,13 @@ import { useThemeVars } from 'naive-ui'
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useMouseStore } from '@/stores/mouse.ts'
 
+const props = defineProps({
+  glowSize: {
+    type: Number,
+    default: 75,
+  },
+})
+
 const themeVars = useThemeVars()
 const primaryColor = computed(() => themeVars.value.primaryColor)
 const borderRadius = computed(() => themeVars.value.borderRadius)
@@ -10,7 +17,6 @@ const borderRadius = computed(() => themeVars.value.borderRadius)
 const mouse = useMouseStore()
 
 const glowContainer = ref<HTMLElement>()
-const lightSize = 50
 
 const mouseX = computed(() => {
   if (!glowContainer.value) return '0%'
@@ -29,6 +35,7 @@ onMounted(() => {
   observer.value = new ResizeObserver(() => {
     const x = mouseX.value
     const y = mouseY.value
+    return { x, y }
   })
   if (glowContainer.value) observer.value.observe(glowContainer.value)
 })
@@ -38,7 +45,7 @@ onUnmounted(() => {
 })
 
 const radialPos = computed(() => `${mouseX.value} ${mouseY.value}`)
-const radialSize = computed(() => `${lightSize * 1.5}px`)
+const radialSize = computed(() => `${props.glowSize}px`)
 </script>
 
 <template>
