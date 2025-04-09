@@ -6,14 +6,14 @@ import { useMessage } from 'naive-ui'
 
 const route = useRoute()
 const message = useMessage()
-const qrCodeRef = ref<HTMLElement | null>(null)
+const qrCodeRef = ref()
 
 const fullUrl = computed(() => {
   return window.location.origin + route.fullPath
 })
 
 const handleDownload = () => {
-  const canvas = qrCodeRef.value?.$el.querySelector('canvas')
+  const canvas = qrCodeRef.value?.$el?.querySelector('canvas')
   if (canvas) {
     const url = canvas.toDataURL('image/png')
     const a = document.createElement('a')
@@ -49,10 +49,14 @@ const handleCopy = async () => {
     <n-code>{{ fullUrl }}</n-code>
     <n-flex>
       <n-button @click="handleDownload">
-        <n-icon><Download /></n-icon>
+        <n-icon>
+          <Download />
+        </n-icon>
       </n-button>
       <n-button @click="handleCopy">
-        <n-icon><ClipboardCopy /></n-icon>
+        <n-icon>
+          <ClipboardCopy />
+        </n-icon>
       </n-button>
     </n-flex>
   </n-space>
