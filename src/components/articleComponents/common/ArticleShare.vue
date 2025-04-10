@@ -3,8 +3,12 @@ import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { Download, ClipboardCopy } from 'lucide-vue-next'
 import { useMessage } from 'naive-ui'
+import { getRouteData } from '@/router/utils/getRoutePath.ts'
+import { getRouteTree } from '@/router/utils/getRouteTree.ts'
+import { routes } from '@/router/routes'
 
 const route = useRoute()
+const routeData = getRouteData(route.path, getRouteTree(routes))
 const message = useMessage()
 const qrCodeRef = ref()
 
@@ -14,11 +18,21 @@ const fullUrl = computed(() => {
 
 const handleDownload = () => {
   const canvas = qrCodeRef.value?.$el?.querySelector('canvas')
+  const borderSize = 20
+  const newCanvas = document.createElement('canvas')
+  newCanvas.width = canvas.width + borderSize * 2
+  newCanvas.height = canvas.height + borderSize * 2
+  const ctx = newCanvas.getContext('2d')
+  if (ctx) {
+    ctx.fillStyle = '#fff'
+    ctx.fillRect(0, 0, newCanvas.width, newCanvas.height)
+    ctx.drawImage(canvas, borderSize, borderSize)
+  }
   if (canvas) {
-    const url = canvas.toDataURL('image/png')
+    const url = newCanvas.toDataURL('image/png')
     const a = document.createElement('a')
     a.href = url
-    a.download = `qrcode-${Date.now()}.png`
+    a.download = `浮音华章-${routeData.title}.png`
     a.click()
   } else {
     message.error('无法生成二维码')
