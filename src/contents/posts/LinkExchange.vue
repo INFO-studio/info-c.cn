@@ -4,6 +4,7 @@ import { Link } from 'lucide-vue-next'
 import IconCharwind from '@/assets/images/link_exchange/icon-charwind.svg?component'
 import IconSealParadise from '@/assets/images/link_exchange/icon-sealparadise.png'
 import IconAzrmedit0x from '@/assets/images/link_exchange/icon-AzrMedit0x.jpg'
+import IconZesuy from '@/assets/images/link_exchange/icon-zesuy.jpg'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 
 interface FriendLink {
@@ -32,6 +33,12 @@ const friendLinks = ref<FriendLink[]>([
     url: 'https://www.azrmedit0x.top/',
     tag: ['个人博客', 'AI4DB'],
     favicon: IconAzrmedit0x,
+  },
+  {
+    name: 'zesuy',
+    url: 'https://blog.zesuy.top/',
+    tag: ['个人博客', '软路由'],
+    favicon: IconZesuy,
   },
 ])
 

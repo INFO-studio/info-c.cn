@@ -10,6 +10,7 @@ import { useMouseStore } from '@/stores/mouse.ts'
 import { themeOverrides } from '@/assets/theme'
 import hljs from 'highlight.js/lib/core'
 import ArticleFloatButton from '@/components/articleComponents/common/ArticleFloatButton.vue'
+import ArticleAnchor from '@/components/articleComponents/common/ArticleAnchor.vue'
 
 const themeStore = useThemeStore()
 const LayoutStyle: CSSProperties = {
@@ -70,6 +71,7 @@ onUnmounted(() => {
                 :content-style="ContentStyle"
               >
                 <router-view />
+                <article-anchor />
                 <article-float-button />
               </n-layout>
             </n-layout>

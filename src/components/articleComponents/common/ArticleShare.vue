@@ -60,7 +60,7 @@ const handleCopy = async () => {
 <template>
   <n-space vertical align="center" justify="center">
     <n-qr-code :value="fullUrl" ref="qrCodeRef" />
-    <n-code>{{ fullUrl }}</n-code>
+    <n-text code>{{ fullUrl }}</n-text>
     <n-flex>
       <n-button @click="handleDownload">
         <n-icon>

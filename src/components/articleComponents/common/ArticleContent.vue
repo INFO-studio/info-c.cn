@@ -13,7 +13,7 @@ const routeData = getRouteData(route.path, getRouteTree(routes))
 
 <template>
   <motion.div :initial="{ opacity: 0, y: 100 }" :animate="{ opacity: 1, y: 0 }" class="article">
-    <n-h2 v-if="routeData.title" prefix="bar" class="article-title">
+    <n-h2 v-if="routeData.title" prefix="bar" align-text class="article-title">
       <n-text>{{ routeData.title }}</n-text>
     </n-h2>
     <n-space vertical>

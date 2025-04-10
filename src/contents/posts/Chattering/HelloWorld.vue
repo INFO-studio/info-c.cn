@@ -1,8 +1,4 @@
 <script setup lang="ts">
-
-const createDate = new Date(2025, 3, 2, 0, 57)
-const modifyDate = new Date(2025, 3, 3, 11, 14)
-
 import MotionConicGradientPointer from '@/components/articleComponents/specific/chattering/helloWorld/MotionConicGradientPointer.vue'
 import MotionReorderAnimation from '@/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue'
 import ArknightsParticle
