@@ -20,7 +20,6 @@ const anchorStore = useAnchorStore()
 onMounted(() => {
   const titleText = titleRef.value?.$el.textContent
   anchorItem.value = anchorStore.addAnchor(titleText, props.h, props.href)
-  console.log(decorationColor)
 })
 
 onBeforeUnmount(() => {
@@ -49,6 +48,7 @@ onBeforeUnmount(() => {
 }
 
 .article-h4 {
+  font-size: 1.3em;
   &:before {
     background-color: v-bind(decorationColor);
   }

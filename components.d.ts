@@ -27,6 +27,7 @@ declare module 'vue' {
     ArticleShare: typeof import('./src/components/articleComponents/common/ArticleShare.vue')['default']
     ArticleTag: typeof import('./src/components/articleComponents/common/ArticleTag.vue')['default']
     ArticleTitle: typeof import('./src/components/articleComponents/common/ArticleTitle.vue')['default']
+    Canvas01: typeof import('./src/components/articleComponents/specific/learning/canvasBasic/canvas01.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']

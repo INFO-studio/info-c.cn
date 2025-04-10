@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ClipboardCopy } from 'lucide-vue-next'
+import { Copy } from 'lucide-vue-next'
 import { useMessage } from 'naive-ui'
 
 const props = defineProps<{
@@ -49,7 +49,7 @@ const handleCopy = async () => {
           <n-flex justify="right">
             <n-button text @click="handleCopy">
               <n-icon>
-                <ClipboardCopy />
+                <Copy />
               </n-icon>
             </n-button>
           </n-flex>

@@ -1,0 +1,3 @@
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');     // 2D 画板
+const ctx = canvas.getContext('webgl');  // 3D 画板

@@ -1,0 +1,16 @@
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d')
+ctx.beginPath()         // 声明目前部分开始绘制
+ctx.moveTo(10, 10)      // 绘制初始位置移动至 (10, 10)
+ctx.lineTo(190, 190)    // 开始绘制直线，自初始位置至 (190, 190)
+ctx.lineTo(120, 180)    // 再次开始绘制直线，自目前位置至 (120, 180)
+ctx.closePath()         // 绘制闭合直线，回归初始位置 (10, 10)
+ctx.stroke()            // 声明目前部分执行绘制
+
+ctx.beginPath()         // 再次声明目前部分开始绘制
+// 若未再次声明，ctx.stroke() 函数会从上一个 beginPath() 开始全部执行绘制
+ctx.moveTo(190, 10)     // 绘制初始位置移动至 (190, 10)
+ctx.lineTo(10, 190)     // 开始绘制直线，自初始位置至 (10, 190)
+ctx.lineWidth = 10      // 设置直线宽度 10
+ctx.strokeStyle = 'red' // 设置绘制属性为「红色」
+ctx.stroke()            // 声明目前部分执行绘制

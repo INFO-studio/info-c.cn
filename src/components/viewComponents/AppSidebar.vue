@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { NEllipsis, NIcon } from 'naive-ui'
-import { h, computed, ref, onUnmounted } from 'vue'
+import { h, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { Component } from 'vue'
 import type { MenuOption } from 'naive-ui'
@@ -9,26 +9,17 @@ import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
 import type { DocumentRouteTree } from '@/router/interfaces'
 import { useSidebarStore } from '@/stores/sidebar.ts'
+import { useWindowStore } from '@/stores/window.ts'
 
-const sidebar = useSidebarStore()
+const sidebarStore = useSidebarStore()
+const windowStore = useWindowStore()
 
-const collapsedWidth = ref<number>(64)
-const width = ref<number>(240)
-const indent = ref<number>(32)
+const collapsedWidth = computed(() => (windowStore.width < 600 ? 0 : 64))
+const width = computed(() => (windowStore.width < 600 ? 180 : 240))
+const indent = computed(() => (windowStore.width < 600 ? 16 : 32))
 
-const handleCollapse = sidebar.handleCollapse
-
-const handleExpand = sidebar.handleExpand
-
-const updateCollapsedWidth = () => {
-  collapsedWidth.value = window.innerWidth < 600 ? 0 : 64
-  width.value = window.innerWidth < 600 ? 180 : 240
-  indent.value = window.innerWidth < 600 ? 16 : 32
-}
-
-window.addEventListener('resize', updateCollapsedWidth)
-
-updateCollapsedWidth()
+const handleCollapse = sidebarStore.handleCollapse
+const handleExpand = sidebarStore.handleExpand
 
 const collapsedIconSize = 22
 
@@ -78,10 +69,6 @@ const activeKey = computed({
   get: () => route.path,
   set: (path: string) => router.push(path),
 })
-
-onUnmounted(() => {
-  window.removeEventListener('resize', updateCollapsedWidth)
-})
 </script>
 
 <template>
@@ -90,14 +77,14 @@ onUnmounted(() => {
     collapse-mode="width"
     :collapsed-width="collapsedWidth"
     :width="width"
-    :collapsed="sidebar.isCollapsed"
+    :collapsed="sidebarStore.isCollapsed"
     show-trigger
     @collapse="handleCollapse"
     @expand="handleExpand"
   >
     <n-menu
       v-model:value="activeKey"
-      :collapsed="sidebar.isCollapsed"
+      :collapsed="sidebarStore.isCollapsed"
       :collapsed-width="collapsedWidth"
       :collapsed-icon-size="collapsedIconSize"
       :options="menuOptions"

@@ -7,8 +7,10 @@ import { type CSSProperties, onMounted, onUnmounted } from 'vue'
 import AppFooter from '@/components/viewComponents/AppFooter.vue'
 import { useThemeStore } from '@/stores/theme.ts'
 import { useMouseStore } from '@/stores/mouse.ts'
+import { useWindowStore } from '@/stores/window.ts'
 import { themeOverrides } from '@/assets/theme'
 import hljs from 'highlight.js/lib/core'
+import xml from 'highlight.js/lib/languages/xml'
 import ArticleFloatButton from '@/components/articleComponents/common/ArticleFloatButton.vue'
 import ArticleAnchor from '@/components/articleComponents/common/ArticleAnchor.vue'
 
@@ -36,18 +38,20 @@ const ContentStyle: CSSProperties = {
   margin: '0 auto',
 }
 
-const mouse = useMouseStore()
+const mouseStore = useMouseStore()
+const windowStore = useWindowStore()
 
-const handleMouseMove = (e: MouseEvent) => {
-  mouse.updateMouse(e)
-}
+hljs.registerLanguage('vue', xml)
 
 onMounted(() => {
-  window.addEventListener('mousemove', handleMouseMove)
+  window.addEventListener('mousemove', mouseStore.updateMouse)
+  windowStore.updateWindow()
+  window.addEventListener('resize', windowStore.updateWindow)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('mousemove', handleMouseMove)
+  window.removeEventListener('mousemove', mouseStore.updateMouse)
+  window.removeEventListener('resize', windowStore.updateWindow)
 })
 </script>
 
