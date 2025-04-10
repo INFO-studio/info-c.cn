@@ -26,6 +26,7 @@ const routeTree = getRouteTree(routes)
 const articlesHome = [
   getRouteData('chattering', routeTree),
   getRouteData('projects', routeTree),
+  getRouteData('learning', routeTree),
   getRouteData('conformities', routeTree),
 ]
 </script>
