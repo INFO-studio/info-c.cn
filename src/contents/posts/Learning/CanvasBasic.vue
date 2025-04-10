@@ -4,12 +4,13 @@ import ArticleContent from '@/components/articleComponents/common/ArticleContent
 import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'
 import ArticleCodeCard from '@/components/articleComponents/common/ArticleCodeCard.vue'
 import Canvas01 from '@/components/articleComponents/specific/learning/canvasBasic/canvas01.vue'
+import Canvas02 from '@/components/articleComponents/specific/learning/canvasBasic/canvas02.vue'
 import {
-  code_01,
+  code_01_html,
+  code_01_vue3,
+  code_01_javascript,
   code_02,
-  code_03_vue3,
-  code_03_html,
-  code_03_javascript,
+  code_03,
 } from '@/components/articleComponents/specific/learning/canvasBasic/codes'
 import { NText, NButton, NIcon } from 'naive-ui'
 import { Link } from 'lucide-vue-next'
@@ -73,8 +74,26 @@ const renderLink = (href: string) =>
       </n-alert>
     </n-p>
     <article-title :h="4" href="2_1_渲染上下文">2.1 渲染上下文</article-title>
-    <article-code-card title="定义标签" language="HTML" :code="code_01" />
-    <article-code-card title="获取画板" language="JavaScript" :code="code_02" />
+    <n-p>
+      <n-alert title="约定" type="info">
+        未进行特殊提示时，本文以下所有关于
+        <n-text code>Canvas</n-text>
+        操作的
+        <n-text code>JavaScript</n-text>
+        代码均应嵌入至以下模板中
+      </n-alert>
+    </n-p>
+    <n-p>
+      <n-tabs type="line" animated>
+        <n-tab-pane name="Vue3" tab="Vue3">
+          <article-code-card title="定义标签 + 获取面板" language="Vue" :code="code_01_vue3" />
+        </n-tab-pane>
+        <n-tab-pane name="HTML+JavaScript" tab="HTML + JavaScript">
+          <article-code-card title="定义标签" language="HTML" :code="code_01_html" />
+          <article-code-card title="获取画板" language="JavaScript" :code="code_01_javascript" />
+        </n-tab-pane>
+      </n-tabs>
+    </n-p>
     <article-title :h="4" href="2_2_坐标系">2.2 坐标系</article-title>
     <n-p>
       <n-text code>canvas</n-text>
@@ -94,7 +113,7 @@ const renderLink = (href: string) =>
           { title: '类型', key: 'type' },
           { title: '默认', key: 'default' },
           { title: '描述', key: 'description' },
-          { title: '文档', key: 'docs', align: 'center' },
+          { title: '文档', key: 'docs', align: 'center', width: '5em' },
         ]"
         :data="[
           {
@@ -125,7 +144,7 @@ const renderLink = (href: string) =>
         :columns="[
           { title: 'API', key: 'api' },
           { title: '作用', key: 'effect' },
-          { title: '文档', key: 'docs', align: 'center' },
+          { title: '文档', key: 'docs', align: 'center', width: '5em' },
         ]"
         :data="[
           {
@@ -144,14 +163,14 @@ const renderLink = (href: string) =>
           },
           {
             api: renderCode('lineTo(x: number, y: number)'),
-            effect: ['绘制直线至 ', renderCode('(x, y)')],
+            effect: ['绘制线段至 ', renderCode('(x, y)')],
             docs: renderLink(
               'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo',
             ),
           },
           {
             api: renderCode('closePath() '),
-            effect: '绘制闭合直线至「绘制初始位置」',
+            effect: '绘制闭合线段至「绘制初始位置」',
             docs: renderLink(
               'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/closePath',
             ),
@@ -165,19 +184,58 @@ const renderLink = (href: string) =>
       <canvas01 />
     </n-flex>
     <n-p>
-      <n-tabs type="line" animated>
-        <n-tab-pane name="Vue3" tab="Vue3">
-          <article-code-card title="绘制线段" language="Vue" :code="code_03_vue3" />
-        </n-tab-pane>
-        <n-tab-pane name="HTML+JavaScript" tab="HTML + JavaScript">
-          <article-code-card title="绘制线段 HTML部分" language="HTML" :code="code_03_html" />
-          <article-code-card
-            title="绘制线段 JS部分"
-            language="JavaScript"
-            :code="code_03_javascript"
-          />
-        </n-tab-pane>
-      </n-tabs>
+      <article-code-card title="绘制线段" language="JavaScript" :code="code_02" />
+    </n-p>
+    <article-title :h="4" href="2_4_绘制矩形">2.4 绘制封闭图形</article-title>
+    <n-p>
+      <n-data-table
+        :columns="[
+          { title: 'Prop', key: 'prop' },
+          { title: '类型', key: 'type' },
+          { title: '默认', key: 'default' },
+          { title: '描述', key: 'description' },
+          { title: '文档', key: 'docs', align: 'center', width: '5em' },
+        ]"
+        :data="[
+          {
+            prop: renderCode('fillStyle'),
+            type: renderCode('color'),
+            default: renderCode('#000'),
+            description: '填充面积的宽度',
+            docs: renderLink(
+              'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle',
+            ),
+          },
+        ]"
+        :pagination="false"
+        :bordered="false"
+      />
+    </n-p>
+    <n-p>
+      <n-data-table
+        :columns="[
+          { title: 'API', key: 'api' },
+          { title: '作用', key: 'effect' },
+          { title: '文档', key: 'docs', align: 'center', width: '5em' },
+        ]"
+        :data="[
+          {
+            api: renderCode('fill()'),
+            effect: '填充以上封闭面积',
+            docs: renderLink(
+              'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/beginPath',
+            ),
+          },
+        ]"
+        :pagination="false"
+        :bordered="false"
+      />
+    </n-p>
+    <n-flex justify="center">
+      <canvas02 />
+    </n-flex>
+    <n-p>
+      <article-code-card title="绘制线段" language="JavaScript" :code="code_03" />
     </n-p>
   </article-content>
 </template>

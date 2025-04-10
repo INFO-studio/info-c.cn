@@ -1,0 +1,12 @@
+const ctx = canvas.value.getContext('2d')
+ctx.beginPath()
+ctx.moveTo(10, 10)
+ctx.lineTo(190, 190)
+ctx.lineTo(120, 180)
+ctx.lineTo(150, 40)
+ctx.fillStyle = 'yellow'  // 设置填充面积颜色为「黄色」
+ctx.fill()                // 执行目前部分面积填充
+ctx.lineTo(20, 100)
+ctx.stroke()
+// 注意到，fill() 执行若未返回初始位置，则填充色自动返回初始位置以闭合
+// 但目前的坐标位置不受影响，stroke() 执行时也不会绘制填充色的自动边

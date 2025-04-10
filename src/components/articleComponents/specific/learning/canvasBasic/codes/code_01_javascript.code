@@ -1,0 +1,6 @@
+const canvas = document.getElementById('canvas');
+// 代码模板范围开始
+const ctx = canvas.value.getContext('2d')     // 2D 面板
+// 或
+const ctx = canvas.value.getContext('webgl')  // 3D 面板
+// 代码模板范围结束

@@ -1,0 +1,21 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+const canvas = ref()
+onMounted(() => {
+  // 代码模板范围开始
+  const ctx = canvas.value.getContext('2d')     // 2D 面板
+  // 或
+  const ctx = canvas.value.getContext('webgl')  // 3D 面板
+  // 代码模板范围结束
+})
+</script>
+
+<template>
+  <canvas ref="canvas" width="200" height="200" class="canvas" />
+</template>
+
+<style scoped>
+.canvas {
+  background-color: #fff;
+}
+</style>
