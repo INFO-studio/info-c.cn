@@ -1,0 +1,6 @@
+const ctx = canvas.value.getContext('2d')
+ctx.beginPath()
+ctx.arc(120, 80, 50, 0, Math.PI / 3, true)
+// 创建点 (120, 80) 为圆心，50 为半径的弧路径，起始角度 0，终止角度 30°，逆时针
+ctx.lineWidth = 5
+ctx.stroke()

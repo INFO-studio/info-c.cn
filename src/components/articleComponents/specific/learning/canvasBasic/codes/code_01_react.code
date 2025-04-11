@@ -1,0 +1,22 @@
+import React, { useRef, useEffect } from 'react';
+
+const Canvas: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    // 代码模板范围开始
+    const ctx = canvas.value.getContext('2d')     // 2D 面板
+    // 或
+    const ctx = canvas.value.getContext('webgl')  // 3D 面板
+    // 代码模板范围结束
+  }, []);
+  const style = {backgroundColor: '#f9f9f9'}
+
+  return (
+    <canvas ref={canvasRef} width={200} height={200} style={style}>
+      当前浏览器不支持 Canvas
+    </canvas>
+  );
+};
+
+export default Canvas;

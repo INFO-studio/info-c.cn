@@ -58,6 +58,7 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
 <template>
   <motion.div
     :animate="anchorMode ? {opacity: 1} : {opacity: 0}"
+    :style="{ pointerEvents: anchorMode ? 'auto' : 'none' }"
   >
     <n-anchor :listen-to="scrollElement" ref="anchor" :style="style" :offset-target="scrollElement" ignore-gap>
       <n-anchor-link v-for="node1 in anchorTree" :title="node1.title" :href="`#${node1.href}`">

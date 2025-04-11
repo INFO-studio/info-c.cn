@@ -25,6 +25,6 @@ onMounted(() => {
 
 <style scoped>
 .canvas {
-  background-color: #fff;
+  background-color: #f9f9f9;
 }
 </style>

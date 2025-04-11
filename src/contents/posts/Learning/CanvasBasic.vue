@@ -1,19 +1,26 @@
 <script setup lang="ts">
-import { h } from 'vue'
+import { type Component, h } from 'vue'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'
 import ArticleCodeCard from '@/components/articleComponents/common/ArticleCodeCard.vue'
-import Canvas01 from '@/components/articleComponents/specific/learning/canvasBasic/canvas01.vue'
-import Canvas02 from '@/components/articleComponents/specific/learning/canvasBasic/canvas02.vue'
+import Canvas01 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas01.vue'
+import Canvas02 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas02.vue'
+import Canvas03 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas03.vue'
+import Canvas04 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas04.vue'
+import Canvas05 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas05.vue'
 import {
   code_01_html,
   code_01_vue3,
+  code_01_react,
   code_01_javascript,
   code_02,
   code_03,
+  code_04,
+  code_05,
+  code_06,
 } from '@/components/articleComponents/specific/learning/canvasBasic/codes'
 import { NText, NButton, NIcon } from 'naive-ui'
-import { Link } from 'lucide-vue-next'
+import { Link, ArrowRight } from 'lucide-vue-next'
 
 const renderCode = (code: string) => h(NText, { code: true }, () => code)
 const renderLink = (href: string) =>
@@ -24,9 +31,10 @@ const renderLink = (href: string) =>
       onClick: () => window.open(href, '_blank'),
     },
     {
-      default: () => h(NIcon, null, { default: () => h(Link) }),
+      default: () => h(NIcon, { style: 'vertical-align: middle;' }, { default: () => h(Link) }),
     },
   )
+const renderIcon = (icon: Component) => h(NIcon, {size: 12}, { default: () => h(icon) })
 </script>
 
 <template>
@@ -62,17 +70,6 @@ const renderLink = (href: string) =>
       绘制的图像属于位图格式，放大时可能产生锯齿。
     </n-p>
     <article-title :h="3" href="2_基础">2. 基础</article-title>
-    <n-p>
-      <n-alert title="约定" type="info">
-        未进行特殊提示时，本文以下所有
-        <n-text code>API</n-text>
-        与
-        <n-text code>Prop</n-text>
-        均以
-        <n-text code>ctx</n-text>
-        为对象
-      </n-alert>
-    </n-p>
     <article-title :h="4" href="2_1_渲染上下文">2.1 渲染上下文</article-title>
     <n-p>
       <n-alert title="约定" type="info">
@@ -88,11 +85,25 @@ const renderLink = (href: string) =>
         <n-tab-pane name="Vue3" tab="Vue3">
           <article-code-card title="定义标签 + 获取面板" language="Vue" :code="code_01_vue3" />
         </n-tab-pane>
+        <n-tab-pane name="React" tab="React">
+          <article-code-card title="定义标签 + 获取面板" language="TSX" :code="code_01_react" />
+        </n-tab-pane>
         <n-tab-pane name="HTML+JavaScript" tab="HTML + JavaScript">
           <article-code-card title="定义标签" language="HTML" :code="code_01_html" />
           <article-code-card title="获取画板" language="JavaScript" :code="code_01_javascript" />
         </n-tab-pane>
       </n-tabs>
+    </n-p>
+    <n-p>
+      <n-alert title="约定" type="info">
+        未进行特殊提示时，本文以下所有
+        <n-text code>Prop</n-text>
+        与
+        <n-text code>API</n-text>
+        均以模板中
+        <n-text code>ctx</n-text>
+        为对象
+      </n-alert>
     </n-p>
     <article-title :h="4" href="2_2_坐标系">2.2 坐标系</article-title>
     <n-p>
@@ -181,12 +192,12 @@ const renderLink = (href: string) =>
       />
     </n-p>
     <n-flex justify="center">
-      <canvas01 />
+      <Canvas01 />
     </n-flex>
     <n-p>
       <article-code-card title="绘制线段" language="JavaScript" :code="code_02" />
     </n-p>
-    <article-title :h="4" href="2_4_绘制矩形">2.4 绘制封闭图形</article-title>
+    <article-title :h="4" href="2_4_绘制封闭多边形">2.4 绘制封闭多边形</article-title>
     <n-p>
       <n-data-table
         :columns="[
@@ -201,7 +212,7 @@ const renderLink = (href: string) =>
             prop: renderCode('fillStyle'),
             type: renderCode('color'),
             default: renderCode('#000'),
-            description: '填充面积的宽度',
+            description: '填充面积的颜色',
             docs: renderLink(
               'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle',
             ),
@@ -232,10 +243,120 @@ const renderLink = (href: string) =>
       />
     </n-p>
     <n-flex justify="center">
-      <canvas02 />
+      <Canvas02 />
     </n-flex>
     <n-p>
-      <article-code-card title="绘制线段" language="JavaScript" :code="code_03" />
+      <article-code-card title="绘制封闭多边形" language="JavaScript" :code="code_03" />
+    </n-p>
+    <article-title :h="4" href="2_5_绘制矩形">2.5 绘制矩形</article-title>
+    <n-p>
+      <n-data-table
+        :columns="[
+          { title: 'API', key: 'api' },
+          { title: '作用', key: 'effect' },
+          { title: '文档', key: 'docs', align: 'center', width: '5em' },
+        ]"
+        :data="[
+          {
+            api: renderCode('rect(x, y, w, h)'),
+            effect: [
+              '创建起始坐标',
+              renderCode('(x, y)'),
+              '，宽为',
+              renderCode('w'),
+              '高为',
+              renderCode('h'),
+              '的矩形',
+            ],
+            docs: renderLink(
+              'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/rect',
+            ),
+          },
+          {
+            api: renderCode('strokeRect(x, y, w, h)'),
+            effect: ['创建矩形', renderCode('rect(x, y, w, h)'), '并绘制线段'],
+            docs: renderLink(
+              'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeRect',
+            ),
+          },
+          {
+            api: renderCode('fillRect(x, y, w, h)'),
+            effect: ['创建矩形', renderCode('rect(x, y, w, h)'), '并填充面积'],
+            docs: renderLink(
+              'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect',
+            ),
+          },
+        ]"
+        :pagination="false"
+        :bordered="false"
+      />
+    </n-p>
+    <n-flex justify="center">
+      <Canvas03 />
+    </n-flex>
+    <n-p>
+      <article-code-card title="绘制矩形" language="JavaScript" :code="code_04" />
+    </n-p>
+    <article-title :h="4" href="2_6_绘制矩形">2.6 绘制弧线</article-title>
+    <n-p>
+      <n-data-table
+        :columns="[
+          { title: 'API', key: 'api' },
+          { title: '作用', key: 'effect' },
+          { title: '文档', key: 'docs', align: 'center', width: '5em' },
+        ]"
+        :data="[
+          {
+            api: renderCode('arcTo(x1, y1, x2, y2, r)'),
+            effect: [
+              '创建当前点 ',
+              renderIcon(ArrowRight),
+              ' 点1 ',
+              renderIcon(ArrowRight),
+              ' 点2 两线的内切弧路径，半径 ',
+              renderCode('r'),
+            ],
+            docs: renderLink(
+              'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arcTo',
+            ),
+          },
+          {
+            api: renderCode('arc(x, y, r, sa: rad, ea: rad, acw: boolean)'),
+            effect: [
+              '创建点 ',
+              renderCode('(x, y)'),
+              ' 为圆心 ',
+              renderCode('r'),
+              ' 为半径的弧路径，起始角度 ',
+              renderCode('sa'),
+              '，终止角度 ',
+              renderCode('ea'),
+              '，',
+              renderCode('acw'),
+              ' 控制方向，默认为 ',
+              renderCode('false'),
+              ' 顺时针',
+            ],
+            docs: renderLink(
+              'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc',
+            ),
+          },
+        ]"
+        :pagination="false"
+        :bordered="false"
+      />
+    </n-p>
+    <n-flex justify="center">
+      <Canvas04 />
+    </n-flex>
+    <n-p>
+      <article-code-card title="绘制弧线 arcTo" language="JavaScript" :code="code_05" />
+    </n-p>
+    <n-flex justify="center">
+      <Canvas05 />
+    </n-flex>
+    <n-p>
+      <article-code-card title="绘制弧线 arc" language="JavaScript" :code="code_06" />
     </n-p>
   </article-content>
 </template>

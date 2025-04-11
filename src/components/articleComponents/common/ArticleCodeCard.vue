@@ -32,7 +32,7 @@ const handleCopy = async () => {
 </script>
 
 <template>
-  <n-card class="article-code-card">
+  <n-card embedded class="article-code-card">
     <n-space vertical>
       <n-grid cols="3">
         <n-grid-item>
