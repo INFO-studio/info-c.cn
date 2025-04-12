@@ -4,7 +4,7 @@ const canvas = ref()
 onMounted(() => {
   const ctx = canvas.value.getContext('2d')
 
-  const drawPoint = (x: number, y: number, text, offsetX, offsetY) => {
+  const drawPoint = (x: number, y: number, text: string, offsetX: number, offsetY: number) => {
     ctx.save()
     ctx.beginPath()
     ctx.lineWidth = 1
