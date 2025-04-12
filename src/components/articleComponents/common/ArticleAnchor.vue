@@ -5,10 +5,16 @@ import { useSidebarStore } from '@/stores/sidebar.ts'
 import { useWindowStore } from '@/stores/window.ts'
 import { motion } from 'motion-v'
 
+const props = defineProps<{
+  mode: 'fixed' | 'inline'
+}>()
+
+const isFixed = computed(() => props.mode === 'fixed')
+
 const anchor = ref()
 const scrollElement = ref()
 onMounted(() => {
-  scrollElement.value = anchor.value?.$el.parentElement.parentElement.parentElement
+  if (isFixed.value) scrollElement.value = anchor.value?.$el.parentElement.parentElement.parentElement
 })
 
 const sidebarStore = useSidebarStore()
@@ -57,12 +63,24 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
 
 <template>
   <motion.div
-    :animate="anchorMode ? {opacity: 1} : {opacity: 0}"
-    :style="{ pointerEvents: anchorMode ? 'auto' : 'none' }"
+    v-if="isFixed"
+    :animate="anchorMode ? { opacity: 1 } : { opacity: 0 }"
+    :style="{ pointerEvents: isFixed ? (anchorMode ? 'auto' : 'none') : 'auto' }"
   >
-    <n-anchor :listen-to="scrollElement" ref="anchor" :style="style" :offset-target="scrollElement" ignore-gap>
+    <n-anchor
+      :listen-to="scrollElement"
+      ref="anchor"
+      :style="style"
+      :offset-target="scrollElement"
+      ignore-gap
+      :show-background="isFixed"
+    >
       <n-anchor-link v-for="node1 in anchorTree" :title="node1.title" :href="`#${node1.href}`">
-        <n-anchor-link v-for="node2 in node1.children" :title="node2.title" :href="`#${node2.href}`">
+        <n-anchor-link
+          v-for="node2 in node1.children"
+          :title="node2.title"
+          :href="`#${node2.href}`"
+        >
           <n-anchor-link
             v-for="node3 in node2.children"
             :title="node3.title"
@@ -73,6 +91,26 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
       </n-anchor-link>
     </n-anchor>
   </motion.div>
+  <n-anchor
+    v-else
+    ref="anchor"
+    :show-background="false"
+  >
+    <n-anchor-link v-for="node1 in anchorTree" :title="node1.title" :href="`#${node1.href}`">
+      <n-anchor-link
+        v-for="node2 in node1.children"
+        :title="node2.title"
+        :href="`#${node2.href}`"
+      >
+        <n-anchor-link
+          v-for="node3 in node2.children"
+          :title="node3.title"
+          :href="`#${node3.href}`"
+        >
+        </n-anchor-link>
+      </n-anchor-link>
+    </n-anchor-link>
+  </n-anchor>
 </template>
 
 <style scoped></style>

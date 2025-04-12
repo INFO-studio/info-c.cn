@@ -2,5 +2,6 @@ const ctx = canvas.value.getContext('2d')
 ctx.beginPath()
 ctx.moveTo(150, 170)
 ctx.quadraticCurveTo(50, 40, 50, 140)
+// 创建起点 (150, 170)，控制点 (50, 40)，终点 (50, 140) 的二阶贝塞尔曲线
 ctx.lineWidth = 5
 ctx.stroke()

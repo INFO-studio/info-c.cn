@@ -2,5 +2,6 @@ const ctx = canvas.value.getContext('2d')
 ctx.beginPath()
 ctx.moveTo(150, 30)
 ctx.bezierCurveTo(160, 150, 30, 40, 50, 140)
+// 创建起点 (150, 30)，控制点1 (160, 150)，控制点2 (30, 40)，终点 (50, 140) 的三阶贝塞尔曲线
 ctx.lineWidth = 5
 ctx.stroke()
