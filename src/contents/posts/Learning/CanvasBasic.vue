@@ -3,12 +3,14 @@ import { type Component, h } from 'vue'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'
 import ArticleCodeCard from '@/components/articleComponents/common/ArticleCodeCard.vue'
-import Canvas01 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas01.vue'
-import Canvas02 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas02.vue'
-import Canvas03 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas03.vue'
-import Canvas04 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas04.vue'
-import Canvas05 from '@/components/articleComponents/specific/learning/canvasBasic/Canvas05.vue'
 import {
+  Canvas01,
+  Canvas02,
+  Canvas03,
+  Canvas04,
+  Canvas05,
+  Canvas06,
+  Canvas07,
   code_01_html,
   code_01_vue3,
   code_01_react,
@@ -18,7 +20,9 @@ import {
   code_04,
   code_05,
   code_06,
-} from '@/components/articleComponents/specific/learning/canvasBasic/codes'
+  code_07,
+  code_08,
+} from '@/components/articleComponents/specific/learning/canvasBasic'
 import { NText, NButton, NIcon } from 'naive-ui'
 import { Link, ArrowRight } from 'lucide-vue-next'
 
@@ -297,7 +301,7 @@ const renderIcon = (icon: Component) => h(NIcon, {size: 12}, { default: () => h(
     <n-p>
       <article-code-card title="绘制矩形" language="JavaScript" :code="code_04" />
     </n-p>
-    <article-title :h="4" href="2_6_绘制矩形">2.6 绘制弧线</article-title>
+    <article-title :h="4" href="2_6_绘制弧线">2.6 绘制弧线</article-title>
     <n-p>
       <n-data-table
         :columns="[
@@ -357,6 +361,60 @@ const renderIcon = (icon: Component) => h(NIcon, {size: 12}, { default: () => h(
     </n-flex>
     <n-p>
       <article-code-card title="绘制弧线 arc" language="JavaScript" :code="code_06" />
+    </n-p>
+    <article-title :h="4" href="2_7_绘制贝塞尔曲线">2.7 绘制贝塞尔曲线</article-title>
+    <n-p>
+      <n-data-table
+        :columns="[
+          { title: 'API', key: 'api' },
+          { title: '作用', key: 'effect' },
+          { title: '文档', key: 'docs', align: 'center', width: '5em' },
+        ]"
+        :data="[
+          {
+            api: renderCode('quadraticCurveTo(cpx, cpy, x, y)'),
+            effect: [
+              '创建当前点 ',
+              renderIcon(ArrowRight),
+              ' 控制点 ',
+              renderIcon(ArrowRight),
+              ' 终点的二阶贝塞尔曲线'
+            ],
+            docs: renderLink(
+              'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo',
+            ),
+          },
+          {
+            api: renderCode('bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)'),
+            effect: [
+              '创建当前点 ',
+              renderIcon(ArrowRight),
+              ' 控制点1 ',
+              renderIcon(ArrowRight),
+              ' 控制点2 ',
+              renderIcon(ArrowRight),
+              ' 终点的三阶贝塞尔曲线'
+            ],
+            docs: renderLink(
+              'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/bezierCurveTo',
+            ),
+          },
+        ]"
+        :pagination="false"
+        :bordered="false"
+      />
+    </n-p>
+    <n-flex justify="center">
+      <Canvas06 />
+    </n-flex>
+    <n-p>
+      <article-code-card title="绘制二阶贝塞尔曲线" language="JavaScript" :code="code_07" />
+    </n-p>
+    <n-flex justify="center">
+      <Canvas07 />
+    </n-flex>
+    <n-p>
+      <article-code-card title="绘制三阶贝塞尔曲线" language="JavaScript" :code="code_08" />
     </n-p>
   </article-content>
 </template>

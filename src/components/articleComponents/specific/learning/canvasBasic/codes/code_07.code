@@ -1,0 +1,6 @@
+const ctx = canvas.value.getContext('2d')
+ctx.beginPath()
+ctx.moveTo(150, 170)
+ctx.quadraticCurveTo(50, 40, 50, 140)
+ctx.lineWidth = 5
+ctx.stroke()

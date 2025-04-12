@@ -7,13 +7,3 @@ ctx.lineTo(120, 140)
 // 注意到，创建了当前点到弧起点的路径，且当前点移动到弧终点
 ctx.lineWidth = 5
 ctx.stroke()
-
-// 辅助线
-ctx.beginPath()
-ctx.moveTo(20, 40)   // 当前点
-ctx.lineTo(150, 20)  // 点1
-ctx.lineTo(30, 170)  // 点2
-ctx.setLineDash([10, 5]);
-ctx.lineWidth = 1
-ctx.strokeStyle = 'red'
-ctx.stroke()

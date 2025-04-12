@@ -17,7 +17,8 @@ onMounted(() => {
   }
 
   ctx.beginPath()
-  ctx.arc(120, 80, 50, 0, Math.PI / 3, true)
+  ctx.moveTo(150, 170)
+  ctx.quadraticCurveTo(50, 40, 50, 140)
   ctx.lineWidth = 5
   ctx.stroke()
 
@@ -25,13 +26,15 @@ onMounted(() => {
   ctx.setLineDash([10, 5]);
   ctx.lineWidth = 1
   ctx.strokeStyle = 'red'
-  ctx.moveTo(170, 80)
-  ctx.lineTo(120, 80)
+  ctx.moveTo(150, 170)
+  ctx.lineTo(50, 40)
   ctx.stroke()
-  ctx.lineTo(145, 80 + 25 * Math.sqrt(3))
+  ctx.lineTo(50, 140)
   ctx.stroke()
 
-  drawPoint(120, 80, '圆心', 10, 10)
+  drawPoint(150, 170, '起点', 10, -10)
+  drawPoint(50, 40, '控制点', -15, -10)
+  drawPoint(50, 140, '终点', -10, 15)
 
 })
 </script>
