@@ -43,5 +43,6 @@ declare module 'vue' {
     MotionReorderAnimation: typeof import('./src/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TechStackIcon: typeof import('./src/components/articleComponents/specific/appHome/TechStackIcon.vue')['default']
   }
 }

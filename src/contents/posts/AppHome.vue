@@ -11,6 +11,8 @@ import {
   Python,
   Rust,
   DavinciResolve,
+  Electron,
+  Vitest,
   Mysql,
 } from '@/assets/icons/brand'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
@@ -18,6 +20,7 @@ import ArticleCard from '@/components/articleComponents/common/ArticleCard.vue'
 import { getRouteData } from '@/router/utils/getRoutePath.ts'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
+import TechStackIcon from '@/components/articleComponents/specific/appHome/TechStackIcon.vue'
 
 const isAvatarHover = ref(false)
 
@@ -68,33 +71,19 @@ const articlesHome = [
         </n-space>
         <n-card title="技术栈" :bordered="false" class="no-background-card">
           <n-space>
-            <n-icon color="#4FC08D" size="24">
-              <Vue />
-            </n-icon>
-            <n-icon color="#61DAFB" size="24">
-              <React />
-            </n-icon>
-            <n-icon color="#5FA04E" size="24">
-              <Node />
-            </n-icon>
+            <tech-stack-icon title="Vue" color="#4FC08D" :icon="Vue" />
+            <tech-stack-icon title="React" color="#61DAFB" :icon="React" />
+            <tech-stack-icon title="Node" color="#5FA04E" :icon="Node" />
             <n-divider vertical />
-            <n-icon color="#3178C6" size="24">
-              <Typescript />
-            </n-icon>
-            <n-icon color="#3776AB" size="24">
-              <Python />
-            </n-icon>
-            <n-icon size="24">
-              <Rust />
-            </n-icon>
+            <tech-stack-icon title="Typescript" color="#3178C6" :icon="Typescript" />
+            <tech-stack-icon title="Python" color="#3776AB" :icon="Python" />
+            <tech-stack-icon title="Rust" :icon="Rust" />
             <n-divider vertical />
-            <n-icon color="#233A51" size="24">
-              <DavinciResolve />
-            </n-icon>
+            <tech-stack-icon title="Davinci Resolve" color="#233A51" :icon="DavinciResolve" />
             <n-divider vertical />
-            <n-icon color="#4479A1" size="24">
-              <Mysql />
-            </n-icon>
+            <tech-stack-icon title="Electron" color="#47848F" :icon="Electron" />
+            <tech-stack-icon title="Vitest" color="#6E9F18" :icon="Vitest" />
+            <tech-stack-icon title="MySQL" color="#4479A1" :icon="Mysql" />
           </n-space>
         </n-card>
         <n-card title="查成分" :bordered="false" class="no-background-card">
