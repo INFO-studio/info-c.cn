@@ -5,11 +5,12 @@ const canvas = ref()
 onMounted(() => {
   const ctx = canvas.value.getContext('2d')
 
-  const drawPoint = (x: number, y: number, text, offsetX, offsetY) => {
+  const drawPoint = (x: number, y: number, text: string, offsetX: number, offsetY: number) => {
     ctx.save()
     ctx.beginPath()
     ctx.lineWidth = 1
-    ctx.strokeStyle = 'black'
+    ctx.fillStyle = 'black'
+    ctx.font = 'normal 1.5em sans-serif'
     ctx.setLineDash([])
     ctx.arc(x, y, 2, 0, Math.PI * 2)
     ctx.stroke()
@@ -34,8 +35,8 @@ onMounted(() => {
   ctx.lineTo(30, 170)
   ctx.stroke()
 
-  drawPoint(20, 40, '当前点', -10, -10)
-  drawPoint(150, 20, '点1', 10, 0)
+  drawPoint(20, 40, '当前点', -10, -15)
+  drawPoint(150, 20, '点1', 10, 5)
   drawPoint(30, 170, '点2', 10, 10)
 })
 </script>

@@ -8,7 +8,8 @@ onMounted(() => {
     ctx.save()
     ctx.beginPath()
     ctx.lineWidth = 1
-    ctx.strokeStyle = 'black'
+    ctx.fillStyle = 'black'
+    ctx.font = 'normal 1.5em sans-serif'
     ctx.setLineDash([])
     ctx.arc(x, y, 2, 0, Math.PI * 2)
     ctx.stroke()
@@ -31,7 +32,7 @@ onMounted(() => {
   ctx.lineTo(145, 80 + 25 * Math.sqrt(3))
   ctx.stroke()
 
-  drawPoint(120, 80, '圆心', 10, 10)
+  drawPoint(120, 80, '圆心', -15, -10)
 
 })
 </script>
