@@ -1,0 +1,11 @@
+const Decorator = (foo: number): Function => {
+  console.log(foo + '工厂')
+  return (target: Function) => {
+    console.log(foo + '装饰器')
+  }
+}
+
+@Decorator(1)
+@Decorator(2)
+@Decorator(3)
+class Demo { }

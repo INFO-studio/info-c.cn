@@ -1,9 +1,9 @@
 import type { DocumentRoute } from '@/router/interfaces'
 import { NotebookPen } from 'lucide-vue-next'
-import TypescriptKnowledge from '@/contents/posts/Learning/TypescriptKnowledge.vue'
 
 const ArticleIndex = () => import('@/components/articleComponents/common/ArticleIndex.vue')
 const CanvasBasic = () => import('@/contents/posts/Learning/CanvasBasic.vue')
+const TypescriptKnowledge = () => import('@/contents/posts/Learning/TypescriptKnowledge.vue')
 
 export const routes: DocumentRoute = {
   path: 'learning',
@@ -31,6 +31,7 @@ export const routes: DocumentRoute = {
       title: 'TypeScript 细碎知识点',
       tags: ['前端', 'TypeScript'],
       createDate: new Date(2025, 3, 13, 19, 1),
+      modifyDate: new Date(2025, 3, 14, 1, 30),
     },
   ],
 }

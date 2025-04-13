@@ -15,6 +15,7 @@ const anchor = ref()
 const scrollElement = ref()
 onMounted(() => {
   if (isFixed.value) scrollElement.value = anchor.value?.$el.parentElement.parentElement.parentElement.parentElement
+  console.log(scrollElement.value)
 })
 
 const sidebarStore = useSidebarStore()
@@ -65,7 +66,7 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
         ref="anchor"
         :offset-target="scrollElement"
         ignore-gap
-        :show-background="isFixed"
+        :bound="180"
         class="article-anchor-fixed"
       >
         <n-anchor-link v-for="node1 in anchorTree" :title="node1.title" :href="`#${node1.href}`">

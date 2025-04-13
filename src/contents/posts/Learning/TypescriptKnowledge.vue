@@ -2,13 +2,26 @@
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'
 import ArticleCodeCard from '@/components/articleComponents/common/ArticleCodeCard.vue'
-import { code_01, code_02, code_03 } from '@/components/articleComponents/specific/learning/typescriptKnowledge'
+import {
+  code_01,
+  code_02,
+  code_03,
+  code_04,
+  code_05,
+} from '@/components/articleComponents/specific/learning/typescriptKnowledge'
+
+const Decorator = (foo: number): Function => {
+  console.log(foo + '工厂')
+  return (target: Function) => {
+    console.log(foo + '装饰器')
+  }
+}
 </script>
 
 <template>
   <article-content>
-    <article-title :h="3" href="1_类型声明函数返回值void的特殊情况"
-      >1. 类型声明函数返回值
+    <article-title :h="3" href="1_类型声明函数返回值void的特殊情况">
+      1. 类型声明函数返回值
       <n-text code>void</n-text>
       的特殊情况
     </article-title>
@@ -19,7 +32,7 @@ import { code_01, code_02, code_03 } from '@/components/articleComponents/specif
       <n-text code>TypeScript</n-text>
       不会严格限制返回值类型
     </n-p>
-    <n-p> 比如如下代码 </n-p>
+    <n-p> 比如如下代码</n-p>
     <article-code-card title="示例" language="TypeScript" :code="code_01" />
     <n-p>
       为了单行箭头函数的去大括号简写可以成立，
@@ -50,6 +63,11 @@ import { code_01, code_02, code_03 } from '@/components/articleComponents/specif
       返回做进一步处理，以保证返回的内容不会作为行为判据
     </n-p>
     <article-code-card title="示例" language="TypeScript" :code="code_03" />
+    <article-title :h="3" href="2_装饰器的执行顺序">2. 装饰器的执行顺序</article-title>
+    <n-p>当具有多个装饰器时，会先从上到下执行装饰器工厂，后从下到上执行装饰器</n-p>
+    <article-code-card title="示例" language="TypeScript" :code="code_04" />
+    <n-p>执行结果如下</n-p>
+    <article-code-card title="执行结果" language="text" :code="code_05" />
   </article-content>
 </template>
 
