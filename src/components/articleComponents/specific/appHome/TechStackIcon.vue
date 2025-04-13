@@ -31,12 +31,10 @@ const isHover = ref(false)
           ? {
               opacity: 1,
               y: 24,
-              userSelect: 'text',
             }
           : {
               opacity: 0,
               y: 0,
-              userSelect: 'none',
             }
       "
       class="tech-stack-icon-title"
@@ -51,6 +49,7 @@ const isHover = ref(false)
   position: absolute;
   white-space: nowrap;
   text-shadow: 0 0 10px;
-  z-index: -1;
+  z-index: 1;
+  user-select: none;
 }
 </style>

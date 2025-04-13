@@ -60,7 +60,7 @@ const handleCopy = async () => {
 <template>
   <n-space vertical align="center" justify="center">
     <n-qr-code :value="fullUrl" ref="qrCodeRef" />
-    <n-text code>{{ fullUrl }}</n-text>
+    <n-text code class="article-share-url">{{ fullUrl }}</n-text>
     <n-flex>
       <n-button @click="handleDownload">
         <n-icon>
@@ -75,3 +75,9 @@ const handleCopy = async () => {
     </n-flex>
   </n-space>
 </template>
+
+<style scoped>
+.article-share-url {
+  word-break: break-all;
+}
+</style>
