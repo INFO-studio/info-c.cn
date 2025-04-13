@@ -13,7 +13,7 @@ const message = useMessage()
 const qrCodeRef = ref()
 
 const fullUrl = computed(() => {
-  return window.location.origin + route.fullPath
+  return window.location.origin + route.path
 })
 
 const handleDownload = () => {

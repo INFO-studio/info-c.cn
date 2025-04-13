@@ -3,7 +3,7 @@ import { RouterView } from 'vue-router'
 import AppHeader from '@/components/viewComponents/AppHeader.vue'
 import AppSidebar from '@/components/viewComponents/AppSidebar.vue'
 import AppBreadcrumb from '@/components/viewComponents/AppBreadcrumb.vue'
-import { type CSSProperties, onMounted, onUnmounted } from 'vue'
+import { type CSSProperties, computed, onMounted, onUnmounted } from 'vue'
 import AppFooter from '@/components/viewComponents/AppFooter.vue'
 import { useThemeStore } from '@/stores/theme.ts'
 import { useMouseStore } from '@/stores/mouse.ts'
@@ -14,6 +14,9 @@ import xml from 'highlight.js/lib/languages/xml'
 import ArticleFloatButton from '@/components/articleComponents/common/ArticleFloatButton.vue'
 
 const themeStore = useThemeStore()
+const mouseStore = useMouseStore()
+const windowStore = useWindowStore()
+
 const LayoutStyle: CSSProperties = {
   minHeight: '100vh',
   maxHeight: '100vh',
@@ -29,16 +32,13 @@ const MainStyle: CSSProperties = {
   flexDirection: 'column',
   gap: '1rem',
 }
-const ContentStyle: CSSProperties = {
+const ContentStyle = computed((): CSSProperties => ({
   padding: '0 2rem 2rem 2rem',
   width: '100%',
-  maxWidth: '800px',
+  maxWidth: windowStore.width < 1800 ? '800px' : '1200px',
   minWidth: '200px',
   margin: '0 auto',
-}
-
-const mouseStore = useMouseStore()
-const windowStore = useWindowStore()
+}))
 
 hljs.registerLanguage('vue', xml)
 

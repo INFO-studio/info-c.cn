@@ -123,6 +123,9 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
   position: fixed;
   top: 20px;
   left: 50px;
-  max-width: 20vw;
+  max-width: calc(50vw - 480px);
+  @media (min-width: 1800px) {
+    max-width: calc(50vw - 660px);
+  }
 }
 </style>
