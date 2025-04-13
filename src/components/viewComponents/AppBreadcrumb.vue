@@ -36,6 +36,6 @@ const handleBreadcrumbClick = (path: string) => {
 
 <style>
 .breadcrumb {
-  padding: 0.5rem;
+  padding: 2rem;
 }
 </style>

@@ -30,14 +30,13 @@ const MainStyle: CSSProperties = {
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
-  gap: '1rem',
 }
 const ContentStyle = computed((): CSSProperties => ({
   padding: '0 2rem 2rem 2rem',
   width: '100%',
   maxWidth: windowStore.width < 1800 ? '800px' : '1200px',
   minWidth: '200px',
-  margin: '0 auto',
+  margin: '1rem auto 0 auto',
 }))
 
 hljs.registerLanguage('vue', xml)
@@ -65,7 +64,7 @@ onUnmounted(() => {
           <n-layout has-sider class="body" :content-style="BodyStyle">
             <app-sidebar />
             <n-layout :content-style="MainStyle">
-              <n-layout-header class="content-breadcrumb">
+              <n-layout-header class="breadcrumb-container">
                 <app-breadcrumb />
               </n-layout-header>
               <n-layout
@@ -93,16 +92,15 @@ onUnmounted(() => {
   flex-direction: column;
 }
 
-.content-breadcrumb {
-  background-color: unset;
-  padding: 2rem 2rem 0 2rem;
-}
-
 .content-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transform: translate(0);
+}
+
+.breadcrumb-container {
+  background-color: transparent;
 }
 </style>

@@ -81,6 +81,7 @@ const activeKey = computed({
     show-trigger
     @collapse="handleCollapse"
     @expand="handleExpand"
+    class="sidebar"
   >
     <n-menu
       v-model:value="activeKey"
@@ -94,4 +95,7 @@ const activeKey = computed({
 </template>
 
 <style scoped>
+.sidebar {
+  z-index: auto;
+}
 </style>
