@@ -1,0 +1,4 @@
+type VoidFunc = () => void
+const foo: VoidFunc = () => {
+  return 100  // 返回值并非 void，但并不报错
+}

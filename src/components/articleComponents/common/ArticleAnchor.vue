@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, type CSSProperties } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { type AnchorItem, useAnchorStore } from '@/stores/anchor.ts'
 import { useSidebarStore } from '@/stores/sidebar.ts'
 import { useWindowStore } from '@/stores/window.ts'
@@ -21,14 +21,6 @@ const sidebarStore = useSidebarStore()
 const windowStore = useWindowStore()
 
 const anchorMode = computed(() => windowStore.width > 1200 && sidebarStore.isCollapsed)
-const style = computed(
-  (): CSSProperties => ({
-    zIndex: 1,
-    position: 'fixed',
-    top: '20px',
-    left: '50px',
-  }),
-)
 
 const anchorStore = useAnchorStore()
 
@@ -71,10 +63,10 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
       <n-anchor
         :listen-to="scrollElement"
         ref="anchor"
-        :style="style"
         :offset-target="scrollElement"
         ignore-gap
         :show-background="isFixed"
+        class="article-anchor-fixed"
       >
         <n-anchor-link v-for="node1 in anchorTree" :title="node1.title" :href="`#${node1.href}`">
           <n-anchor-link
@@ -125,4 +117,12 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.article-anchor-fixed {
+  z-index: 1;
+  position: fixed;
+  top: 20px;
+  left: 50px;
+  max-width: 20vw;
+}
+</style>

@@ -1,0 +1,4 @@
+const list1 = [1, 2, 3]
+const list2 = [0]
+
+list1.forEach((item) => list2.push(item))

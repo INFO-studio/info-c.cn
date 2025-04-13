@@ -7,7 +7,7 @@ import {
   Vue,
   React,
   Node,
-  Typescript,
+  TypeScript,
   Python,
   Rust,
   DavinciResolve,
@@ -75,7 +75,7 @@ const articlesHome = [
             <tech-stack-icon title="React" color="#61DAFB" :icon="React" />
             <tech-stack-icon title="Node" color="#5FA04E" :icon="Node" />
             <n-divider vertical />
-            <tech-stack-icon title="Typescript" color="#3178C6" :icon="Typescript" />
+            <tech-stack-icon title="TypeScript" color="#3178C6" :icon="TypeScript" />
             <tech-stack-icon title="Python" color="#3776AB" :icon="Python" />
             <tech-stack-icon title="Rust" :icon="Rust" />
             <n-divider vertical />

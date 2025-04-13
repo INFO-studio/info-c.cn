@@ -1,0 +1,9 @@
+type VoidFunc = () => void
+const foo: VoidFunc = () => {
+  return 100
+}
+const a = foo()  // warning: 使用了 void 函数返回值
+console.log(a)   // success: 正常打印 100
+if(a > 10) {     // error  : 无法对 void 与 number 进行比较
+  console.log("Can't do that")
+}

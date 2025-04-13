@@ -59,7 +59,7 @@ import ArticleContent from '@/components/articleComponents/common/ArticleContent
       </n-grid-item>
     </n-grid>
     <n-p>
-      总之就是先这样，目前功能都还没写好就先不产出文章了，后面再写一些别的吧
+      总之就是先这样，你可以翻看一下这个博客的其他内容，我也会持续书写自己的点点滴滴所思所想
     </n-p>
   </article-content>
 </template>
