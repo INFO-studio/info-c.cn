@@ -21,7 +21,7 @@ const routeData = getRouteData(route.path, getRouteTree(routes))
     <n-h2 v-if="routeData.title" prefix="bar" align-text class="article-title">
       <n-text>{{ routeData.title }}</n-text>
     </n-h2>
-    <n-space vertical>
+    <n-space vertical size="large">
       <n-space>
         <article-date v-if="routeData.createDate" category="create" :date="routeData.createDate" />
         <article-date v-if="routeData.modifyDate" category="modify" :date="routeData.modifyDate" />
@@ -29,19 +29,11 @@ const routeData = getRouteData(route.path, getRouteTree(routes))
       <n-space>
         <article-tag v-for="tag in routeData.tags">{{ tag }}</article-tag>
       </n-space>
-      <motion.div
-        :animate="windowStore.width <= 1200 ? { height : 'unset', opacity: 1} : { height: 0, opacity: 0 } "
-      >
-        <n-card size="small">
-          <n-collapse>
-            <n-collapse-item title="目录" name="1">
-              <article-anchor mode="inline" />
-            </n-collapse-item>
-          </n-collapse>
-        </n-card>
-      </motion.div>
+      <article-anchor mode="inline" />
+      <div>
+        <slot />
+      </div>
     </n-space>
-    <slot />
   </motion.div>
 </template>
 

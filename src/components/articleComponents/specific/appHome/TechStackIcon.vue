@@ -12,44 +12,73 @@ const isHover = ref(false)
 </script>
 
 <template>
-  <n-flex vertical align="center" justify="center" style="position: relative">
-    <motion.div
-      :initial="{
-        opacity: 0,
-      }"
-      :animate="
-        isHover
-          ? {
-              opacity: 1,
-              y: 30
-            }
-          : {
-              opacity: 0,
-              y: 0,
-            }
-      "
-      class="tech-stack-icon-title"
-    >
-      <n-tag round :bordered="false">
-        {{ props.title }}
-      </n-tag>
-    </motion.div>
-    <n-icon
-      :color="props.color"
-      size="24"
-      @mouseenter="isHover = true"
-      @mouseleave="isHover = false"
-    >
+  <n-space
+    :size="0"
+    style="position: relative"
+    @mouseenter="isHover = true"
+    @mouseleave="isHover = false"
+  >
+    <n-icon :color="props.color" size="24">
       <component :is="props.icon" />
     </n-icon>
-  </n-flex>
+<!--    <motion.div-->
+<!--      :initial="{-->
+<!--        opacity: 0,-->
+<!--        x: '-100%',-->
+<!--      }"-->
+<!--      :animate="-->
+<!--        isHover-->
+<!--          ? {-->
+<!--              opacity: 1,-->
+<!--              x: 0,-->
+<!--              userSelect: 'text',-->
+<!--            }-->
+<!--          : {-->
+<!--              opacity: 0,-->
+<!--              x: -24,-->
+<!--              userSelect: 'none',-->
+<!--            }-->
+<!--      "-->
+<!--      class="tech-stack-icon-title"-->
+<!--    >-->
+<!--      {{ props.title }}-->
+<!--    </motion.div>-->
+<!--    <motion.div-->
+<!--      :initial="{-->
+<!--        opacity: 0,-->
+<!--        x: -24,-->
+<!--        width: 0,-->
+<!--      }"-->
+<!--      :animate="-->
+<!--        isHover-->
+<!--          ? {-->
+<!--              x: 0,-->
+<!--              width: 'unset',-->
+<!--              marginRight: '0.5rem'-->
+<!--            }-->
+<!--          : {-->
+<!--              x: -24,-->
+<!--              width: 0,-->
+<!--              marginRight: 0-->
+<!--            }-->
+<!--      "-->
+<!--      class="tech-stack-icon-title-background"-->
+<!--    >-->
+<!--      {{ props.title }}-->
+<!--    </motion.div>-->
+  </n-space>
 </template>
 
 <style scoped>
 .tech-stack-icon-title {
   position: absolute;
+  margin: 0 0 0 0.5rem;
   white-space: nowrap;
-  z-index: -1;
+}
+
+.tech-stack-icon-title-background {
+  position: relative;
+  white-space: nowrap;
   user-select: none;
 }
 </style>
