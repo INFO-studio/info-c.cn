@@ -1,6 +1,7 @@
 export { default as Bilibili } from '@/assets/icons/brand/bilibili.svg?component'
 export { default as DavinciResolve } from '@/assets/icons/brand/davinciresolve.svg?component'
 export { default as Electron } from '@/assets/icons/brand/electron.svg?component'
+export { default as Gitee } from '@/assets/icons/brand/gitee.svg?component'
 export { default as Github } from '@/assets/icons/brand/github.svg?component'
 export { default as Mysql } from '@/assets/icons/brand/mysql.svg?component'
 export { default as Node } from '@/assets/icons/brand/node.svg?component'

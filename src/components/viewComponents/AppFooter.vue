@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Github, Bilibili } from '@/assets/icons/brand'
+import { Github, Gitee, Bilibili } from '@/assets/icons/brand'
 import { Mail, Link } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 
@@ -26,6 +26,22 @@ const router = useRouter()
           </n-button>
         </template>
         <span> Github </span>
+      </n-tooltip>
+      <n-tooltip :show-arrow="false" trigger="hover">
+        <template #trigger>
+          <n-button
+            circle
+            quaternary
+            tag="a"
+            target="_blank"
+            href="https://gitee.com/info-studio/info-c.cn"
+          >
+            <n-icon size="24">
+              <Gitee />
+            </n-icon>
+          </n-button>
+        </template>
+        <span> Gitee </span>
       </n-tooltip>
       <n-tooltip :show-arrow="false" trigger="hover">
         <template #trigger>
