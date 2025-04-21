@@ -15,7 +15,6 @@ const anchor = ref()
 const scrollElement = ref()
 onMounted(() => {
   if (isFixed.value) scrollElement.value = anchor.value?.$el.parentElement.parentElement.parentElement.parentElement
-  console.log(scrollElement.value)
 })
 
 const sidebarStore = useSidebarStore()

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import BackhandIndexPointingUp from '@/assets/emojis/raw/backhand-index-pointing-up.webp'
+import FaceWithMonocle from '@/assets/emojis/raw/face-with-monocle.webp'
 </script>
 
 <template>
-  <img :src="BackhandIndexPointingUp" alt="👆" class="emoji" />
+  <img :src="FaceWithMonocle" alt="🧐" class="emoji" />
 </template>
 
 <style scoped>
