@@ -7,7 +7,7 @@ const props = defineProps<{
   chart: string
 }>()
 
-const mermaidContainer = ref(null)
+const mermaidContainer = ref<Element>()
 const themeVars = useThemeVars()
 
 function renderChart() {
@@ -33,8 +33,10 @@ function renderChart() {
   mermaid
     .render(elementId, props.chart)
     .then(({ svg, bindFunctions }) => {
-      mermaidContainer.value.innerHTML = svg
-      if (bindFunctions) bindFunctions(mermaidContainer.value)
+      if(mermaidContainer.value) {
+        mermaidContainer.value.innerHTML = svg
+        if (bindFunctions) bindFunctions(mermaidContainer.value)
+      }
     })
     .catch(err => {
       console.error('Mermaid render error:', err)

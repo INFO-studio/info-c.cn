@@ -52,7 +52,7 @@ export const routes: DocumentRoute = {
       title: '跨域问题及其解决方案',
       tags: ['前端', '后端', '计算机网络'],
       createDate: new Date(2025, 3, 21, 22, 15),
-      createDate: new Date(2025, 3, 22, 14, 10),
+      modifyDate: new Date(2025, 3, 22, 14, 10),
     },
   ],
 }

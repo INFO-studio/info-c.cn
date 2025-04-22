@@ -2,31 +2,18 @@
 import { Copy } from 'lucide-vue-next'
 import { useMessage } from 'naive-ui'
 
-const props = defineProps({
-  code: {
-    type: String,
-    default: undefined,
-  },
-  language: {
-    type: String,
-    default: undefined,
-  },
-  languageName: {
-    type: String,
-    default: undefined,
-  },
-  title: {
-    type: String,
-    default: undefined,
-  },
-  copiable: {
-    type: Boolean | undefined,
-    default: undefined,
-  },
-  showLineNumbers: {
-    type: Boolean,
-    default: undefined,
-  }
+interface Props {
+  code?: string
+  language?: string
+  languageName?: string
+  title?: string
+  copiable?: boolean | undefined
+  showLineNumbers?: boolean | undefined
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  copiable: true,
+  showLineNumbers: false
 })
 
 const message = useMessage()
