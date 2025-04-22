@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant JS      as JavaScript
+    participant Browser as 浏览器
+    participant Server  as 服务器
+    JS      ->>+ Browser: 发起请求<br>不论是否跨域
+    Browser ->>+ Server:  转发请求
+    Server  -->>- Browser: 返回响应<br>浏览器校验
+    alt
+        Browser -->>+ JS: 同源：返回数据
+    else
+        Browser --x- JS: 跨域：抛出异常
+    end

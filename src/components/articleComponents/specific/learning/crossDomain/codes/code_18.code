@@ -1,0 +1,11 @@
+<!-- 客户端源为 https://www.b.com -->
+<body>
+  <script>
+    function displayData(data) {
+      $.getJSON(
+        'https://www.a.com/api?callback=?',  // 无须指定函数
+        (data) => console.log(data)          // 匿名回调函数
+      )
+    }
+  </script>
+</body>

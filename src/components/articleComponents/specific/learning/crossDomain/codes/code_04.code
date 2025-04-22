@@ -1,0 +1,7 @@
+// 客户端源为 https://www.b.com
+async function crossDomain() {
+  const url = 'https://www.a.com/api'  // 跨域请求
+  let result = await fetch(url)
+  let data = await result.json()
+  console.log(data)
+}

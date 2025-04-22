@@ -2,13 +2,32 @@
 import { Copy } from 'lucide-vue-next'
 import { useMessage } from 'naive-ui'
 
-const props = defineProps<{
-  code?: string
-  language?: string
-  title?: string
-  copiable?: boolean
-  showLineNumbers?: boolean
-}>()
+const props = defineProps({
+  code: {
+    type: String,
+    default: undefined,
+  },
+  language: {
+    type: String,
+    default: undefined,
+  },
+  languageName: {
+    type: String,
+    default: undefined,
+  },
+  title: {
+    type: String,
+    default: undefined,
+  },
+  copiable: {
+    type: Boolean | undefined,
+    default: undefined,
+  },
+  showLineNumbers: {
+    type: Boolean,
+    default: undefined,
+  }
+})
 
 const message = useMessage()
 const handleCopy = async () => {
@@ -37,7 +56,7 @@ const handleCopy = async () => {
       <n-grid cols="3">
         <n-grid-item>
           <n-flex justify="left">
-            <n-text code>{{ props.language }}</n-text>
+            <n-text code>{{ props.languageName ?? props.language }}</n-text>
           </n-flex>
         </n-grid-item>
         <n-grid-item>
@@ -46,7 +65,7 @@ const handleCopy = async () => {
           </n-flex>
         </n-grid-item>
         <n-grid-item>
-          <n-flex justify="right">
+          <n-flex v-if="props.copiable ?? true" justify="right">
             <n-button text @click="handleCopy">
               <n-icon>
                 <Copy />

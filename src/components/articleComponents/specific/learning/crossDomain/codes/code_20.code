@@ -1,0 +1,9 @@
+// 客户端源与服务端源均为 https://www.a.com
+const express = require('express')
+const { createProxyMiddleware } = require('http-proxy-middleware')
+const app = express()
+app.use('/api', createProxyMiddleware({
+  target: 'https://www.b.com',  // 目标跨域请求
+  changeOrigin: true,
+  pathRewrite: { '^/api': '' }  // 重写 /api 为空
+}))

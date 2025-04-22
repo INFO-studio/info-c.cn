@@ -42,12 +42,19 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .article-h3 {
-  font-size: 1.5em;
+  font-size: 1.8em;
   border-bottom: 2px dashed v-bind(decorationColor);
   padding-bottom: 0.5em;
 }
 
 .article-h4 {
+  font-size: 1.5em;
+  &:before {
+    background-color: v-bind(decorationColor);
+  }
+}
+
+.article-h5 {
   font-size: 1.3em;
   &:before {
     background-color: v-bind(decorationColor);

@@ -1,0 +1,10 @@
+// 服务端源为 https://www.a.com
+const api = express()
+const data = [1, 2, 3, 4]
+app.get('/api', (req, res) => {
+  const referer = req.get('Referer');
+  const origin = referer ? new URL(referer).origin : null;
+  if(origin === 'https://www.b.com') {
+    res.send(`displayData(${JSON.stringify(data)})`)
+  } else res.sendStatus(403)
+})

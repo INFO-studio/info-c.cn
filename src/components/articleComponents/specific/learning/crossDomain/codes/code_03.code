@@ -1,0 +1,11 @@
+<body>
+  <button onclick="showDOM()">获取 B站 Cookie</button>
+  <iframe id="frame" src="https://www.bilibili.com"></iframe>
+  <script>
+    function showDOM() {
+      const frame = document.getElementById('frame')
+      const bilidoc = frame.contentWindow.document  // 已经报错
+      console.log(bilidoc.cookie)                   // 无法获取
+    }
+  </script>
+</body>

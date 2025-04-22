@@ -1,0 +1,11 @@
+app = require('express')
+cors = require('cors')
+app.use(cors({
+  origin: 'https://www.b.com',
+  methods: ['GET', 'POST', 'PATCH'],
+  allowedHeaders: ['learning', 'coding'],
+  // ... config
+))
+app.patch('/api', (req, res) => {
+  res.send()
+})

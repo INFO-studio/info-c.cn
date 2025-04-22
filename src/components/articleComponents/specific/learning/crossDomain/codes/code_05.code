@@ -1,0 +1,6 @@
+// 服务端源为 https://www.a.com
+const api = express()
+app.get('/api', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.b.com')
+  res.send()
+})

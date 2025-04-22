@@ -1,0 +1,14 @@
+// 服务端源为 https://www.a.com
+const api = express()
+// 预检请求
+app.options('/api', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.b.com')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH')
+  res.setHeader('Access-Control-Allow-Headers', 'learning,coding')
+  res.send()
+})
+app.patch('/api', (req, res) => {
+  // 仍需再次表明允许请求源跨域
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.b.com')
+  res.send()
+})

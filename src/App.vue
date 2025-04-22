@@ -31,13 +31,15 @@ const MainStyle: CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
 }
-const ContentStyle = computed((): CSSProperties => ({
-  padding: '0 2rem 2rem 2rem',
-  width: '100%',
-  maxWidth: windowStore.width < 1800 ? '800px' : '1200px',
-  minWidth: '200px',
-  margin: '1rem auto 0 auto',
-}))
+const ContentStyle = computed(
+  (): CSSProperties => ({
+    padding: '0 2rem 2rem 2rem',
+    width: '100%',
+    maxWidth: windowStore.width < 1800 ? '800px' : '1200px',
+    minWidth: '200px',
+    margin: '1rem auto 0 auto',
+  }),
+)
 
 hljs.registerLanguage('vue', xml)
 

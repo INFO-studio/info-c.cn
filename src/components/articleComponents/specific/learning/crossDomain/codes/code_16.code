@@ -1,0 +1,18 @@
+<!-- 客户端源为 https://www.b.com -->
+<body>
+  <script>
+    // 请求钩子
+    function getData() {
+      // 创建一个新的 <script> 标签
+      const script = document.createElement('script')
+      script.onload = () => {
+        script.remove()  // 调用后即删除该标签
+      }
+      script.src = 'https://www.a.com/api?callback=saveData'
+    }
+    // 回调函数
+    function saveData(data) {
+      console.log(data)
+    }
+  </script>
+</body>

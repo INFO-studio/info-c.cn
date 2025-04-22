@@ -1,0 +1,13 @@
+@RestController
+@RequestMapping("/api")
+public class ApiController {
+    @PatchMapping
+    @CrossOrigin(
+        origins = "https://www.b.com",
+        allowedHeaders = {"learning", "coding"},
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH}
+    )
+    public ResponseEntity<String> handlePatch() {
+        return ResponseEntity.ok("PATCH response");
+    }
+}

@@ -1,0 +1,10 @@
+<!-- 客户端源为 https://www.b.com -->
+<body>
+  <script>
+    function displayData(data) {
+      alert(data)
+    }
+  </script>
+  <!-- 获取后台数据，后台调用 displayData 函数 -->
+  <script src="https://www.a.com/api"></script>
+</body>

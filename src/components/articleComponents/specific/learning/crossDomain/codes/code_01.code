@@ -1,0 +1,10 @@
+<body>
+  <button onclick="showDOM()">获取 B站 DOM</button>
+  <iframe id="frame" src="https://www.bilibili.com"></iframe>
+  <script>
+    function showDOM() {
+      const frame = document.getElementById('frame')
+      console.log(frame.contentWindow.document)  // 报错
+    }
+  </script>
+</body>
