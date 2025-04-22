@@ -18,7 +18,6 @@ function renderChart() {
 
   const config = {
     startOnLoad: false,
-    theme: 'base',
     themeVariables: {
       primaryColor: themeVars.value.primaryColor,
       secondaryColor: themeVars.value.infoColor,
@@ -35,7 +34,7 @@ function renderChart() {
   mermaid
     .render(elementId, props.chart)
     .then(({ svg, bindFunctions }) => {
-      container.innerHTML = svg
+      container['innerHTML'] = svg
       if (bindFunctions) bindFunctions(container)
     })
     .catch(err => {
