@@ -14,7 +14,6 @@ function renderChart() {
   if (!props.chart || !mermaidContainer.value) return
 
   const elementId = `mermaid-${Date.now()}`
-  const container = mermaidContainer.value
 
   const config = {
     startOnLoad: false,
@@ -34,8 +33,8 @@ function renderChart() {
   mermaid
     .render(elementId, props.chart)
     .then(({ svg, bindFunctions }) => {
-      container['innerHTML'] = svg
-      if (bindFunctions) bindFunctions(container)
+      mermaidContainer.value.innerHTML = svg
+      if (bindFunctions) bindFunctions(mermaidContainer.value)
     })
     .catch(err => {
       console.error('Mermaid render error:', err)
