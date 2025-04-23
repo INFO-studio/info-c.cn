@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, watch, ref } from 'vue'
-import mermaid from 'mermaid'
+import mermaid, {type MermaidConfig} from 'mermaid'
 import { useThemeVars } from 'naive-ui'
 
 const props = defineProps<{
@@ -15,16 +15,24 @@ function renderChart() {
 
   const elementId = `mermaid-${Date.now()}`
 
-  const config = {
+  const config: MermaidConfig = {
     startOnLoad: false,
+    theme: 'dark',
     themeVariables: {
       primaryColor: themeVars.value.primaryColor,
       secondaryColor: themeVars.value.infoColor,
       tertiaryColor: themeVars.value.successColor,
       errorColor: themeVars.value.errorColor,
       warningColor: themeVars.value.warningColor,
-      background: themeVars.value.bodyColor,
-      textColor: themeVars.value.textColor1
+      background: themeVars.value.cardColor,
+      textColor: themeVars.value.textColor1,
+      actorBorder: themeVars.value.borderColor,
+      actorBkg: themeVars.value.cardColor,
+      actorLineColor: themeVars.value.borderColor,
+      signalColor: themeVars.value.primaryColor,
+      labelBoxBorderColor: themeVars.value.borderColor,
+      activationBorderColor: themeVars.value.borderColor,
+      activationBkgColor: themeVars.value.primaryColor
     }
   }
 
