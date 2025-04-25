@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import avatar from '@/assets/images/index/avatar.jpg'
 import { motion } from 'motion-v'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useThemeVars } from 'naive-ui'
+import avatar from '@/assets/images/index/avatar.jpg'
 import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
 import {
   Vue,
@@ -22,6 +23,10 @@ import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
 import TechStackIcon from '@/components/articleComponents/specific/appHome/TechStackIcon.vue'
 
+const avatarBackgroundGlow = computed(() => useThemeVars().value.primaryColor)
+
+console.log(avatarBackgroundGlow)
+
 const isAvatarHover = ref(false)
 
 const routeTree = getRouteTree(routes)
@@ -36,13 +41,13 @@ const articlesHome = [
 
 <template>
   <article-content>
-    <n-flex vertical align="center" justify="center">
+    <n-flex vertical align="center" justify="center" class="app-home">
       <div
         class="avatar-wrapper"
         @mouseenter="isAvatarHover = true"
         @mouseleave="isAvatarHover = false"
       >
-        <motion.div :animate="isAvatarHover ? { scale: 0.9, rotate: '-10deg' } : {}">
+        <motion.div :animate="isAvatarHover ? { scale: 0.9, rotate: '-10deg' } : {}" class="avatar">
           <n-avatar draggable="false" round :size="200" :src="avatar" />
         </motion.div>
         <motion.div
@@ -144,5 +149,20 @@ const articlesHome = [
 .article-home {
   flex: 1;
   min-width: 10em;
+}
+
+.avatar {
+  position: relative;
+  &:before {
+    content: "aaaaaa";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: v-bind(avatarBackgroundGlow);
+    filter: blur(100px);
+    opacity: 0.6;
+    z-index: -1;
+  }
 }
 </style>
