@@ -88,7 +88,7 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
     <motion.div
       v-else
       :animate="
-        windowStore.width <= 1200 ? { height: 'unset', opacity: 1 } : { height: 0, opacity: 0 }
+        windowSize.width.value <= 1200 ? { height: 'unset', opacity: 1 } : { height: 0, opacity: 0 }
       "
     >
       <n-card size="small">
