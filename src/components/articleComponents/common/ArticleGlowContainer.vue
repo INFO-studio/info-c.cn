@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useThemeVars } from 'naive-ui'
 import { computed, ref, onMounted, onUnmounted } from 'vue'
-import { useMouseStore } from '@/stores/mouse.ts'
+import { useMouse } from '@vueuse/core'
 
 const props = defineProps({
   glowSize: {
@@ -14,20 +14,20 @@ const themeVars = useThemeVars()
 const primaryColor = computed(() => themeVars.value.primaryColor)
 const borderRadius = computed(() => themeVars.value.borderRadius)
 
-const mouse = useMouseStore()
+const { x, y } = useMouse()
 
 const glowContainer = ref<HTMLElement>()
 
 const mouseX = computed(() => {
   if (!glowContainer.value) return '0%'
   const rect = glowContainer.value.getBoundingClientRect()
-  return `${((mouse.x - rect.left) / rect.width) * 100}%`
+  return `${((x.value - rect.left) / rect.width) * 100}%`
 })
 
 const mouseY = computed(() => {
   if (!glowContainer.value) return '0%'
   const rect = glowContainer.value.getBoundingClientRect()
-  return `${((mouse.y - rect.top) / rect.height) * 100}%`
+  return `${((y.value - rect.top) / rect.height) * 100}%`
 })
 
 const observer = ref<ResizeObserver>()

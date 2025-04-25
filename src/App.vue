@@ -1,21 +1,20 @@
 <script setup lang="ts">
+import { type CSSProperties, computed, onMounted } from 'vue'
 import { RouterView } from 'vue-router'
+import { useThemeVars } from 'naive-ui'
+import { useWindowSize } from '@vueuse/core'
+import hljs from 'highlight.js/lib/core'
+import xml from 'highlight.js/lib/languages/xml'
 import AppHeader from '@/components/viewComponents/AppHeader.vue'
 import AppSidebar from '@/components/viewComponents/AppSidebar.vue'
 import AppBreadcrumb from '@/components/viewComponents/AppBreadcrumb.vue'
-import { type CSSProperties, computed, onMounted, onUnmounted } from 'vue'
 import AppFooter from '@/components/viewComponents/AppFooter.vue'
 import { useThemeStore } from '@/stores/theme.ts'
-import { useMouseStore } from '@/stores/mouse.ts'
-import { useWindowStore } from '@/stores/window.ts'
 import { themeOverrides } from '@/assets/theme'
-import hljs from 'highlight.js/lib/core'
-import xml from 'highlight.js/lib/languages/xml'
 import ArticleFloatButton from '@/components/articleComponents/common/ArticleFloatButton.vue'
 
 const themeStore = useThemeStore()
-const mouseStore = useMouseStore()
-const windowStore = useWindowStore()
+const windowSize = useWindowSize()
 
 const LayoutStyle: CSSProperties = {
   minHeight: '100vh',
@@ -35,7 +34,7 @@ const ContentStyle = computed(
   (): CSSProperties => ({
     padding: '0 2rem 2rem 2rem',
     width: '100%',
-    maxWidth: windowStore.width < 1800 ? '800px' : '1200px',
+    maxWidth: windowSize.width.value < 1800 ? '800px' : '1200px',
     minWidth: '200px',
     margin: '1rem auto 0 auto',
   }),
@@ -44,14 +43,21 @@ const ContentStyle = computed(
 hljs.registerLanguage('vue', xml)
 
 onMounted(() => {
-  window.addEventListener('mousemove', mouseStore.updateMouse)
-  windowStore.updateWindow()
-  window.addEventListener('resize', windowStore.updateWindow)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('mousemove', mouseStore.updateMouse)
-  window.removeEventListener('resize', windowStore.updateWindow)
+  const themeVars = useThemeVars()
+  console.log(
+    '%c欢迎光临「浮音华章」，您已打开控制台，%c请遵守 MIT 协议',
+    `color: black;
+     background-color: ${themeOverrides.common.primaryColor};
+     padding: 2px 0 2px 4px;
+     border-radius: 6px 0 0 6px;
+     font-family: sans-serif;`,
+    `color: maroon;
+     background-color: ${themeOverrides.common.primaryColor};
+     padding: 2px 4px 2px 0;
+     border-radius: 0 6px 6px 0;
+     font-family: sans-serif;
+     font-weight: bold`
+  )
 })
 </script>
 

@@ -25,8 +25,6 @@ import TechStackIcon from '@/components/articleComponents/specific/appHome/TechS
 
 const avatarBackgroundGlow = computed(() => useThemeVars().value.primaryColor)
 
-console.log(avatarBackgroundGlow)
-
 const isAvatarHover = ref(false)
 
 const routeTree = getRouteTree(routes)

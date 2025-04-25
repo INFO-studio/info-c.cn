@@ -4,19 +4,19 @@ import { h, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { Component } from 'vue'
 import type { MenuOption } from 'naive-ui'
+import { useWindowSize } from '@vueuse/core'
 import { File } from 'lucide-vue-next'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
 import type { DocumentRouteTree } from '@/router/interfaces'
 import { useSidebarStore } from '@/stores/sidebar.ts'
-import { useWindowStore } from '@/stores/window.ts'
 
 const sidebarStore = useSidebarStore()
-const windowStore = useWindowStore()
+const windowSize = useWindowSize()
 
-const collapsedWidth = computed(() => (windowStore.width < 600 ? 0 : 64))
-const width = computed(() => (windowStore.width < 600 ? 180 : 240))
-const indent = computed(() => (windowStore.width < 600 ? 16 : 32))
+const collapsedWidth = computed(() => (windowSize.width.value < 600 ? 0 : 64))
+const width = computed(() => (windowSize.width.value < 600 ? 180 : 240))
+const indent = computed(() => (windowSize.width.value < 600 ? 16 : 32))
 
 const handleCollapse = sidebarStore.handleCollapse
 const handleExpand = sidebarStore.handleExpand

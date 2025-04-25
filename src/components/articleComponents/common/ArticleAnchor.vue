@@ -2,7 +2,7 @@
 import { computed, ref, onMounted } from 'vue'
 import { type AnchorItem, useAnchorStore } from '@/stores/anchor.ts'
 import { useSidebarStore } from '@/stores/sidebar.ts'
-import { useWindowStore } from '@/stores/window.ts'
+import { useWindowSize } from '@vueuse/core'
 import { motion } from 'motion-v'
 
 const props = defineProps<{
@@ -14,13 +14,14 @@ const isFixed = computed(() => props.mode === 'fixed')
 const anchor = ref()
 const scrollElement = ref()
 onMounted(() => {
-  if (isFixed.value) scrollElement.value = anchor.value?.$el.parentElement.parentElement.parentElement.parentElement
+  if (isFixed.value)
+    scrollElement.value = anchor.value?.$el.parentElement.parentElement.parentElement.parentElement
 })
 
 const sidebarStore = useSidebarStore()
-const windowStore = useWindowStore()
+const windowSize = useWindowSize()
 
-const anchorMode = computed(() => windowStore.width > 1200 && sidebarStore.isCollapsed)
+const anchorMode = computed(() => windowSize.width.value > 1200 && sidebarStore.isCollapsed)
 
 const anchorStore = useAnchorStore()
 
@@ -86,16 +87,19 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
     </motion.div>
     <motion.div
       v-else
-      :animate="windowStore.width <= 1200 ? { height : 'unset', opacity: 1} : { height: 0, opacity: 0 } "
+      :animate="
+        windowStore.width <= 1200 ? { height: 'unset', opacity: 1 } : { height: 0, opacity: 0 }
+      "
     >
       <n-card size="small">
         <n-collapse>
           <n-collapse-item title="目录" name="1">
-            <n-anchor
-              ref="anchor"
-              :show-background="false"
-            >
-              <n-anchor-link v-for="node1 in anchorTree" :title="node1.title" :href="`#${node1.href}`">
+            <n-anchor ref="anchor" :show-background="false">
+              <n-anchor-link
+                v-for="node1 in anchorTree"
+                :title="node1.title"
+                :href="`#${node1.href}`"
+              >
                 <n-anchor-link
                   v-for="node2 in node1.children"
                   :title="node2.title"

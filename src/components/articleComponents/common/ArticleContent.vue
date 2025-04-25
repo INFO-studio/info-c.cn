@@ -7,9 +7,6 @@ import { routes } from '@/router/routes'
 import ArticleDate from '@/components/articleComponents/common/ArticleDate.vue'
 import ArticleTag from '@/components/articleComponents/common/ArticleTag.vue'
 import ArticleAnchor from '@/components/articleComponents/common/ArticleAnchor.vue'
-import { useWindowStore } from '@/stores/window.ts'
-
-const windowStore = useWindowStore()
 
 const route = useRoute()
 const routeData = getRouteData(route.path, getRouteTree(routes))
@@ -22,11 +19,11 @@ const routeData = getRouteData(route.path, getRouteTree(routes))
       <n-text>{{ routeData.title }}</n-text>
     </n-h2>
     <n-space vertical size="large">
-      <n-space>
+      <n-space v-if="routeData.createDate && routeData.modifyDate">
         <article-date v-if="routeData.createDate" category="create" :date="routeData.createDate" />
         <article-date v-if="routeData.modifyDate" category="modify" :date="routeData.modifyDate" />
       </n-space>
-      <n-space>
+      <n-space v-if="routeData.tags">
         <article-tag v-for="tag in routeData.tags">{{ tag }}</article-tag>
       </n-space>
       <article-anchor mode="inline" />

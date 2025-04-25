@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
+    "@vueuse/core": "^13.1.0",
     "highlight.js": "^11.11.1",
     "katex": "^0.16.21",
     "katex-vue": "^1.0.0",
