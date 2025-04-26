@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, watch, ref } from 'vue'
-import mermaid, {type MermaidConfig} from 'mermaid'
 import { useThemeVars } from 'naive-ui'
+import mermaid, {type MermaidConfig} from 'mermaid'
 
 const props = defineProps<{
   chart: string

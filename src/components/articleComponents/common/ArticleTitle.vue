@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
-import { useThemeVars } from 'naive-ui'
+import { useThemeVars, NH1, NH2, NH3, NH4, NH5, NH6 } from 'naive-ui'
 import { type AnchorItem, useAnchorStore } from '@/stores/anchor'
 
 const props = defineProps({
@@ -30,14 +30,49 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <component
-    :is="`n-h${props.h}`"
-    :prefix="props.h === 4 ? 'bar' : undefined"
+  <n-h1
+    v-if="props.h === 1"
     :id="anchorId"
-    :class="`article-h${props.h}`"
+    class="article-h1"
     ref="titleRef">
     <slot />
-  </component>
+  </n-h1>
+  <n-h2
+    v-else-if="props.h === 2"
+    :id="anchorId"
+    class="article-h2"
+    ref="titleRef">
+    <slot />
+  </n-h2>
+  <n-h3
+    v-else-if="props.h === 3"
+    :id="anchorId"
+    class="article-h3"
+    ref="titleRef">
+    <slot />
+  </n-h3>
+  <n-h4
+    v-else-if="props.h === 4"
+    prefix="bar"
+    :id="anchorId"
+    class="article-h4"
+    ref="titleRef">
+    <slot />
+  </n-h4>
+  <n-h5
+    v-else-if="props.h === 5"
+    :id="anchorId"
+    class="article-h5"
+    ref="titleRef">
+    <slot />
+  </n-h5>
+  <n-h6
+    v-else-if="props.h === 6"
+    :id="anchorId"
+    class="article-h6"
+    ref="titleRef">
+    <slot />
+  </n-h6>
 </template>
 
 <style scoped>

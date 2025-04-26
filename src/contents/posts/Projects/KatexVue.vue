@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import {
+  NP,
+  NA,
+  NIcon,
+  NUl,
+  NLi,
+  NInput
+} from 'naive-ui'
+import { FileCode2 } from 'lucide-vue-next'
 import { NerdFace, BackhandIndexPointingUp } from '@/assets/emojis'
 import { Npm, Github } from '@/assets/icons/brand'
-import { FileCode2 } from 'lucide-vue-next'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 
 const testKatexVueExpression = ref(

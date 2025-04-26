@@ -1,11 +1,16 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import {
+  NH2,
+  NSpace,
+  NP
+} from 'naive-ui'
 import { motion } from 'motion-v'
 import { getRouteData } from '@/router/utils/getRoutePath.ts'
 import { useRoute } from 'vue-router'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
 import ArticleCard from '@/components/articleComponents/common/ArticleCard.vue'
-import { ref } from 'vue'
 
 const route = useRoute()
 const routeData = getRouteData(route.path, getRouteTree(routes))

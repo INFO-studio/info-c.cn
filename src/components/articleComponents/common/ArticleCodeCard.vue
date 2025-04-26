@@ -1,6 +1,18 @@
 <script setup lang="ts">
+import {
+  useMessage,
+  NCard,
+  NSpace,
+  NGrid,
+  NGridItem,
+  NFlex,
+  NIcon,
+  NScrollbar,
+  NCode,
+  NText,
+  NButton
+} from 'naive-ui'
 import { Copy } from 'lucide-vue-next'
-import { useMessage } from 'naive-ui'
 
 interface Props {
   code?: string

@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import {
+  NTag,
+  NFlex,
+  NIcon
+} from 'naive-ui'
 import { Tag } from 'lucide-vue-next'
 import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
 

@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import {
+  NButton,
+  NSpace,
+  NQrCode,
+  NText,
+  NFlex,
+  NIcon,
+  useMessage
+} from 'naive-ui'
 import { Download, ClipboardCopy } from 'lucide-vue-next'
-import { useMessage } from 'naive-ui'
 import { getRouteData } from '@/router/utils/getRoutePath.ts'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'

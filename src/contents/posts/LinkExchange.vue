@@ -1,5 +1,16 @@
 <script setup lang="ts">
 import { type Component, onUnmounted, ref, markRaw } from 'vue'
+import {
+  NList,
+  NListItem,
+  NThing,
+  NAvatar,
+  NIcon,
+  NP,
+  NCode,
+  NTag,
+  NSpace
+} from 'naive-ui'
 import { Link } from 'lucide-vue-next'
 import IconCharwind from '@/assets/images/link_exchange/icon-charwind.svg?component'
 import IconSealParadise from '@/assets/images/link_exchange/icon-sealparadise.png'

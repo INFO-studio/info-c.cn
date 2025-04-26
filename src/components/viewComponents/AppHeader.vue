@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import { useThemeStore } from '@/stores/theme.ts'
-import { Sun, Moon } from 'lucide-vue-next'
 import { ref, watch } from 'vue'
+import {
+  NGrid,
+  NGridItem,
+  NFlex,
+  NButton,
+  NIcon
+} from 'naive-ui'
+import { motion } from 'motion-v'
+import { Sun, Moon } from 'lucide-vue-next'
+import { useThemeStore } from '@/stores/theme.ts'
 import logo from '@/assets/logos/logo.svg?component'
 import titleInfoc from '@/assets/logos/title.svg?component'
 import { themeOverrides } from '@/assets/theme'
-import { motion } from 'motion-v'
 import { useSidebarStore } from '@/stores/sidebar.ts'
 
 const themeStore = useThemeStore()

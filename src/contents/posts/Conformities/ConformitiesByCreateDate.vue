@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import {
+  NTabs,
+  NTabPane,
+  NSpace,
+} from 'naive-ui'
 import { useConformities } from '@/hooks/conformities.ts'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 import { useRouter } from 'vue-router'

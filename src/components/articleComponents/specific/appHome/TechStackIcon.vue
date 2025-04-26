@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type Component, ref } from 'vue'
+import { NFlex, NIcon } from 'naive-ui'
 import { motion } from 'motion-v'
 
 const props = defineProps<{

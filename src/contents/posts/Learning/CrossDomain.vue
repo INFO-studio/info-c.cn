@@ -1,5 +1,14 @@
 <script setup lang="ts">
-import { useThemeVars } from 'naive-ui'
+import {
+  NP,
+  NAlert,
+  NSpace,
+  NText,
+  NA,
+  NUl,
+  NLi,
+  useThemeVars
+} from 'naive-ui'
 import { ArrowRightLeft, CircleOff, CircleCheckBig } from 'lucide-vue-next'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'

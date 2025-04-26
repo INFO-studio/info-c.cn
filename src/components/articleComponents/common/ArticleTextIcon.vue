@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
+import { NIcon } from 'naive-ui'
 
 const props = defineProps<{
   component: Component
   color?: string
-  depth?: 1 | 2 | 3 | 4 | 5 | 6
+  depth?: 1 | 2 | 3 | 4 | 5
   size?: number | string
 }>()
 </script>

@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import { NEllipsis, NIcon } from 'naive-ui'
 import { h, computed } from 'vue'
+import {
+  NLayoutSider,
+  NMenu,
+  NEllipsis,
+  NIcon,
+} from 'naive-ui'
 import { useRoute, useRouter } from 'vue-router'
 import type { Component } from 'vue'
 import type { MenuOption } from 'naive-ui'

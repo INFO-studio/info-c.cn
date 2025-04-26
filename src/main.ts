@@ -6,7 +6,6 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 import App from './App.vue'
 import router from './router'
-import naive from "naive-ui"
 import KatexVue from 'katex-vue'
 
 import 'highlight.js/styles/atom-one-dark.css'
@@ -20,7 +19,6 @@ pinia.use(piniaPluginPersistedstate)
 
 app.use(pinia)
 app.use(router)
-app.use(naive)
 app.use(KatexVue)
 app.use(hljsVuePlugin)
 

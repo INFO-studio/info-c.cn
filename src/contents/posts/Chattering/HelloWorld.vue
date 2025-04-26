@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import {
+  NP,
+  NGrid,
+  NGridItem,
+  NFlex,
+  NA
+} from 'naive-ui'
+
 import MotionConicGradientPointer from '@/components/articleComponents/specific/chattering/helloWorld/MotionConicGradientPointer.vue'
 import MotionReorderAnimation from '@/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue'
 import ArknightsParticle

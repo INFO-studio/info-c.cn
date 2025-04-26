@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { NP } from 'naive-ui'
+</script>
 
 <template>
   <n-p :depth="3" class="article-image-caption">

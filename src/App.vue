@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { type CSSProperties, computed, onMounted } from 'vue'
 import { RouterView } from 'vue-router'
-import { useThemeVars } from 'naive-ui'
+import {
+  NConfigProvider,
+  NMessageProvider,
+  NDialogProvider,
+  NLayout,
+  NLayoutHeader,
+  NLayoutFooter
+} from 'naive-ui'
 import { useWindowSize } from '@vueuse/core'
 import hljs from 'highlight.js/lib/core'
 import xml from 'highlight.js/lib/languages/xml'
@@ -43,7 +50,6 @@ const ContentStyle = computed(
 hljs.registerLanguage('vue', xml)
 
 onMounted(() => {
-  const themeVars = useThemeVars()
   console.log(
     '%c欢迎光临「浮音华章」，您已打开控制台，%c请遵守 MIT 协议',
     `color: black;

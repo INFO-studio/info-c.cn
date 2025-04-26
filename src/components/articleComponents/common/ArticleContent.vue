@@ -1,12 +1,18 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
+import {
+  NH2,
+  NText,
+  NSpace,
+} from 'naive-ui'
 import { motion } from 'motion-v'
 import { getRouteData } from '@/router/utils/getRoutePath.ts'
-import { useRoute } from 'vue-router'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
 import ArticleDate from '@/components/articleComponents/common/ArticleDate.vue'
 import ArticleTag from '@/components/articleComponents/common/ArticleTag.vue'
 import ArticleAnchor from '@/components/articleComponents/common/ArticleAnchor.vue'
+
 
 const route = useRoute()
 const routeData = getRouteData(route.path, getRouteTree(routes))

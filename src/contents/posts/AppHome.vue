@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import { motion } from 'motion-v'
 import { ref, computed } from 'vue'
-import { useThemeVars } from 'naive-ui'
+import {
+  NFlex,
+  NAvatar,
+  NP,
+  NSpace,
+  NTag,
+  NCard,
+  NDivider,
+  useThemeVars
+} from 'naive-ui'
 import avatar from '@/assets/images/index/avatar.jpg'
 import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
 import {
@@ -46,7 +55,7 @@ const articlesHome = [
         @mouseleave="isAvatarHover = false"
       >
         <motion.div :animate="isAvatarHover ? { scale: 0.9, rotate: '-10deg' } : {}" class="avatar">
-          <n-avatar draggable="false" round :size="200" :src="avatar" />
+          <n-avatar round :size="200" :src="avatar" :img-props="{draggable: false}" />
         </motion.div>
         <motion.div
           class="hover-question"
@@ -158,8 +167,7 @@ const articlesHome = [
     height: 100%;
     border-radius: 50%;
     background: v-bind(avatarBackgroundGlow);
-    filter: blur(100px);
-    opacity: 0.6;
+    filter: blur(100px) opacity(0.5);
     z-index: -1;
   }
 }

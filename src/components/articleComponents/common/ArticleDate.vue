@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { NTime } from 'naive-ui'
+
 const props = defineProps<{
   category: 'create' | 'modify'
   date: Date

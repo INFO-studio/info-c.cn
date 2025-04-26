@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import {
+  NCard,
+  NIcon,
+  NSpace,
+  NP
+} from 'naive-ui'
 import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
 import ArticleTag from '@/components/articleComponents/common/ArticleTag.vue'
 import type { DocumentRouteTree } from '@/router/interfaces'

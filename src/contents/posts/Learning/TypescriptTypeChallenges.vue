@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import {
+  NP,
+  NAlert
+} from 'naive-ui'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 </script>
 

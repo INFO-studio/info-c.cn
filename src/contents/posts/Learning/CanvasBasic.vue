@@ -1,5 +1,16 @@
 <script setup lang="ts">
 import { type Component, h } from 'vue'
+import {
+  NP,
+  NAlert,
+  NText,
+  NTabs,
+  NTabPane,
+  NButton,
+  NIcon,
+  NFlex,
+  NDataTable
+} from 'naive-ui'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'
 import ArticleCodeCard from '@/components/articleComponents/common/ArticleCodeCard.vue'
@@ -23,7 +34,6 @@ import {
   code_07,
   code_08,
 } from '@/components/articleComponents/specific/learning/canvasBasic'
-import { NText, NButton, NIcon } from 'naive-ui'
 import { Link, ArrowRight } from 'lucide-vue-next'
 
 const renderCode = (code: string) => h(NText, { code: true }, () => code)

@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import { computed, ref, onMounted } from 'vue'
+import {
+  NAnchor,
+  NAnchorLink,
+  NCard,
+  NCollapse,
+  NCollapseItem
+} from 'naive-ui'
 import { type AnchorItem, useAnchorStore } from '@/stores/anchor.ts'
 import { useSidebarStore } from '@/stores/sidebar.ts'
 import { useWindowSize } from '@vueuse/core'

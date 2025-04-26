@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { File } from 'lucide-vue-next'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import {
+  NBreadcrumb,
+  NBreadcrumbItem,
+  NIcon
+} from 'naive-ui'
+import { File } from 'lucide-vue-next'
 import { routes } from '@/router/routes'
 import { getRoutePath } from '@/router/utils/getRoutePath.ts'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'

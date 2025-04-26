@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, h } from 'vue'
+import {
+  useDialog,
+  NFloatButtonGroup,
+  NFloatButton,
+  NIcon
+} from 'naive-ui'
 import { ChevronUp, CircleArrowOutUpRight } from 'lucide-vue-next'
-import { useDialog, NIcon } from 'naive-ui'
 import { motion } from 'motion-v'
 import ArticleShare from '@/components/articleComponents/common/ArticleShare.vue'
 

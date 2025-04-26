@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import {
+  NH2,
+  NText,
+  NSpace,
+  NP,
+  NUl,
+  NLi,
+  NA
+} from 'naive-ui'
 import { motion } from 'motion-v'
 import { EmojiFaceWithMonocle } from '@/assets/emojis'
 </script>

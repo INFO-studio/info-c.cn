@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import { Github, Gitee, Bilibili } from '@/assets/icons/brand'
-import { Mail, Link } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
+import {
+  NFlex,
+  NP,
+  NTooltip,
+  NButton,
+  NIcon,
+  NDivider
+} from 'naive-ui'
+import { Mail, Link } from 'lucide-vue-next'
+import { Github, Gitee, Bilibili } from '@/assets/icons/brand'
 
 const yearNow: number = new Date().getFullYear()
 const router = useRouter()

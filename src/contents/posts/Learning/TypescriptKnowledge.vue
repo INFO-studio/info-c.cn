@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import {
+  NText,
+  NP
+} from 'naive-ui'
 import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'
 import ArticleCodeCard from '@/components/articleComponents/common/ArticleCodeCard.vue'
@@ -9,13 +13,6 @@ import {
   code_04,
   code_05,
 } from '@/components/articleComponents/specific/learning/typescriptKnowledge'
-
-const Decorator = (foo: number): Function => {
-  console.log(foo + '工厂')
-  return (target: Function) => {
-    console.log(foo + '装饰器')
-  }
-}
 </script>
 
 <template>
