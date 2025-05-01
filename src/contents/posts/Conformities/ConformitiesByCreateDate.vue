@@ -6,12 +6,7 @@ import {
   NSpace,
 } from 'naive-ui'
 import { useConformities } from '@/hooks/conformities.ts'
-import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
-import { useRouter } from 'vue-router'
-import ArticleCard from '@/components/articleComponents/common/ArticleCard.vue'
-
-const router = useRouter()
-
+import { ArticleCard, ArticleContent } from '@/components'
 const conformities = useConformities()
 
 const articleListConformitied = conformities.getArticleListConformitied(

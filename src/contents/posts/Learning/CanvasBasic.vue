@@ -11,9 +11,6 @@ import {
   NFlex,
   NDataTable
 } from 'naive-ui'
-import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
-import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'
-import ArticleCodeCard from '@/components/articleComponents/common/ArticleCodeCard.vue'
 import {
   Canvas01,
   Canvas02,
@@ -35,6 +32,7 @@ import {
   code_08,
 } from '@/components/articleComponents/specific/learning/canvasBasic'
 import { Link, ArrowRight } from 'lucide-vue-next'
+import { ArticleCodeCard, ArticleContent, ArticleTitle } from '@/components'
 
 const renderCode = (code: string) => h(NText, { code: true }, () => code)
 const renderLink = (href: string) =>

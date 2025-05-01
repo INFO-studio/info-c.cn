@@ -7,12 +7,11 @@ import {
   NA
 } from 'naive-ui'
 
+import { ArticleContent, ArticleImageCaption } from '@/components'
 import MotionConicGradientPointer from '@/components/articleComponents/specific/chattering/helloWorld/MotionConicGradientPointer.vue'
 import MotionReorderAnimation from '@/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue'
 import ArknightsParticle
   from '@/components/articleComponents/specific/chattering/helloWorld/ArknightsParticle.vue'
-import ArticleImageCaption from '@/components/articleComponents/common/ArticleImageCaption.vue'
-import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
 </script>
 
 <template>

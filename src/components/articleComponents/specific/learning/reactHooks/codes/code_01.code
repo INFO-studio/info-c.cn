@@ -1,0 +1,8 @@
+import { useState } from 'react'
+
+const myComponent = () => {
+  const [count, setCount] = useState<number>(0)
+  const handleClick1 = () => setCount(count + 1)       // 等效
+  const handleClick2 = () => setCount(pre => pre + 1)  // 等效
+  return <button onClick={handleClick1}>count: {count}</button>
+}

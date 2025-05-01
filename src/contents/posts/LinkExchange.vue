@@ -16,7 +16,7 @@ import IconCharwind from '@/assets/images/link_exchange/icon-charwind.svg?compon
 import IconSealParadise from '@/assets/images/link_exchange/icon-sealparadise.png'
 import IconAzrmedit0x from '@/assets/images/link_exchange/icon-AzrMedit0x.jpg'
 import IconZesuy from '@/assets/images/link_exchange/icon-zesuy.jpg'
-import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
+import { ArticleContent } from '@/components'
 
 interface FriendLink {
   name: string

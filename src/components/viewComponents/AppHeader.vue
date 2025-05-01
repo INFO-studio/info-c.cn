@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed } from 'vue'
 import {
+  useThemeVars,
   NGrid,
   NGridItem,
   NFlex,
@@ -12,19 +13,13 @@ import { Sun, Moon } from 'lucide-vue-next'
 import { useThemeStore } from '@/stores/theme.ts'
 import logo from '@/assets/logos/logo.svg?component'
 import titleInfoc from '@/assets/logos/title.svg?component'
-import { themeOverrides } from '@/assets/theme'
 import { useSidebarStore } from '@/stores/sidebar.ts'
 
 const themeStore = useThemeStore()
-const isDark = ref(themeStore.isDarkTheme)
+const isDark = computed(() => themeStore.isDarkTheme)
 const sidebar = useSidebarStore()
-
-watch(
-  () => themeStore.isDarkTheme,
-  (value) => {
-    isDark.value = value
-  },
-)
+const themeVars = useThemeVars()
+const primaryColor = computed(() => themeVars.value.primaryColor)
 </script>
 
 <template>
@@ -32,7 +27,7 @@ watch(
     <n-grid-item>
       <n-flex align="center" justify="left" class="header-item">
         <n-button text @click="sidebar.toggleCollapsed()">
-          <n-icon :color="themeOverrides.common.primaryColor" size="24">
+          <n-icon :color="primaryColor" size="24">
             <motion.div
               :animate="{ rotate: 0 }"
               :whileHover="{ rotate: sidebar.isCollapsed ? -20 : 20 }"

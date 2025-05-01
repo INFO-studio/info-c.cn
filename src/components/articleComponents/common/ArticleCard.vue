@@ -6,11 +6,11 @@ import {
   NSpace,
   NP
 } from 'naive-ui'
-import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
-import ArticleTag from '@/components/articleComponents/common/ArticleTag.vue'
 import type { DocumentRouteTree } from '@/router/interfaces'
 import { useRouter } from 'vue-router'
 import { motion } from 'motion-v'
+import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
+import ArticleTag from '@/components/articleComponents/common/ArticleTag.vue'
 
 const props = defineProps<{
   article: DocumentRouteTree

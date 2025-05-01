@@ -1,0 +1,14 @@
+import { useState } from 'react'
+
+const myComponent = () => {
+  const [count, setCount] = useState<number>(0)
+  const handleClick = () => {
+    setCount(pre => pre + 1)
+    setCount(pre => pre + 1)
+    setCount(pre => {
+      console.log(pre + 1)
+      return pre + 1
+    })
+  }
+  return <button onClick={handleClick}>count: {count}</button>
+}

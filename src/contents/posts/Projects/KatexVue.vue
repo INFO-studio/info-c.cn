@@ -11,7 +11,7 @@ import {
 import { FileCode2 } from 'lucide-vue-next'
 import { NerdFace, BackhandIndexPointingUp } from '@/assets/emojis'
 import { Npm, Github } from '@/assets/icons/brand'
-import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
+import { ArticleContent } from '@/components'
 
 const testKatexVueExpression = ref(
   '\\underbrace{\\overbrace{a+b}^6 \\cdot \\overbrace{c+d}^7}_\\text{example of text} = 42\\prod_{\\substack{p \\leq x \\\\\\text{p prime}}} \\left( 1 - \\dfrac{1}{p} \\right)',

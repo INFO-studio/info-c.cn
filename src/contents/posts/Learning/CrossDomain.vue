@@ -10,9 +10,6 @@ import {
   useThemeVars
 } from 'naive-ui'
 import { ArrowRightLeft, CircleOff, CircleCheckBig } from 'lucide-vue-next'
-import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
-import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'
-import ArticleTextIcon from '@/components/articleComponents/common/ArticleTextIcon.vue'
 import {
   code_01,
   code_02,
@@ -36,8 +33,13 @@ import {
   code_20,
   mermaid_01,
 } from '@/components/articleComponents/specific/learning/crossDomain'
-import ArticleCodeCard from '@/components/articleComponents/common/ArticleCodeCard.vue'
-import ArticleMermaid from '@/components/articleComponents/common/ArticleMermaid.vue'
+import {
+  ArticleCodeCard,
+  ArticleContent,
+  ArticleMermaid,
+  ArticleTextIcon,
+  ArticleTitle
+} from '@/components'
 
 const ThemeVars = useThemeVars()
 </script>

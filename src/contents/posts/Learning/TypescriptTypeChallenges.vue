@@ -3,7 +3,7 @@ import {
   NP,
   NAlert
 } from 'naive-ui'
-import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
+import { ArticleContent } from '@/components'
 </script>
 
 <template>

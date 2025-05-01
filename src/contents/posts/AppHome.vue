@@ -25,14 +25,17 @@ import {
   Vitest,
   Mysql,
 } from '@/assets/icons/brand'
-import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
-import ArticleCard from '@/components/articleComponents/common/ArticleCard.vue'
 import { getRouteData } from '@/router/utils/getRoutePath.ts'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
 import TechStackIcon from '@/components/articleComponents/specific/appHome/TechStackIcon.vue'
+import { ArticleCard, ArticleContent } from '@/components'
+import { useThemeStore } from '@/stores/theme.ts'
 
-const avatarBackgroundGlow = computed(() => useThemeVars().value.primaryColor)
+const themeVars = useThemeVars()
+const themeStore = useThemeStore()
+const avatarBackgroundGlowColor = computed(() => themeStore.isDarkTheme ? themeVars.value.primaryColor : themeVars.value.primaryColorPressed)
+const avatarBackgroundGlowOpacity = computed(() => themeStore.isDarkTheme ? 0.5 : 0.8)
 
 const isAvatarHover = ref(false)
 
@@ -166,8 +169,11 @@ const articlesHome = [
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: v-bind(avatarBackgroundGlow);
-    filter: blur(100px) opacity(0.5);
+    background: v-bind(avatarBackgroundGlowColor);
+    filter: blur(100px);
+    opacity: v-bind(avatarBackgroundGlowOpacity);
+    transition: opacity .5s, background-color .5s;
+    will-change: opacity, background-color;
     z-index: -1;
   }
 }

@@ -1,13 +1,12 @@
 import { NotebookPen } from 'lucide-vue-next'
 import type { DocumentRoute } from '@/router/interfaces'
-import {
-  CanvasBasic,
-  TypescriptKnowledge,
-  TypescriptTypeChallenges,
-  CrossDomain,
-} from '@/contents/posts/Learning'
 
 const ArticleIndex = () => import('@/components/articleComponents/common/ArticleIndex.vue')
+const CanvasBasic = () => import('@/contents/posts/Learning/CanvasBasic.vue')
+const TypescriptKnowledge = () => import('@/contents/posts/Learning/TypescriptKnowledge.vue')
+const TypescriptTypeChallenges = () => import('@/contents/posts/Learning/TypescriptTypeChallenges.vue')
+const CrossDomain = () => import('@/contents/posts/Learning/CrossDomain.vue')
+const ReactHooks = () => import('@/contents/posts/Learning/ReactHooks.vue')
 
 export const routes: DocumentRoute = {
   path: 'learning',
@@ -53,6 +52,15 @@ export const routes: DocumentRoute = {
       tags: ['前端', '后端', '计算机网络'],
       createDate: new Date(2025, 3, 21, 22, 15),
       modifyDate: new Date(2025, 3, 22, 14, 10),
+    },
+    {
+      path: 'react_hooks',
+      name: 'React Hooks 细节',
+      component: ReactHooks,
+      title: '常见 React Hooks 的使用细节',
+      tags: ['前端', 'React'],
+      createDate: new Date(2025, 4, 1, 15, 58),
+      modifyDate: new Date(2025, 4, 2, 0, 25),
     },
   ],
 }

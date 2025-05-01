@@ -3,9 +3,6 @@ import {
   NText,
   NP
 } from 'naive-ui'
-import ArticleContent from '@/components/articleComponents/common/ArticleContent.vue'
-import ArticleTitle from '@/components/articleComponents/common/ArticleTitle.vue'
-import ArticleCodeCard from '@/components/articleComponents/common/ArticleCodeCard.vue'
 import {
   code_01,
   code_02,
@@ -13,6 +10,7 @@ import {
   code_04,
   code_05,
 } from '@/components/articleComponents/specific/learning/typescriptKnowledge'
+import { ArticleCodeCard, ArticleContent, ArticleTitle } from '@/components'
 </script>
 
 <template>
