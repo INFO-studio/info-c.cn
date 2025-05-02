@@ -34,7 +34,7 @@ export const routes: DocumentRoute = {
       title: 'TypeScript 细碎知识点',
       tags: ['前端', 'TypeScript'],
       createDate: new Date(2025, 3, 13, 19, 1),
-      modifyDate: new Date(2025, 3, 14, 1, 30),
+      modifyDate: new Date(2025, 4, 3, 1, 13),
     },
     {
       path: 'typescript_type_challenges',

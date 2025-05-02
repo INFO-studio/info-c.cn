@@ -1,0 +1,4 @@
+interface X {
+  func(prop: 1 | 2 | 3) : number     // method 方式
+  func: (prop: 1 | 2 | 3) => number  // property 方式
+}

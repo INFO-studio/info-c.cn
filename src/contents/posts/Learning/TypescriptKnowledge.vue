@@ -9,6 +9,10 @@ import {
   code_03,
   code_04,
   code_05,
+  code_06,
+  code_07,
+  code_08,
+  code_09,
 } from '@/components/articleComponents/specific/learning/typescriptKnowledge'
 import { ArticleCodeCard, ArticleContent, ArticleTitle } from '@/components'
 </script>
@@ -63,6 +67,46 @@ import { ArticleCodeCard, ArticleContent, ArticleTitle } from '@/components'
     <article-code-card title="示例" language="TypeScript" :code="code_04" />
     <n-p>执行结果如下</n-p>
     <article-code-card title="执行结果" language="text" :code="code_05" />
+    <article-title :h="3" href="3_类内函数的两种声明方式的差异">3. 函数的两种声明方式的差异</article-title>
+    <n-p>
+      函数有两种声明方式，分别为
+      <n-text code>method</n-text>
+      方式和
+      <n-text code>property</n-text>
+      方式
+    </n-p>
+    <article-code-card title="两种函数声明方式" language="TypeScript" :code="code_06" />
+    <n-p>
+      其中，
+      <n-text code>method</n-text>
+      方式的参数是可以扩宽也可以收窄的
+    </n-p>
+    <article-code-card title="method 声明示例" language="TypeScript" :code="code_07" />
+    <n-p>
+      但
+      <n-text code>property</n-text>
+      方式的参数不可收窄
+    </n-p>
+    <article-code-card title="property 声明示例" language="TypeScript" :code="code_08" />
+    <n-p>
+      于是使用
+      <n-text code>method</n-text>
+      方式定义的参数在使用时会出现如下问题：
+    </n-p>
+    <n-p>
+      一个子类继承了父类，函数接收子类实例对象，并且调用了子类的独有内容，但当调用此函数并传递父类实例对象时，即使父类不具有此内容，TypeScript 也不会察觉并报错
+    </n-p>
+    <n-p>
+      该问题可以使用
+      <n-text code>ESLint</n-text>
+      规避
+    </n-p>
+    <article-code-card title="ESLint 配置" language="JSON" language-name="eslint.config.ts" :code="code_09" />
+    <n-p>
+      该配置项规定了只能使用
+      <n-text code>property</n-text>
+      方式声明方法
+    </n-p>
   </article-content>
 </template>
 

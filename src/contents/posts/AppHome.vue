@@ -12,7 +12,6 @@ import {
   useThemeVars
 } from 'naive-ui'
 import avatar from '@/assets/images/index/avatar.jpg'
-import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
 import {
   Vue,
   React,
@@ -29,13 +28,14 @@ import { getRouteData } from '@/router/utils/getRoutePath.ts'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
 import TechStackIcon from '@/components/articleComponents/specific/appHome/TechStackIcon.vue'
-import { ArticleCard, ArticleContent } from '@/components'
+import { ArticleCard, ArticleContent, ArticleGlowBreath, ArticleGlowContainer } from '@/components'
 import { useThemeStore } from '@/stores/theme.ts'
 
 const themeVars = useThemeVars()
 const themeStore = useThemeStore()
-const avatarBackgroundGlowColor = computed(() => themeStore.isDarkTheme ? themeVars.value.primaryColor : themeVars.value.primaryColorPressed)
-const avatarBackgroundGlowOpacity = computed(() => themeStore.isDarkTheme ? 0.5 : 0.8)
+const avatarBackgroundGlowColor1 = computed(() => themeStore.isDarkTheme ? themeVars.value.primaryColor : themeVars.value.primaryColorPressed)
+const avatarBackgroundGlowColor2 = computed(() => themeStore.isDarkTheme ? themeVars.value.primaryColorPressed : themeVars.value.primaryColor)
+const avatarBackgroundGlowOpacity = computed(() => themeStore.isDarkTheme ? 0.4 : 0.8)
 
 const isAvatarHover = ref(false)
 
@@ -58,7 +58,9 @@ const articlesHome = [
         @mouseleave="isAvatarHover = false"
       >
         <motion.div :animate="isAvatarHover ? { scale: 0.9, rotate: '-10deg' } : {}" class="avatar">
-          <n-avatar round :size="200" :src="avatar" :img-props="{draggable: false}" />
+          <n-avatar round :size="200" :src="avatar" :img-props="{draggable: false}" style="opacity: 0.9;" />
+          <article-glow-breath :color="avatarBackgroundGlowColor1" :opacity="avatarBackgroundGlowOpacity" reversed />
+          <article-glow-breath :color="avatarBackgroundGlowColor2" :opacity="avatarBackgroundGlowOpacity" :blur-radius="40" />
         </motion.div>
         <motion.div
           class="hover-question"
@@ -163,18 +165,10 @@ const articlesHome = [
 
 .avatar {
   position: relative;
-  &:before {
-    content: "aaaaaa";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: v-bind(avatarBackgroundGlowColor);
-    filter: blur(100px);
-    opacity: v-bind(avatarBackgroundGlowOpacity);
-    transition: opacity .5s, background-color .5s;
-    will-change: opacity, background-color;
-    z-index: -1;
-  }
+}
+
+.app-home {
+  position: relative;
+  z-index: 1;
 }
 </style>

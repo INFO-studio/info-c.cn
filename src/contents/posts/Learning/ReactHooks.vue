@@ -10,14 +10,14 @@ import {
 </script>
 
 <template>
-  <ArticleContent>
+  <article-content>
     <n-p>
       <n-alert title="提醒" type="warning">目前文章尚未完成</n-alert>
     </n-p>
-    <article-title :h="3" href="1_useState钩子">
+    <article-title :h="3" href="1_useState状态钩子">
       1.
       <n-text code>useState</n-text>
-      钩子
+      状态钩子
     </article-title>
     <article-title :h="4" href="1_1_使用场景">1.1 使用场景</article-title>
     <n-p>
@@ -147,15 +147,15 @@ import {
       <n-text code>useState</n-text>
       钩子接收到的默认值就会覆盖原有状态，此钩子就无任何意义了
     </n-p>
-    <article-title :h="3" href="2_useEffect钩子">
+    <article-title :h="3" href="2_useEffect副作用钩子">
       2.
       <n-text code>useEffect</n-text>
-      钩子
+      副作用钩子
     </article-title>
     <n-p>
       还 没 写
     </n-p>
-  </ArticleContent>
+  </article-content>
 </template>
 
 <style scoped></style>

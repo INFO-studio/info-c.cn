@@ -1,0 +1,13 @@
+interface X {
+  func: (prop: 1 | 2 | 3) => number  // property 方式
+}
+
+const A: X = {
+  func: (prop: 1 | 2 | 3 | 4) => 1   // 可扩宽
+}
+const B: X = {
+  func: (prop: 1 | 2) => 1           // 报错，不可收窄
+}
+const C: X = {
+  func: (prop: string) => 1          // 报错
+}

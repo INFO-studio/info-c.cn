@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "@typescript-eslint/method-signature-style": [
+      "error",
+      "property"
+    ]
+  }
+}

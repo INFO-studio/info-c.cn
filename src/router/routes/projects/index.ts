@@ -1,7 +1,6 @@
 import type { DocumentRoute } from '@/router/interfaces'
 import { FolderCode } from 'lucide-vue-next'
 
-
 const ArticleIndex = () => import('@/components/articleComponents/common/ArticleIndex.vue')
 const KatexVue = () => import('@/contents/posts/Projects/KatexVue.vue')
 

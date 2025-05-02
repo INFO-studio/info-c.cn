@@ -27,4 +27,19 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'naive-ui': ['naive-ui'],
+          'highlight': ['highlight.js'],
+          'katex': ['katex', 'katex-vue'],
+          'mermaid': ['mermaid'],
+          'vue-core': ['vue', 'vue-router', 'pinia'],
+          'utils': ['@vueuse/core', 'lucide-vue-next']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000
+  }
 })

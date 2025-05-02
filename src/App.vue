@@ -18,7 +18,7 @@ import AppBreadcrumb from '@/components/viewComponents/AppBreadcrumb.vue'
 import AppFooter from '@/components/viewComponents/AppFooter.vue'
 import { useThemeStore } from '@/stores/theme.ts'
 import { themeOverrides } from '@/assets/theme'
-import ArticleFloatButton from '@/components/articleComponents/common/ArticleFloatButton.vue'
+import { ArticleFloatButton, ArticleParticleBackground } from '@/components'
 
 const themeStore = useThemeStore()
 const windowSize = useWindowSize()
@@ -36,6 +36,7 @@ const MainStyle: CSSProperties = {
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
+  position: 'relative',
 }
 const ContentStyle = computed(
   (): CSSProperties => ({
@@ -44,6 +45,8 @@ const ContentStyle = computed(
     maxWidth: windowSize.width.value < 1800 ? '800px' : '1200px',
     minWidth: '200px',
     margin: '1rem auto 0 auto',
+    position: 'relative',
+    zIndex: 1,
   }),
 )
 
@@ -78,6 +81,7 @@ onMounted(() => {
           <n-layout has-sider class="body" :content-style="BodyStyle">
             <app-sidebar />
             <n-layout :content-style="MainStyle">
+              <article-particle-background :quantity="50" :staticity="30" :ease="40" />
               <n-layout-header class="breadcrumb-container">
                 <app-breadcrumb />
               </n-layout-header>
@@ -112,9 +116,12 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   transform: translate(0);
+  background: transparent;
 }
 
 .breadcrumb-container {
   background-color: transparent;
+  position: relative;
+  z-index: 1;
 }
 </style>
