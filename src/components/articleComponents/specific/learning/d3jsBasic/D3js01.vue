@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import * as d3 from 'd3'
-const svg = ref()
+
+interface DataPoint {
+  day: string
+  value: number
+}
+
+const svg = ref<SVGSVGElement>()
 const svgConfig = {
   width: 600,
   height: 400,
+  innerWidth: 600,
+  innerHeight: 400,
   margin: {
     top: 40,
     right: 30,
@@ -19,7 +27,8 @@ const svgConfig = {
     text: '#ffffffcc'
   }
 }
-const data = [
+
+const data: DataPoint[] = [
   { day: '2023-01-01', value: 1 },
   { day: '2023-01-02', value: 2 },
   { day: '2023-01-03', value: 4 },
@@ -32,9 +41,13 @@ const data = [
   { day: '2023-01-10', value: 4 },
   { day: '2023-01-11', value: 1 },
 ]
+
 const initChart = () => {
+  if (!svg.value) return
+
   svgConfig.innerWidth = svgConfig.width - svgConfig.margin.left - svgConfig.margin.right
   svgConfig.innerHeight = svgConfig.height - svgConfig.margin.top - svgConfig.margin.bottom
+
   const svgEl = d3.select(svg.value)
     .attr('width', svgConfig.width)
     .attr('height', svgConfig.height)
@@ -43,47 +56,63 @@ const initChart = () => {
     .style('background-color', svgConfig.colors.background)
     .style('border-radius', '8px')
     .style('box-shadow', '0 2px 8px rgba(0,0,0,0.1)')
+
   const content = svgEl.append('g')
     .attr('transform', `translate(${svgConfig.margin.left}, ${svgConfig.margin.top})`)
+
   const parseTime = d3.timeParse('%Y-%m-%d')
-  const dayGet = (d: any) => parseTime(d.day)
-  const valueGet = (d: any) => d.value
+  const dayGet = (d: DataPoint) => parseTime(d.day) || new Date()
+  const valueGet = (d: DataPoint) => d.value
+
   const dayScale = d3.scaleTime()
     .domain(d3.extent(data, dayGet) as [Date, Date])
     .range([0, svgConfig.innerWidth])
     .nice()
+
   const valueScale = d3.scaleLinear()
     .domain([0, d3.max(data, valueGet) as number])
     .range([svgConfig.innerHeight, 0])
     .nice()
+
   const xAxis = d3.axisBottom(dayScale)
-    .tickFormat(d3.timeFormat('%m-%d'))
+    .tickFormat((d: Date | d3.NumberValue) => {
+      if (d instanceof Date) {
+        return d3.timeFormat('%m-%d')(d)
+      }
+      return ''
+    })
+
   const yAxis = d3.axisLeft(valueScale)
+
   content.append('g')
     .attr('class', 'x-axis')
     .attr('transform', `translate(0, ${svgConfig.innerHeight})`)
-    .call(xAxis)
+    .call(xAxis as any)
     .selectAll('text')
     .style('text-anchor', 'end')
     .attr('dx', '-.8em')
     .attr('dy', '.15em')
     .attr('transform', 'rotate(-45)')
+
   content.append('g')
     .attr('class', 'y-axis')
     .call(yAxis)
+
   content.append('g')
     .attr('class', 'grid')
     .call(d3.axisLeft(valueScale)
       .tickSize(-svgConfig.innerWidth)
-      .tickFormat('' as any)
+      .tickFormat(() => '')
     )
     .selectAll('line')
     .attr('stroke', '#e9ecef')
     .attr('stroke-dasharray', '2,2')
-  const lineGenerator = d3.line()
+
+  const lineGenerator = d3.line<DataPoint>()
     .x(d => dayScale(dayGet(d)))
     .y(d => valueScale(valueGet(d)))
     .curve(d3.curveCatmullRom.alpha(0.5))
+
   content.append('path')
     .datum(data)
     .attr('d', lineGenerator)
@@ -92,6 +121,7 @@ const initChart = () => {
     .attr('stroke-width', 2)
     .attr('stroke-linejoin', 'round')
     .attr('stroke-linecap', 'round')
+
   content.selectAll('.point')
     .data(data)
     .enter()
@@ -103,6 +133,7 @@ const initChart = () => {
     .attr('fill', svgConfig.colors.point)
     .attr('stroke-width', 1.5)
 }
+
 onMounted(() => {
   initChart()
 })
