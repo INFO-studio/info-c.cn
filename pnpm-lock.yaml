@@ -8,39 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@highlightjs/vue-plugin':
-        specifier: ^2.1.0
-        version: 2.1.0(highlight.js@11.11.1)(vue@3.5.13(typescript@5.8.2))
-      '@vueuse/core':
-        specifier: ^13.1.0
-        version: 13.1.0(vue@3.5.13(typescript@5.8.2))
-      highlight.js:
-        specifier: ^11.11.1
-        version: 11.11.1
-      katex:
-        specifier: ^0.16.21
-        version: 0.16.21
-      katex-vue:
-        specifier: ^1.0.0
-        version: 1.0.0(katex@0.16.21)(vue@3.5.13(typescript@5.8.2))
-      lucide-vue-next:
-        specifier: ^0.487.0
-        version: 0.487.0(vue@3.5.13(typescript@5.8.2))
-      motion-v:
-        specifier: 1.0.0-alpha.4
-        version: 1.0.0-alpha.4(vue@3.5.13(typescript@5.8.2))
       pinia:
         specifier: ^3.0.1
         version: 3.0.1(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
       pinia-plugin-persistedstate:
         specifier: ^4.2.0
         version: 4.2.0(pinia@3.0.1(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)))
-      sass:
-        specifier: ^1.86.0
-        version: 1.86.0
-      sass-loader:
-        specifier: ^16.0.5
-        version: 16.0.5(sass@1.86.0)
       unplugin-vue-components:
         specifier: ^28.4.1
         version: 28.4.1(@babel/parser@7.27.0)(@nuxt/kit@3.16.2)(vue@3.5.13(typescript@5.8.2))
@@ -51,9 +24,15 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.8.2))
     devDependencies:
+      '@highlightjs/vue-plugin':
+        specifier: ^2.1.0
+        version: 2.1.0(highlight.js@11.11.1)(vue@3.5.13(typescript@5.8.2))
       '@tsconfig/node22':
         specifier: ^22.0.0
         version: 22.0.1
+      '@types/d3':
+        specifier: ^7.4.3
+        version: 7.4.3
       '@types/node':
         specifier: ^22.13.9
         version: 22.13.14
@@ -72,18 +51,39 @@ importers:
       '@vue/tsconfig':
         specifier: ^0.7.0
         version: 0.7.0(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
+      '@vueuse/core':
+        specifier: ^13.1.0
+        version: 13.1.0(vue@3.5.13(typescript@5.8.2))
+      d3:
+        specifier: ^7.9.0
+        version: 7.9.0
       eslint:
         specifier: ^9.21.0
         version: 9.23.0(jiti@2.4.2)
       eslint-plugin-vue:
         specifier: ~10.0.0
         version: 10.0.0(eslint@9.23.0(jiti@2.4.2))(vue-eslint-parser@10.1.1(eslint@9.23.0(jiti@2.4.2)))
+      highlight.js:
+        specifier: ^11.11.1
+        version: 11.11.1
       jiti:
         specifier: ^2.4.2
         version: 2.4.2
+      katex:
+        specifier: ^0.16.21
+        version: 0.16.21
+      katex-vue:
+        specifier: ^1.0.0
+        version: 1.0.0(katex@0.16.21)(vue@3.5.13(typescript@5.8.2))
+      lucide-vue-next:
+        specifier: ^0.487.0
+        version: 0.487.0(vue@3.5.13(typescript@5.8.2))
       mermaid:
         specifier: ^11.6.0
         version: 11.6.0
+      motion-v:
+        specifier: 1.0.0-alpha.4
+        version: 1.0.0-alpha.4(vue@3.5.13(typescript@5.8.2))
       naive-ui:
         specifier: ^2.41.0
         version: 2.41.0(vue@3.5.13(typescript@5.8.2))
@@ -93,6 +93,12 @@ importers:
       prettier:
         specifier: 3.5.3
         version: 3.5.3
+      sass:
+        specifier: ^1.86.0
+        version: 1.86.0
+      sass-loader:
+        specifier: ^16.0.5
+        version: 16.0.5(sass@1.86.0)
       typescript:
         specifier: ~5.8.0
         version: 5.8.2
