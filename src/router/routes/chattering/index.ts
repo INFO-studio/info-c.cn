@@ -3,6 +3,7 @@ import { MessageCircleMore } from 'lucide-vue-next'
 
 const ArticleIndex = () => import('@/components/articleComponents/common/ArticleIndex.vue')
 const HelloWorld = () => import('@/contents/posts/Chattering/HelloWorld.vue')
+const MisideReview = () => import('@/contents/posts/Chattering/MisideReview.vue')
 
 export const routes: DocumentRoute = {
   path: 'chattering',
@@ -23,6 +24,15 @@ export const routes: DocumentRoute = {
       tags: ['闲聊'],
       createDate: new Date(2025, 3, 2, 0, 57),
       modifyDate: new Date(2025, 3, 3, 11, 14)
+    },
+    {
+      path: 'miside_review',
+      name: '米塔 游玩体验',
+      component: MisideReview,
+      title: '米塔 游玩体验',
+      tags: ['闲聊'],
+      createDate: new Date(2025, 4, 14, 1, 13),
+      modifyDate: new Date(2025, 4, 14, 1, 16),
     },
   ],
 }

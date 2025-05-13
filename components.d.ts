@@ -37,6 +37,7 @@ declare module 'vue' {
     Canvas06: typeof import('./src/components/articleComponents/specific/learning/canvasBasic/Canvas06.vue')['default']
     Canvas07: typeof import('./src/components/articleComponents/specific/learning/canvasBasic/Canvas07.vue')['default']
     D3js01: typeof import('./src/components/articleComponents/specific/learning/d3jsBasic/D3js01.vue')['default']
+    FooterIconButton: typeof import('./src/components/articleComponents/common/FooterIconButton.vue')['default']
     MotionConicGradientPointer: typeof import('./src/components/articleComponents/specific/chattering/helloWorld/MotionConicGradientPointer.vue')['default']
     MotionReorderAnimation: typeof import('./src/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
