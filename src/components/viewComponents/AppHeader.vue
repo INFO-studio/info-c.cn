@@ -8,7 +8,7 @@ import {
   NButton,
   NIcon
 } from 'naive-ui'
-import { motion } from 'motion-v'
+import { motionDiv } from '@/exports/motion.ts'
 import { Sun, Moon } from 'lucide-vue-next'
 import { useThemeStore } from '@/stores/theme.ts'
 import logo from '@/assets/logos/logo.svg?component'
@@ -28,14 +28,14 @@ const primaryColor = computed(() => themeVars.value.primaryColor)
       <n-flex align="center" justify="left" class="header-item">
         <n-button text @click="sidebar.toggleCollapsed()">
           <n-icon :color="primaryColor" size="24">
-            <motion.div
+            <motion-div
               :animate="{ rotate: 0 }"
               :whileHover="{ rotate: sidebar.isCollapsed ? -20 : 20 }"
               :whilePress="{ rotate: sidebar.isCollapsed ? -90 : 90 }"
               style="display: inline-block"
             >
               <logo />
-            </motion.div>
+            </motion-div>
           </n-icon>
         </n-button>
       </n-flex>
@@ -48,7 +48,7 @@ const primaryColor = computed(() => themeVars.value.primaryColor)
     <n-grid-item>
       <n-flex align="center" justify="right" class="header-item">
         <n-button circle quaternary @click="themeStore.changeTheme">
-          <motion.div
+          <motion-div
             :key="isDark ? 'moon' : 'sun'"
             :initial="{ opacity: 0, rotate: -180 }"
             :animate="{ opacity: 1, rotate: 0 }"
@@ -57,7 +57,7 @@ const primaryColor = computed(() => themeVars.value.primaryColor)
           >
             <Moon v-if="isDark" />
             <Sun v-else />
-          </motion.div>
+          </motion-div>
         </n-button>
       </n-flex>
     </n-grid-item>

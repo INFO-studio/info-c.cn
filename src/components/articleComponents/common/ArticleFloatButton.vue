@@ -7,7 +7,7 @@ import {
   NIcon
 } from 'naive-ui'
 import { ChevronUp, CircleArrowOutUpRight } from 'lucide-vue-next'
-import { motion } from 'motion-v'
+import { motionDiv } from '@/exports/motion.ts'
 import ArticleShare from '@/components/articleComponents/common/ArticleShare.vue'
 
 const isBackTopShow = ref<boolean>(false)
@@ -62,7 +62,7 @@ onUnmounted(() => {
     :bottom="20"
     style="transform: translateZ(0)"
   >
-    <motion.div
+    <motion-div
       :initial="{ y: 56 }"
       :animate="{
         y: isBackTopShow ? 0 : 56,
@@ -80,8 +80,8 @@ onUnmounted(() => {
           <CircleArrowOutUpRight />
         </n-icon>
       </n-float-button>
-    </motion.div>
-    <motion.div
+    </motion-div>
+    <motion-div
       :initial="{ opacity: 0, scale: 0.5, y: 50 }"
       :animate="{
         opacity: isBackTopShow ? 1 : 0,
@@ -101,7 +101,7 @@ onUnmounted(() => {
           <ChevronUp />
         </n-icon>
       </n-float-button>
-    </motion.div>
+    </motion-div>
   </n-float-button-group>
 </template>
 

@@ -8,7 +8,7 @@ import {
 } from 'naive-ui'
 import type { DocumentRouteTree } from '@/router/interfaces'
 import { useRouter } from 'vue-router'
-import { motion } from 'motion-v'
+import { motionDiv } from '@/exports/motion.ts'
 import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
 import ArticleTag from '@/components/articleComponents/common/ArticleTag.vue'
 
@@ -33,7 +33,7 @@ const isBlur = computed(() => props.blur)
     @mouseenter="isHover = true"
     @mouseleave="isHover = false"
   >
-    <motion.div
+    <motion-div
       :animate="
         isHover
           ? {
@@ -65,7 +65,7 @@ const isBlur = computed(() => props.blur)
           </n-space>
         </n-space>
       </n-card>
-    </motion.div>
+    </motion-div>
   </article-glow-container>
 </template>
 

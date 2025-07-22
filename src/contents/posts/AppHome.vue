@@ -1,16 +1,7 @@
 <script setup lang="ts">
-import { motion } from 'motion-v'
 import { ref, computed } from 'vue'
-import {
-  NFlex,
-  NAvatar,
-  NP,
-  NSpace,
-  NTag,
-  NCard,
-  NDivider,
-  useThemeVars
-} from 'naive-ui'
+import { motionDiv } from '@/exports/motion.ts'
+import { NFlex, NAvatar, NP, NSpace, NTag, NCard, NDivider, useThemeVars } from 'naive-ui'
 import avatar from '@/assets/images/index/avatar.jpg'
 import {
   Vue,
@@ -33,9 +24,13 @@ import { useThemeStore } from '@/stores/theme.ts'
 
 const themeVars = useThemeVars()
 const themeStore = useThemeStore()
-const avatarBackgroundGlowColor1 = computed(() => themeStore.isDarkTheme ? themeVars.value.primaryColor : themeVars.value.primaryColorPressed)
-const avatarBackgroundGlowColor2 = computed(() => themeStore.isDarkTheme ? themeVars.value.primaryColorPressed : themeVars.value.primaryColor)
-const avatarBackgroundGlowOpacity = computed(() => themeStore.isDarkTheme ? 0.4 : 0.8)
+const avatarBackgroundGlowColor1 = computed(() =>
+  themeStore.isDarkTheme ? themeVars.value.primaryColor : themeVars.value.primaryColorPressed,
+)
+const avatarBackgroundGlowColor2 = computed(() =>
+  themeStore.isDarkTheme ? themeVars.value.primaryColorPressed : themeVars.value.primaryColor,
+)
+const avatarBackgroundGlowOpacity = computed(() => (themeStore.isDarkTheme ? 0.4 : 0.8))
 
 const isAvatarHover = ref(false)
 
@@ -47,6 +42,25 @@ const articlesHome = [
   getRouteData('learning', routeTree),
   getRouteData('conformities', routeTree),
 ]
+
+const tagsMain = ['重庆大学', '前端小废物', '音游吃', '虚拟歌姬业余P', '字节跳动']
+
+const tagsFavour = [
+  'Vocaloid',
+  '魔女之旅',
+  'Project Sekai',
+  'Maimai',
+  '神椿',
+  '任天堂',
+  '空洞骑士',
+  '月亮计划',
+  '明日方舟',
+  '海市蜃楼之馆',
+  '以撒的结合',
+  'Mili',
+  '东方 Project',
+  '鸣潮',
+]
 </script>
 
 <template>
@@ -57,33 +71,38 @@ const articlesHome = [
         @mouseenter="isAvatarHover = true"
         @mouseleave="isAvatarHover = false"
       >
-        <motion.div :animate="isAvatarHover ? { scale: 0.9, rotate: '-10deg' } : {}" class="avatar">
-          <n-avatar round :size="200" :src="avatar" :img-props="{draggable: false}" style="opacity: 0.9;" />
-          <article-glow-breath :color="avatarBackgroundGlowColor1" :opacity="avatarBackgroundGlowOpacity" reversed />
-          <article-glow-breath :color="avatarBackgroundGlowColor2" :opacity="avatarBackgroundGlowOpacity" :blur-radius="40" />
-        </motion.div>
-        <motion.div
+        <motion-div :animate="isAvatarHover ? { scale: 0.9, rotate: '-10deg' } : {}" class="avatar">
+          <n-avatar
+            round
+            :size="200"
+            :src="avatar"
+            :img-props="{ draggable: false }"
+            style="opacity: 0.9"
+          />
+          <article-glow-breath
+            :color="avatarBackgroundGlowColor1"
+            :opacity="avatarBackgroundGlowOpacity"
+            reversed
+          />
+          <article-glow-breath
+            :color="avatarBackgroundGlowColor2"
+            :opacity="avatarBackgroundGlowOpacity"
+            :blur-radius="40"
+          />
+        </motion-div>
+        <motion-div
           class="hover-question"
           :initial="{ opacity: 0 }"
           :animate="isAvatarHover ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }"
         >
           ?
-        </motion.div>
+        </motion-div>
       </div>
       <n-flex vertical align="center" justify="center">
         <n-p class="name">茵符草</n-p>
         <n-space>
-          <article-glow-container class="main-tag-glow">
-            <n-tag round :bordered="false">重庆大学</n-tag>
-          </article-glow-container>
-          <article-glow-container class="main-tag-glow">
-            <n-tag round :bordered="false">前端小废物</n-tag>
-          </article-glow-container>
-          <article-glow-container class="main-tag-glow">
-            <n-tag round :bordered="false">音游吃</n-tag>
-          </article-glow-container>
-          <article-glow-container class="main-tag-glow">
-            <n-tag round :bordered="false">Vocaloid 业余P</n-tag>
+          <article-glow-container v-for="tag in tagsMain" :key="tag" class="main-tag-glow">
+            <n-tag round :bordered="false">{{ tag }}</n-tag>
           </article-glow-container>
         </n-space>
         <n-card title="技术栈" :bordered="false" class="no-background-card">
@@ -105,19 +124,7 @@ const articlesHome = [
         </n-card>
         <n-card title="查成分" :bordered="false" class="no-background-card">
           <n-space>
-            <n-tag round>Vocaloid</n-tag>
-            <n-tag round>魔女之旅</n-tag>
-            <n-tag round>Project Sekai</n-tag>
-            <n-tag round>Maimai</n-tag>
-            <n-tag round>任天堂</n-tag>
-            <n-tag round>空洞骑士</n-tag>
-            <n-tag round>月亮计划</n-tag>
-            <n-tag round>明日方舟</n-tag>
-            <n-tag round>海市蜃楼之馆</n-tag>
-            <n-tag round>以撒的结合</n-tag>
-            <n-tag round>Mili</n-tag>
-            <n-tag round>东方 Project</n-tag>
-            <n-tag round>炉石传说</n-tag>
+            <n-tag round v-for="tag in tagsFavour" :key="tag">{{ tag }}</n-tag>
           </n-space>
         </n-card>
         <n-card title="看导航" :bordered="false" class="no-background-card">
@@ -125,12 +132,18 @@ const articlesHome = [
             <article-card v-for="article in articlesHome" :article="article" class="article-home" />
           </n-flex>
         </n-card>
+        <n-card title="元信息" :bordered="false" class="no-background-card">
+          <n-flex vertical>
+            <n-text>最近更新时间：2025-07-22</n-text>
+            <n-text>更新内容：首页标签</n-text>
+          </n-flex>
+        </n-card>
       </n-flex>
     </n-flex>
   </article-content>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .avatar-wrapper {
   position: relative;
   padding: 10px 0;

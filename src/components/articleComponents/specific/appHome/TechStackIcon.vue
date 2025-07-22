@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Component, ref } from 'vue'
 import { NFlex, NIcon } from 'naive-ui'
-import { motion } from 'motion-v'
+import { motionDiv } from '@/exports/motion.ts'
 
 const props = defineProps<{
   title: string
@@ -23,7 +23,7 @@ const isHover = ref(false)
     <n-icon :color="props.color" size="24">
       <component :is="props.icon" />
     </n-icon>
-    <motion.div
+    <motion-div
       :initial="{
         opacity: 0,
       }"
@@ -41,7 +41,7 @@ const isHover = ref(false)
       class="tech-stack-icon-title"
     >
       {{ props.title }}
-    </motion.div>
+    </motion-div>
   </n-flex>
 </template>
 

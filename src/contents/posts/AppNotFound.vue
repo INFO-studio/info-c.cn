@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { NH2, NText, NSpace, NP, NUl, NLi, NA } from 'naive-ui'
-import { motion } from 'motion-v'
+import { motionDiv } from '@/exports/motion.ts'
 import { EmojiFaceWithMonocle } from '@/assets/emojis'
 
 function mergeSort<T>(array: T[], compareFn?: (a: T, b: T) => number): T[] {
@@ -48,7 +48,7 @@ console.log(mergeSort(objects, (a, b) => a.id - b.id))
 </script>
 
 <template>
-  <motion.div :initial="{ opacity: 0, y: 100 }" :animate="{ opacity: 1, y: 0 }" class="article">
+  <motion-div :initial="{ opacity: 0, y: 100 }" :animate="{ opacity: 1, y: 0 }" class="article">
     <n-h2 prefix="bar" align-text class="article-title">
       <n-text>
         <EmojiFaceWithMonocle />
@@ -77,7 +77,7 @@ console.log(mergeSort(objects, (a, b) => a.id - b.id))
         </n-li>
       </n-ul>
     </n-space>
-  </motion.div>
+  </motion-div>
 </template>
 
 <style scoped>

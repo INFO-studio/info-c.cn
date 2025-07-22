@@ -10,7 +10,7 @@ import {
 import { type AnchorItem, useAnchorStore } from '@/stores/anchor.ts'
 import { useSidebarStore } from '@/stores/sidebar.ts'
 import { useWindowSize } from '@vueuse/core'
-import { motion } from 'motion-v'
+import { motionDiv } from '@/exports/motion.ts'
 
 const props = defineProps<{
   mode: 'fixed' | 'inline'
@@ -63,7 +63,7 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
 
 <template>
   <div v-if="anchorTree.length">
-    <motion.div
+    <motion-div
       v-if="isFixed"
       :animate="anchorMode ? { opacity: 1 } : { opacity: 0 }"
       :style="{ pointerEvents: isFixed ? (anchorMode ? 'auto' : 'none') : 'auto' }"
@@ -91,8 +91,8 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
           </n-anchor-link>
         </n-anchor-link>
       </n-anchor>
-    </motion.div>
-    <motion.div
+    </motion-div>
+    <motion-div
       v-else
       :animate="
         windowSize.width.value <= 1200 ? { height: 'unset', opacity: 1 } : { height: 0, opacity: 0 }
@@ -124,7 +124,7 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
           </n-collapse-item>
         </n-collapse>
       </n-card>
-    </motion.div>
+    </motion-div>
   </div>
 </template>
 

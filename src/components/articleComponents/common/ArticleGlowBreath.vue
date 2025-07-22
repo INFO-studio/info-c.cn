@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { motion } from 'motion-v'
 import { computed } from 'vue'
+import { motionDiv } from '@/exports/motion.ts'
 
 interface Props {
   color?: string
@@ -23,7 +23,7 @@ const glowStyle = computed(() => ({
 </script>
 
 <template>
-  <motion.div
+  <motion-div
     class="glow-effect"
     :style="glowStyle"
     :animate="{
@@ -50,4 +50,4 @@ const glowStyle = computed(() => ({
   will-change: transform, opacity;
   transform: translate(-50%, -50%);
 }
-</style> 
+</style>

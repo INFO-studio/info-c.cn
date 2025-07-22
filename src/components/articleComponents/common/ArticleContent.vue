@@ -5,7 +5,7 @@ import {
   NText,
   NSpace,
 } from 'naive-ui'
-import { motion } from 'motion-v'
+import { motionDiv } from '@/exports/motion.ts'
 import { getRouteData } from '@/router/utils/getRoutePath.ts'
 import { getRouteTree } from '@/router/utils/getRouteTree.ts'
 import { routes } from '@/router/routes'
@@ -20,7 +20,7 @@ const routeData = getRouteData(route.path, getRouteTree(routes))
 
 <template>
   <article-anchor mode="fixed" />
-  <motion.div :initial="{ opacity: 0, y: 100 }" :animate="{ opacity: 1, y: 0 }" class="article">
+  <motion-div :initial="{ opacity: 0, y: 100 }" :animate="{ opacity: 1, y: 0 }" class="article">
     <n-h2 v-if="routeData.title" prefix="bar" align-text class="article-title">
       <n-text>{{ routeData.title }}</n-text>
     </n-h2>
@@ -37,7 +37,7 @@ const routeData = getRouteData(route.path, getRouteTree(routes))
         <slot />
       </div>
     </n-space>
-  </motion.div>
+  </motion-div>
 </template>
 
 <style scoped></style>
