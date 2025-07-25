@@ -52,5 +52,6 @@ const isHover = ref(false)
   text-shadow: 0 0 10px;
   z-index: 1;
   user-select: none;
+  pointer-events: none;
 }
 </style>
