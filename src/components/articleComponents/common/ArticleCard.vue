@@ -36,10 +36,7 @@ const isBlur = computed(() => props.blur);
               y: -1.5,
             }
           : {
-              filter: isBlur ? 'blur(2px)' : 'none',
-              transition: {
-                filter: { type: 'ease' },
-              },
+              filter: isBlur ? 'blur(1px)' : 'none',
             }
       "
       :whilePress="{

@@ -25,7 +25,7 @@ function merge<T>(left: T[], right: T[], compareFn: (a: T, b: T) => number): T[]
 	let result: T[] = [];
 	let leftIndex = 0;
 	let rightIndex = 0;
-	while (leftIndex < left.length && rightIndex < right.length) {
+	while (leftIndex < left.length && rightIndex < right.length && left[leftIndex] && right[rightIndex]) {
 		if (compareFn(left[leftIndex], right[rightIndex]) <= 0) {
 			result.push(left[leftIndex]);
 			leftIndex++;

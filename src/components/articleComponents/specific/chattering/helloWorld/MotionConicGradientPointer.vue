@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { motion } from "motion-v";
 
+const MotionSvg = motion.svg
+const MotionCircle = motion.circle
+const MotionLine = motion.line
+const MotionRect = motion.rect
+
 const draw = {
 	hidden: { pathLength: 0, opacity: 0 },
 	visible: (j: unknown) => {
@@ -12,21 +17,17 @@ const draw = {
 			transition: {
 				pathLength: {
 					delay,
-					type: "spring",
+					type: 'spring' as const,
 					duration: 1.5,
 					bounce: 0,
 					repeat: Infinity,
-					repeatType: "reverse",
+					repeatType: 'reverse' as const,
 				},
 				opacity: { delay, duration: 0.01 },
 			},
 		};
 	},
 };
-
-/**
- * ==============   Styles   ================
- */
 
 const image = {
 	maxWidth: "80vw",
@@ -40,7 +41,7 @@ const shape = {
 </script>
 
 <template>
-  <motion.svg
+  <motion-svg
     width="200"
     height="200"
     viewBox="0 0 200 200"
@@ -48,7 +49,7 @@ const shape = {
     animate="visible"
     :style="image"
   >
-    <motion.circle
+    <motion-circle
       class="circle-path"
       :cx="100 / 3"
       :cy="100 / 3"
@@ -58,7 +59,7 @@ const shape = {
       :custom="1"
       :style="shape"
     />
-    <motion.line
+    <motion-line
       :x1="220 / 3"
       :y1="30 / 3"
       :x2="360 / 3"
@@ -68,7 +69,7 @@ const shape = {
       :custom="2"
       :style="shape"
     />
-    <motion.line
+    <motion-line
       :x1="220 / 3"
       :y1="170 / 3"
       :x2="360 / 3"
@@ -78,7 +79,7 @@ const shape = {
       :custom="2.5"
       :style="shape"
     />
-    <motion.rect
+    <motion-rect
       :width="140 / 3"
       :height="140 / 3"
       :x="410 / 3"
@@ -89,7 +90,7 @@ const shape = {
       :custom="3"
       :style="shape"
     />
-    <motion.circle
+    <motion-circle
       :cx="100 / 3"
       :cy="300 / 3"
       :r="80 / 3"
@@ -98,7 +99,7 @@ const shape = {
       :custom="2"
       :style="shape"
     />
-    <motion.line
+    <motion-line
       :x1="220 / 3"
       :y1="230 / 3"
       :x2="360 / 3"
@@ -108,7 +109,7 @@ const shape = {
       :variants="draw"
       :style="shape"
     />
-    <motion.line
+    <motion-line
       :x1="220 / 3"
       :y1="370 / 3"
       :x2="360 / 3"
@@ -118,7 +119,7 @@ const shape = {
       :variants="draw"
       :style="shape"
     />
-    <motion.rect
+    <motion-rect
       :width="140 / 3"
       :height="140 / 3"
       :x="410 / 3"
@@ -129,7 +130,7 @@ const shape = {
       :variants="draw"
       :style="shape"
     />
-    <motion.circle
+    <motion-circle
       :cx="100 / 3"
       :cy="500 / 3"
       :r="80 / 3"
@@ -138,7 +139,7 @@ const shape = {
       :custom="3"
       :style="shape"
     />
-    <motion.line
+    <motion-line
       :x1="220 / 3"
       :y1="430 / 3"
       :x2="360 / 3"
@@ -148,7 +149,7 @@ const shape = {
       :custom="4"
       :style="shape"
     />
-    <motion.line
+    <motion-line
       :x1="220 / 3"
       :y1="570 / 3"
       :x2="360 / 3"
@@ -158,7 +159,7 @@ const shape = {
       :custom="4.5"
       :style="shape"
     />
-    <motion.rect
+    <motion-rect
       :width="140 / 3"
       :height="140 / 3"
       :x="410 / 3"
@@ -169,5 +170,5 @@ const shape = {
       :custom="5"
       :style="shape"
     />
-  </motion.svg>
+  </motion-svg>
 </template>

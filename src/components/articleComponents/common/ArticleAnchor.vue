@@ -37,10 +37,10 @@ const buildAnchorTree = (items: AnchorItem[]) => {
 
 	for (const item of items) {
 		const node = { ...item, children: [] };
-		while (stack.length > 0 && stack[stack.length - 1].level >= node.level) {
+		while (stack.length > 0 && stack[stack.length - 1] !== undefined && stack[stack.length - 1].level >= node.level) {
 			stack.pop();
 		}
-		if (stack.length === 0) {
+		if (stack.length === 0 || stack[stack.length - 1] === undefined) {
 			result.push(node);
 		} else {
 			stack[stack.length - 1].children.push(node);

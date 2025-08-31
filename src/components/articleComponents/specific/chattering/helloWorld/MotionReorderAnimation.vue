@@ -2,6 +2,8 @@
 import { motion } from "motion-v";
 import { type CSSProperties, onBeforeUnmount, onMounted, ref } from "vue";
 
+const MotionLi = motion.li
+
 const initialOrder = ["#ff0088", "#dd00ee", "#9911ff", "#0d63f8"];
 
 const order = ref([...initialOrder]);
@@ -32,7 +34,7 @@ function shuffle([...array]: string[]) {
  */
 
 const spring = {
-	type: "spring",
+	type: "spring" as const,
 	damping: 20,
 	stiffness: 300,
 };
@@ -60,7 +62,7 @@ const item = {
 
 <template>
   <ul :style="container">
-    <motion.li
+    <motion-li
       v-for="backgroundColor in order"
       :key="backgroundColor"
       layout
