@@ -1,21 +1,16 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import {
-  NH2,
-  NText,
-  NSpace,
-} from 'naive-ui'
-import { motionDiv } from '@/exports/motion.ts'
-import { getRouteData } from '@/router/utils/getRoutePath.ts'
-import { getRouteTree } from '@/router/utils/getRouteTree.ts'
-import { routes } from '@/router/routes'
-import ArticleAnchor from '@/components/articleComponents/common/ArticleAnchor.vue'
-import ArticleDate from '@/components/articleComponents/common/ArticleDate.vue'
-import ArticleTag from '@/components/articleComponents/common/ArticleTag.vue'
+import { NH2, NSpace, NText } from "naive-ui";
+import { useRoute } from "vue-router";
+import ArticleAnchor from "@/components/articleComponents/common/ArticleAnchor.vue";
+import ArticleDate from "@/components/articleComponents/common/ArticleDate.vue";
+import ArticleTag from "@/components/articleComponents/common/ArticleTag.vue";
+import { motionDiv } from "@/exports/motion.ts";
+import { routes } from "@/router/routes";
+import { getRouteData } from "@/router/utils/getRoutePath.ts";
+import { getRouteTree } from "@/router/utils/getRouteTree.ts";
 
-
-const route = useRoute()
-const routeData = getRouteData(route.path, getRouteTree(routes))
+const route = useRoute();
+const routeData = getRouteData(route.path, getRouteTree(routes));
 </script>
 
 <template>
@@ -39,5 +34,3 @@ const routeData = getRouteData(route.path, getRouteTree(routes))
     </n-space>
   </motion-div>
 </template>
-
-<style scoped></style>

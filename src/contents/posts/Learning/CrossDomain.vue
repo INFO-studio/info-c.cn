@@ -1,47 +1,32 @@
 <script setup lang="ts">
+import { ArrowRightLeft, CircleCheckBig, CircleOff } from "lucide-vue-next";
+import { NA, NAlert, NLi, NP, NSpace, NText, NUl, useThemeVars } from "naive-ui";
+import { ArticleCodeCard, ArticleContent, ArticleMermaid, ArticleTextIcon, ArticleTitle } from "@/components";
 import {
-  NP,
-  NAlert,
-  NSpace,
-  NText,
-  NA,
-  NUl,
-  NLi,
-  useThemeVars
-} from 'naive-ui'
-import { ArrowRightLeft, CircleOff, CircleCheckBig } from 'lucide-vue-next'
-import {
-  code_01,
-  code_02,
-  code_03,
-  code_04,
-  code_05,
-  code_06,
-  code_07,
-  code_08,
-  code_09,
-  code_10,
-  code_11,
-  code_12,
-  code_13,
-  code_14,
-  code_15,
-  code_16,
-  code_17,
-  code_18,
-  code_19,
-  code_20,
-  mermaid_01,
-} from '@/components/articleComponents/specific/learning/crossDomain'
-import {
-  ArticleCodeCard,
-  ArticleContent,
-  ArticleMermaid,
-  ArticleTextIcon,
-  ArticleTitle
-} from '@/components'
+	code_01,
+	code_02,
+	code_03,
+	code_04,
+	code_05,
+	code_06,
+	code_07,
+	code_08,
+	code_09,
+	code_10,
+	code_11,
+	code_12,
+	code_13,
+	code_14,
+	code_15,
+	code_16,
+	code_17,
+	code_18,
+	code_19,
+	code_20,
+	mermaid_01,
+} from "@/components/articleComponents/specific/learning/crossDomain";
 
-const ThemeVars = useThemeVars()
+const ThemeVars = useThemeVars();
 </script>
 
 <template>

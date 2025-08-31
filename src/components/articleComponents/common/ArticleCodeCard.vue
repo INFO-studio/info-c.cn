@@ -1,56 +1,44 @@
 <script setup lang="ts">
-import {
-  useMessage,
-  NCard,
-  NSpace,
-  NGrid,
-  NGridItem,
-  NFlex,
-  NIcon,
-  NScrollbar,
-  NCode,
-  NText,
-  NButton
-} from 'naive-ui'
-import { Copy } from 'lucide-vue-next'
+import { Copy } from "lucide-vue-next";
+import { NButton, NCard, NCode, NFlex, NGrid, NGridItem, NIcon, NScrollbar, NSpace, NText, useMessage } from "naive-ui";
 
 interface Props {
-  code?: string
-  language?: string
-  languageName?: string
-  title?: string
-  copiable?: boolean | undefined
-  showLineNumbers?: boolean | undefined
+	code?: string;
+	language?: string;
+	languageName?: string;
+	title?: string;
+	copiable?: boolean | undefined;
+	showLineNumbers?: boolean | undefined;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  copiable: true,
-  showLineNumbers: false
-})
+	copiable: true,
+	showLineNumbers: false,
+});
 
-const message = useMessage()
+const message = useMessage();
 const handleCopy = async () => {
-  if (props.code?.trim()) {
-    try {
-      await navigator.clipboard.writeText(props.code.trim())
-      message.success('源码已复制')
-    } catch (err) {
-      const textarea = document.createElement('textarea')
-      textarea.value = props.code.trim()
-      textarea.style.position = 'fixed'
-      textarea.style.opacity = '0'
-      document.body.appendChild(textarea)
-      textarea.select()
-      const success = document.execCommand('copy')
-      document.body.removeChild(textarea)
-      success ? message.success('源码已复制') : message.error('复制失败')
-    }
-  }
-}
+	if (props.code?.trim()) {
+		try {
+			await navigator.clipboard.writeText(props.code.trim());
+			message.success("源码已复制");
+		} catch (err) {
+			const textarea = document.createElement("textarea");
+			textarea.value = props.code.trim();
+			textarea.style.position = "fixed";
+			textarea.style.opacity = "0";
+			document.body.appendChild(textarea);
+			textarea.select();
+			const success = document.execCommand("copy");
+			document.body.removeChild(textarea);
+			success ? message.success("源码已复制") : message.error("复制失败");
+		}
+	}
+};
 </script>
 
 <template>
-  <n-card embedded class="article-code-card">
+  <n-card embedded class="py-4">
     <n-space vertical>
       <n-grid cols="3">
         <n-grid-item>
@@ -78,19 +66,9 @@ const handleCopy = async () => {
           :code="props.code"
           :language="props.language"
           :show-line-numbers="props.showLineNumbers"
-          class="article-code-display"
+          class="pb-4"
         />
       </n-scrollbar>
     </n-space>
   </n-card>
 </template>
-
-<style scoped>
-.article-code-card {
-  margin: 16px 0;
-}
-
-.article-code-display {
-  padding-bottom: 16px;
-}
-</style>

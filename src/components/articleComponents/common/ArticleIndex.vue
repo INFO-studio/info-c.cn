@@ -1,20 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import {
-  NH2,
-  NSpace,
-  NP
-} from 'naive-ui'
-import { motionDiv } from '@/exports/motion'
-import { getRouteData } from '@/router/utils/getRoutePath.ts'
-import { useRoute } from 'vue-router'
-import { getRouteTree } from '@/router/utils/getRouteTree.ts'
-import { routes } from '@/router/routes'
-import ArticleCard from '@/components/articleComponents/common/ArticleCard.vue'
+import { NH2, NP, NSpace } from "naive-ui";
+import { ref } from "vue";
+import { useRoute } from "vue-router";
+import ArticleCard from "@/components/articleComponents/common/ArticleCard.vue";
+import { motionDiv } from "@/exports/motion";
+import { routes } from "@/router/routes";
+import { getRouteData } from "@/router/utils/getRoutePath.ts";
+import { getRouteTree } from "@/router/utils/getRouteTree.ts";
 
-const route = useRoute()
-const routeData = getRouteData(route.path, getRouteTree(routes))
-const hoverPath = ref<string | null>(null)
+const route = useRoute();
+const routeData = getRouteData(route.path, getRouteTree(routes));
+const hoverPath = ref<string | null>(null);
 </script>
 
 <template>
@@ -34,5 +30,3 @@ const hoverPath = ref<string | null>(null)
     </n-space>
   </motion-div>
 </template>
-
-<style scoped></style>

@@ -1,8 +1,8 @@
-export * from '@/components/articleComponents/specific/learning/canvasBasic/codes'
-export { default as Canvas01} from '@/components/articleComponents/specific/learning/canvasBasic/Canvas01.vue'
-export { default as Canvas02} from '@/components/articleComponents/specific/learning/canvasBasic/Canvas02.vue'
-export { default as Canvas03} from '@/components/articleComponents/specific/learning/canvasBasic/Canvas03.vue'
-export { default as Canvas04} from '@/components/articleComponents/specific/learning/canvasBasic/Canvas04.vue'
-export { default as Canvas05} from '@/components/articleComponents/specific/learning/canvasBasic/Canvas05.vue'
-export { default as Canvas06} from '@/components/articleComponents/specific/learning/canvasBasic/Canvas06.vue'
-export { default as Canvas07} from '@/components/articleComponents/specific/learning/canvasBasic/Canvas07.vue'
+export { default as Canvas01 } from "@/components/articleComponents/specific/learning/canvasBasic/Canvas01.vue";
+export { default as Canvas02 } from "@/components/articleComponents/specific/learning/canvasBasic/Canvas02.vue";
+export { default as Canvas03 } from "@/components/articleComponents/specific/learning/canvasBasic/Canvas03.vue";
+export { default as Canvas04 } from "@/components/articleComponents/specific/learning/canvasBasic/Canvas04.vue";
+export { default as Canvas05 } from "@/components/articleComponents/specific/learning/canvasBasic/Canvas05.vue";
+export { default as Canvas06 } from "@/components/articleComponents/specific/learning/canvasBasic/Canvas06.vue";
+export { default as Canvas07 } from "@/components/articleComponents/specific/learning/canvasBasic/Canvas07.vue";
+export * from "@/components/articleComponents/specific/learning/canvasBasic/codes";

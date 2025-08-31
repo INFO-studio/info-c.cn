@@ -1,27 +1,20 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import {
-  NP,
-  NA,
-  NIcon,
-  NUl,
-  NLi,
-  NInput
-} from 'naive-ui'
-import { FileCode2 } from 'lucide-vue-next'
-import { NerdFace, BackhandIndexPointingUp } from '@/assets/emojis'
-import { Npm, Github } from '@/assets/icons/brand'
-import { ArticleContent } from '@/components'
+import { FileCode2 } from "lucide-vue-next";
+import { NA, NIcon, NInput, NLi, NP, NUl } from "naive-ui";
+import { ref, watch } from "vue";
+import { BackhandIndexPointingUp, NerdFace } from "@/assets/emojis";
+import { Github, Npm } from "@/assets/icons/brand";
+import { ArticleContent } from "@/components";
 
 const testKatexVueExpression = ref(
-  '\\underbrace{\\overbrace{a+b}^6 \\cdot \\overbrace{c+d}^7}_\\text{example of text} = 42\\prod_{\\substack{p \\leq x \\\\\\text{p prime}}} \\left( 1 - \\dfrac{1}{p} \\right)',
-)
+	"\\underbrace{\\overbrace{a+b}^6 \\cdot \\overbrace{c+d}^7}_\\text{example of text} = 42\\prod_{\\substack{p \\leq x \\\\\\text{p prime}}} \\left( 1 - \\dfrac{1}{p} \\right)",
+);
 
 watch(testKatexVueExpression, (value) => {
-  if (!value) {
-    testKatexVueExpression.value = '\\LaTeX'
-  }
-})
+	if (!value) {
+		testKatexVueExpression.value = "\\LaTeX";
+	}
+});
 </script>
 
 <template>

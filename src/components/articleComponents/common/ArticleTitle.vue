@@ -1,32 +1,33 @@
 <script setup lang="ts">
-import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
-import { useThemeVars, NH1, NH2, NH3, NH4, NH5, NH6 } from 'naive-ui'
-import { type AnchorItem, useAnchorStore } from '@/stores/anchor'
+import { NH1, NH2, NH3, NH4, NH5, NH6, useThemeVars } from "naive-ui";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+
+import { type AnchorItem, useAnchorStore } from "@/stores/anchor";
 
 const props = defineProps({
-  h: { type: Number, default: 3 },
-  href: { type: String },
-})
+	h: { type: Number, default: 3 },
+	href: { type: String },
+});
 
-const themeVars = useThemeVars()
-const decorationColor = computed(() => (themeVars.value.primaryColor.substring(0, 7) + '66'))
+const themeVars = useThemeVars();
+const decorationColor = computed(() => `${themeVars.value.primaryColor.substring(0, 7)}66`);
 
-const titleRef = ref()
-const anchorItem = ref<AnchorItem>()
-const anchorId = computed(() => anchorItem.value?.href || '')
+const titleRef = ref();
+const anchorItem = ref<AnchorItem>();
+const anchorId = computed(() => anchorItem.value?.href || "");
 
-const anchorStore = useAnchorStore()
+const anchorStore = useAnchorStore();
 
 onMounted(() => {
-  const titleText = titleRef.value?.$el.textContent
-  anchorItem.value = anchorStore.addAnchor(titleText, props.h, props.href)
-})
+	const titleText = titleRef.value?.$el.textContent;
+	anchorItem.value = anchorStore.addAnchor(titleText, props.h, props.href);
+});
 
 onBeforeUnmount(() => {
-  if (anchorItem.value) {
-    anchorStore.removeAnchor(anchorItem.value.id)
-  }
-})
+	if (anchorItem.value) {
+		anchorStore.removeAnchor(anchorItem.value.id);
+	}
+});
 </script>
 
 <template>

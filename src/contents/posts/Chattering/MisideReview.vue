@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { NP, NSpace, NImage } from 'naive-ui'
-import { ArticleContent } from '@/components'
-import MisideHeyboxMedal from '@/assets/images/chattering/miside_review/miside_heybox_medal.png'
+import { NImage, NP, NSpace } from "naive-ui";
+import MisideHeyboxMedal from "@/assets/images/chattering/miside_review/miside_heybox_medal.png";
+import { ArticleContent } from "@/components";
 </script>
 
 <template>

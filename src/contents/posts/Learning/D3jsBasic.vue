@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { NAlert, NFlex, NP } from 'naive-ui'
-import { ArticleContent, ArticleTitle } from '@/components'
-import { D3js01 } from '@/components/articleComponents/specific/learning/d3jsBasic'
+import { NAlert, NFlex, NP } from "naive-ui";
+import { ArticleContent, ArticleTitle } from "@/components";
+import { D3js01 } from "@/components/articleComponents/specific/learning/d3jsBasic";
 </script>
 
 <template>

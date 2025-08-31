@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NerdFace from '@/assets/emojis/raw/nerd-face.webp'
+import NerdFace from "@/assets/emojis/raw/nerd-face.webp";
 </script>
 
 <template>

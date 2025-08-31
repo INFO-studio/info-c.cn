@@ -1,42 +1,42 @@
 <script setup lang="ts">
-import { motion } from 'motion-v'
+import { motion } from "motion-v";
 
 const draw = {
-  hidden: { pathLength: 0, opacity: 0 },
-  visible: (j: unknown) => {
-    const i = j as number
-    const delay = i * 0.5
-    return {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: {
-          delay,
-          type: 'spring',
-          duration: 1.5,
-          bounce: 0,
-          repeat: Infinity,
-          repeatType: 'reverse',
-        },
-        opacity: { delay, duration: 0.01 },
-      },
-    }
-  },
-}
+	hidden: { pathLength: 0, opacity: 0 },
+	visible: (j: unknown) => {
+		const i = j as number;
+		const delay = i * 0.5;
+		return {
+			pathLength: 1,
+			opacity: 1,
+			transition: {
+				pathLength: {
+					delay,
+					type: "spring",
+					duration: 1.5,
+					bounce: 0,
+					repeat: Infinity,
+					repeatType: "reverse",
+				},
+				opacity: { delay, duration: 0.01 },
+			},
+		};
+	},
+};
 
 /**
  * ==============   Styles   ================
  */
 
 const image = {
-  maxWidth: '80vw',
-}
+	maxWidth: "80vw",
+};
 
 const shape = {
-  strokeWidth: 5,
-  strokeLinecap: 'round',
-  fill: 'transparent',
-}
+	strokeWidth: 5,
+	strokeLinecap: "round",
+	fill: "transparent",
+};
 </script>
 
 <template>

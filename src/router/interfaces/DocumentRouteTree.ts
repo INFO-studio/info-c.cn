@@ -1,5 +1,5 @@
-import type { DocumentRoute } from '@/router/interfaces'
+import type { DocumentRoute } from "@/router/interfaces";
 
 export interface DocumentRouteTree extends DocumentRoute {
-  children?: DocumentRouteTree[]
+	children?: DocumentRouteTree[];
 }

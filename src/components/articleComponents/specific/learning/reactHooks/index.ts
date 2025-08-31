@@ -1,1 +1,1 @@
-export * from '@/components/articleComponents/specific/learning/reactHooks/codes'
+export * from "@/components/articleComponents/specific/learning/reactHooks/codes";

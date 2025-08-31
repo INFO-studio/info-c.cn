@@ -1,73 +1,66 @@
 <script setup lang="ts">
-import { type CSSProperties, computed, onMounted } from 'vue'
-import { RouterView } from 'vue-router'
-import {
-  NConfigProvider,
-  NMessageProvider,
-  NDialogProvider,
-  NLayout,
-  NLayoutHeader,
-  NLayoutFooter
-} from 'naive-ui'
-import { useWindowSize } from '@vueuse/core'
-import hljs from 'highlight.js/lib/core'
-import xml from 'highlight.js/lib/languages/xml'
-import AppHeader from '@/components/viewComponents/AppHeader.vue'
-import AppSidebar from '@/components/viewComponents/AppSidebar.vue'
-import AppBreadcrumb from '@/components/viewComponents/AppBreadcrumb.vue'
-import AppFooter from '@/components/viewComponents/AppFooter.vue'
-import { useThemeStore } from '@/stores/theme.ts'
-import { themeOverrides } from '@/assets/theme'
-import { ArticleFloatButton, ArticleParticleBackground } from '@/components'
+import { useWindowSize } from "@vueuse/core";
+import hljs from "highlight.js/lib/core";
+import xml from "highlight.js/lib/languages/xml";
+import { NConfigProvider, NDialogProvider, NLayout, NLayoutFooter, NLayoutHeader, NMessageProvider } from "naive-ui";
+import { type CSSProperties, computed, onMounted } from "vue";
+import { RouterView } from "vue-router";
+import { themeOverrides } from "@/assets/theme";
+import { ArticleFloatButton, ArticleParticleBackground } from "@/components";
+import AppBreadcrumb from "@/components/viewComponents/AppBreadcrumb.vue";
+import AppFooter from "@/components/viewComponents/AppFooter.vue";
+import AppHeader from "@/components/viewComponents/AppHeader.vue";
+import AppSidebar from "@/components/viewComponents/AppSidebar.vue";
+import { useThemeStore } from "@/stores/theme.ts";
 
-const themeStore = useThemeStore()
-const windowSize = useWindowSize()
+const themeStore = useThemeStore();
+const windowSize = useWindowSize();
 
 const LayoutStyle: CSSProperties = {
-  minHeight: '100vh',
-  maxHeight: '100vh',
-  display: 'flex',
-  flexDirection: 'column',
-}
+	minHeight: "100vh",
+	maxHeight: "100vh",
+	display: "flex",
+	flexDirection: "column",
+};
 const BodyStyle: CSSProperties = {
-  flex: 1,
-}
+	flex: 1,
+};
 const MainStyle: CSSProperties = {
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  position: 'relative',
-}
+	height: "100%",
+	display: "flex",
+	flexDirection: "column",
+	position: "relative",
+};
 const ContentStyle = computed(
-  (): CSSProperties => ({
-    padding: '0 2rem 2rem 2rem',
-    width: '100%',
-    maxWidth: windowSize.width.value < 1800 ? '800px' : '1200px',
-    minWidth: '200px',
-    margin: '1rem auto 0 auto',
-    position: 'relative',
-    zIndex: 1,
-  }),
-)
+	(): CSSProperties => ({
+		padding: "0 2rem 2rem 2rem",
+		width: "100%",
+		maxWidth: windowSize.width.value < 1800 ? "800px" : "1200px",
+		minWidth: "200px",
+		margin: "1rem auto 0 auto",
+		position: "relative",
+		zIndex: 1,
+	}),
+);
 
-hljs.registerLanguage('vue', xml)
+hljs.registerLanguage("vue", xml);
 
 onMounted(() => {
-  console.log(
-    '%c欢迎光临「浮音华章」，您已打开控制台，%c请遵守 MIT 协议',
-    `color: black;
+	console.log(
+		"%c欢迎光临「浮音华章」，您已打开控制台，%c请遵守 MIT 协议",
+		`color: black;
      background-color: ${themeOverrides.common.primaryColor};
      padding: 2px 0 2px 4px;
      border-radius: 6px 0 0 6px;
      font-family: sans-serif;`,
-    `color: maroon;
+		`color: maroon;
      background-color: ${themeOverrides.common.primaryColor};
      padding: 2px 4px 2px 0;
      border-radius: 0 6px 6px 0;
      font-family: sans-serif;
-     font-weight: bold`
-  )
-})
+     font-weight: bold`,
+	);
+});
 </script>
 
 <template>

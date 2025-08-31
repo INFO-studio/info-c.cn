@@ -1,20 +1,7 @@
 <script setup lang="ts">
-import {
-  NText,
-  NP
-} from 'naive-ui'
-import {
-  code_01,
-  code_02,
-  code_03,
-  code_04,
-  code_05,
-  code_06,
-  code_07,
-  code_08,
-  code_09,
-} from '@/components/articleComponents/specific/learning/typescriptKnowledge'
-import { ArticleCodeCard, ArticleContent, ArticleTitle } from '@/components'
+import { NP, NText } from "naive-ui";
+import { ArticleCodeCard, ArticleContent, ArticleTitle } from "@/components";
+import { code_01, code_02, code_03, code_04, code_05, code_06, code_07, code_08, code_09 } from "@/components/articleComponents/specific/learning/typescriptKnowledge";
 </script>
 
 <template>

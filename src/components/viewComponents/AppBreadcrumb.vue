@@ -1,32 +1,28 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import {
-  NBreadcrumb,
-  NBreadcrumbItem,
-  NIcon
-} from 'naive-ui'
-import { File } from 'lucide-vue-next'
-import { routes } from '@/router/routes'
-import { getRoutePath } from '@/router/utils/getRoutePath.ts'
-import { getRouteTree } from '@/router/utils/getRouteTree.ts'
+import { File } from "lucide-vue-next";
+import { NBreadcrumb, NBreadcrumbItem, NIcon } from "naive-ui";
+import { computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { routes } from "@/router/routes";
+import { getRoutePath } from "@/router/utils/getRoutePath.ts";
+import { getRouteTree } from "@/router/utils/getRouteTree.ts";
 
-const route = useRoute()
-const router = useRouter()
+const route = useRoute();
+const router = useRouter();
 const breadcrumbs = computed(() => {
-  return getRoutePath(route.path, getRouteTree(routes)).map((item) => ({
-    path: item.path,
-    name: item.name,
-    icon: item?.icon || File,
-  }))
-})
+	return getRoutePath(route.path, getRouteTree(routes)).map((item) => ({
+		path: item.path,
+		name: item.name,
+		icon: item?.icon || File,
+	}));
+});
 const handleBreadcrumbClick = (path: string) => {
-  router.push(path)
-}
+	router.push(path);
+};
 </script>
 
 <template>
-  <n-breadcrumb class="breadcrumb">
+  <n-breadcrumb class="p-8">
     <n-breadcrumb-item
       v-for="item in breadcrumbs"
       :key="item.path"
@@ -38,9 +34,3 @@ const handleBreadcrumbClick = (path: string) => {
     </n-breadcrumb-item>
   </n-breadcrumb>
 </template>
-
-<style>
-.breadcrumb {
-  padding: 2rem;
-}
-</style>

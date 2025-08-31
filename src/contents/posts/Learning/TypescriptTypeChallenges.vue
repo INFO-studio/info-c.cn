@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import {
-  NP,
-  NAlert
-} from 'naive-ui'
-import { ArticleContent } from '@/components'
+import { NAlert, NP } from "naive-ui";
+import { ArticleContent } from "@/components";
 </script>
 
 <template>

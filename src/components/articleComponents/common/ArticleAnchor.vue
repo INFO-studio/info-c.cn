@@ -1,64 +1,57 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
-import {
-  NAnchor,
-  NAnchorLink,
-  NCard,
-  NCollapse,
-  NCollapseItem
-} from 'naive-ui'
-import { type AnchorItem, useAnchorStore } from '@/stores/anchor.ts'
-import { useSidebarStore } from '@/stores/sidebar.ts'
-import { useWindowSize } from '@vueuse/core'
-import { motionDiv } from '@/exports/motion.ts'
+import { useWindowSize } from "@vueuse/core";
+import { NAnchor, NAnchorLink, NCard, NCollapse, NCollapseItem } from "naive-ui";
+import { computed, onMounted, ref } from "vue";
+import { motionDiv } from "@/exports/motion.ts";
+import { type AnchorItem, useAnchorStore } from "@/stores/anchor.ts";
+import { useSidebarStore } from "@/stores/sidebar.ts";
 
 const props = defineProps<{
-  mode: 'fixed' | 'inline'
-}>()
+	mode: "fixed" | "inline";
+}>();
 
-const isFixed = computed(() => props.mode === 'fixed')
+const isFixed = computed(() => props.mode === "fixed");
 
-const anchor = ref()
-const scrollElement = ref()
+const anchor = ref();
+const scrollElement = ref();
 onMounted(() => {
-  if (isFixed.value)
-    scrollElement.value = anchor.value?.$el.parentElement.parentElement.parentElement.parentElement
-})
+	if (isFixed.value) scrollElement.value = anchor.value?.$el.parentElement.parentElement.parentElement.parentElement;
+});
 
-const sidebarStore = useSidebarStore()
-const windowSize = useWindowSize()
+const sidebarStore = useSidebarStore();
+const windowSize = useWindowSize();
 
-const anchorMode = computed(() => windowSize.width.value > 1200 && sidebarStore.isCollapsed)
+const anchorMode = computed(() => windowSize.width.value > 1200 && sidebarStore.isCollapsed);
 
-const anchorStore = useAnchorStore()
+const anchorStore = useAnchorStore();
 
 interface AnchorTreeNode extends AnchorItem {
-  children: AnchorTreeNode[]
+	children: AnchorTreeNode[];
 }
 
 const buildAnchorTree = (items: AnchorItem[]) => {
-  if (!items.length) return []
+	if (!items.length) return [];
 
-  const result: AnchorTreeNode[] = []
-  const stack: AnchorTreeNode[] = []
+	const result: AnchorTreeNode[] = [];
+	const stack: AnchorTreeNode[] = [];
 
-  for (const item of items) {
-    const node = { ...item, children: [] }
-    while (stack.length > 0 && stack[stack.length - 1].level >= node.level) {
-      stack.pop()
-    }
-    if (stack.length === 0) {
-      result.push(node)
-    } else {
-      stack[stack.length - 1].children.push(node)
-    }
-    stack.push(node)
-  }
+	for (const item of items) {
+		const node = { ...item, children: [] };
+		while (stack.length > 0 && stack[stack.length - 1].level >= node.level) {
+			stack.pop();
+		}
+		if (stack.length === 0) {
+			result.push(node);
+		} else {
+			stack[stack.length - 1].children.push(node);
+		}
+		stack.push(node);
+	}
 
-  return result
-}
+	return result;
+};
 
-const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
+const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList));
 </script>
 
 <template>
@@ -74,7 +67,7 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
         :offset-target="scrollElement"
         ignore-gap
         :bound="180"
-        class="article-anchor-fixed"
+        class="article-anchor-fixed z-1 fixed top-20px left-50px"
       >
         <n-anchor-link v-for="node1 in anchorTree" :title="node1.title" :href="`#${node1.href}`">
           <n-anchor-link
@@ -130,10 +123,6 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList))
 
 <style scoped>
 .article-anchor-fixed {
-  z-index: 1;
-  position: fixed;
-  top: 20px;
-  left: 50px;
   max-width: calc(50vw - 480px);
   @media (min-width: 1800px) {
     max-width: calc(50vw - 660px);

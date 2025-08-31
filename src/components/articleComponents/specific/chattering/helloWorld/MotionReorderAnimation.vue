@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import { motion } from 'motion-v'
-import { ref, onMounted, onBeforeUnmount, type CSSProperties } from 'vue'
+import { motion } from "motion-v";
+import { type CSSProperties, onBeforeUnmount, onMounted, ref } from "vue";
 
-const initialOrder = ['#ff0088', '#dd00ee', '#9911ff', '#0d63f8']
+const initialOrder = ["#ff0088", "#dd00ee", "#9911ff", "#0d63f8"];
 
-const order = ref([...initialOrder])
+const order = ref([...initialOrder]);
 
-let intervalId: number | null = null
+let intervalId: number | null = null;
 
 onMounted(() => {
-  intervalId = window.setInterval(() => {
-    order.value = shuffle(order.value)
-  }, 1000)
-})
+	intervalId = window.setInterval(() => {
+		order.value = shuffle(order.value);
+	}, 1000);
+});
 
 onBeforeUnmount(() => {
-  if (intervalId !== null) {
-    clearInterval(intervalId)
-  }
-})
+	if (intervalId !== null) {
+		clearInterval(intervalId);
+	}
+});
 
 /**
  * ==============   Utils   ================
  */
 function shuffle([...array]: string[]) {
-  return array.sort(() => Math.random() - 0.5)
+	return array.sort(() => Math.random() - 0.5);
 }
 
 /**
@@ -32,30 +32,30 @@ function shuffle([...array]: string[]) {
  */
 
 const spring = {
-  type: 'spring',
-  damping: 20,
-  stiffness: 300,
-}
+	type: "spring",
+	damping: 20,
+	stiffness: 300,
+};
 
 const container: CSSProperties = {
-  listStyle: 'none',
-  padding: '0px',
-  margin: '0px',
-  position: 'relative',
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: '10px',
-  width: '200px',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-}
+	listStyle: "none",
+	padding: "0px",
+	margin: "0px",
+	position: "relative",
+	display: "flex",
+	flexWrap: "wrap",
+	gap: "10px",
+	width: "200px",
+	flexDirection: "row",
+	justifyContent: "center",
+	alignItems: "center",
+};
 
 const item = {
-  width: '95px',
-  height: '95px',
-  borderRadius: '10px',
-}
+	width: "95px",
+	height: "95px",
+	borderRadius: "10px",
+};
 </script>
 
 <template>

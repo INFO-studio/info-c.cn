@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import {
-  NP,
-  NGrid,
-  NGridItem,
-  NFlex,
-  NA
-} from 'naive-ui'
+import { NA, NFlex, NGrid, NGridItem, NP } from "naive-ui";
 
-import { ArticleContent, ArticleImageCaption } from '@/components'
-import MotionConicGradientPointer from '@/components/articleComponents/specific/chattering/helloWorld/MotionConicGradientPointer.vue'
-import MotionReorderAnimation from '@/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue'
-import ArknightsParticle
-  from '@/components/articleComponents/specific/chattering/helloWorld/ArknightsParticle.vue'
+import { ArticleContent, ArticleImageCaption } from "@/components";
+import ArknightsParticle from "@/components/articleComponents/specific/chattering/helloWorld/ArknightsParticle.vue";
+import MotionConicGradientPointer from "@/components/articleComponents/specific/chattering/helloWorld/MotionConicGradientPointer.vue";
+import MotionReorderAnimation from "@/components/articleComponents/specific/chattering/helloWorld/MotionReorderAnimation.vue";
 </script>
 
 <template>

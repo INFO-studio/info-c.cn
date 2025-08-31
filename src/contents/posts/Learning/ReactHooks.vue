@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import { NAlert, NP, NText } from 'naive-ui'
-import { ArticleCodeCard, ArticleContent, ArticleTitle } from '@/components'
-import {
-  code_01,
-  code_02,
-  code_03,
-  code_04
-} from '@/components/articleComponents/specific/learning/reactHooks'
+import { NAlert, NP, NText } from "naive-ui";
+import { ArticleCodeCard, ArticleContent, ArticleTitle } from "@/components";
+import { code_01, code_02, code_03, code_04 } from "@/components/articleComponents/specific/learning/reactHooks";
 </script>
 
 <template>

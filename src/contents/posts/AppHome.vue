@@ -1,66 +1,31 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { motionDiv } from '@/exports/motion.ts'
-import { NFlex, NAvatar, NP, NSpace, NTag, NCard, NDivider, useThemeVars } from 'naive-ui'
-import avatar from '@/assets/images/index/avatar.jpg'
-import {
-  Vue,
-  React,
-  Node,
-  TypeScript,
-  Python,
-  Rust,
-  DavinciResolve,
-  Electron,
-  Vitest,
-  Mysql,
-} from '@/assets/icons/brand'
-import { getRouteData } from '@/router/utils/getRoutePath.ts'
-import { getRouteTree } from '@/router/utils/getRouteTree.ts'
-import { routes } from '@/router/routes'
-import TechStackIcon from '@/components/articleComponents/specific/appHome/TechStackIcon.vue'
-import { ArticleCard, ArticleContent, ArticleGlowBreath, ArticleGlowContainer } from '@/components'
-import { useThemeStore } from '@/stores/theme.ts'
+import { NAvatar, NCard, NDivider, NFlex, NP, NSpace, NTag, useThemeVars } from "naive-ui";
+import { computed, ref } from "vue";
+import { DavinciResolve, Electron, Mysql, Node, Python, React, Rust, TypeScript, Vitest, Vue } from "@/assets/icons/brand";
+import avatar from "@/assets/images/index/avatar.jpg";
+import { ArticleCard, ArticleContent, ArticleGlowBreath, ArticleGlowContainer } from "@/components";
+import TechStackIcon from "@/components/articleComponents/specific/appHome/TechStackIcon.vue";
+import { motionDiv } from "@/exports/motion.ts";
+import { routes } from "@/router/routes";
+import { getRouteData } from "@/router/utils/getRoutePath.ts";
+import { getRouteTree } from "@/router/utils/getRouteTree.ts";
+import { useThemeStore } from "@/stores/theme.ts";
 
-const themeVars = useThemeVars()
-const themeStore = useThemeStore()
-const avatarBackgroundGlowColor1 = computed(() =>
-  themeStore.isDarkTheme ? themeVars.value.primaryColor : themeVars.value.primaryColorPressed,
-)
-const avatarBackgroundGlowColor2 = computed(() =>
-  themeStore.isDarkTheme ? themeVars.value.primaryColorPressed : themeVars.value.primaryColor,
-)
-const avatarBackgroundGlowOpacity = computed(() => (themeStore.isDarkTheme ? 0.4 : 0.8))
+const themeVars = useThemeVars();
+const themeStore = useThemeStore();
+const avatarBackgroundGlowColor1 = computed(() => (themeStore.isDarkTheme ? themeVars.value.primaryColor : themeVars.value.primaryColorPressed));
+const avatarBackgroundGlowColor2 = computed(() => (themeStore.isDarkTheme ? themeVars.value.primaryColorPressed : themeVars.value.primaryColor));
+const avatarBackgroundGlowOpacity = computed(() => (themeStore.isDarkTheme ? 0.4 : 0.8));
 
-const isAvatarHover = ref(false)
+const isAvatarHover = ref(false);
 
-const routeTree = getRouteTree(routes)
+const routeTree = getRouteTree(routes);
 
-const articlesHome = [
-  getRouteData('chattering', routeTree),
-  getRouteData('projects', routeTree),
-  getRouteData('learning', routeTree),
-  getRouteData('conformities', routeTree),
-]
+const articlesHome = [getRouteData("chattering", routeTree), getRouteData("projects", routeTree), getRouteData("learning", routeTree), getRouteData("conformities", routeTree)];
 
-const tagsMain = ['重庆大学', '前端小废物', '音游吃', '虚拟歌姬业余P', '字节跳动']
+const tagsMain = ["重庆大学", "前端小废物", "音游吃", "虚拟歌姬业余P", "字节跳动"];
 
-const tagsFavour = [
-  'Vocaloid',
-  '魔女之旅',
-  'Project Sekai',
-  'Maimai',
-  '神椿',
-  '任天堂',
-  '空洞骑士',
-  '月亮计划',
-  '明日方舟',
-  '海市蜃楼之馆',
-  '以撒的结合',
-  'Mili',
-  '东方 Project',
-  '鸣潮',
-]
+const tagsFavour = ["Vocaloid", "魔女之旅", "Project Sekai", "Maimai", "神椿", "任天堂", "空洞骑士", "月亮计划", "明日方舟", "海市蜃楼之馆", "以撒的结合", "Mili", "东方 Project", "鸣潮"];
 </script>
 
 <template>
@@ -134,8 +99,8 @@ const tagsFavour = [
         </n-card>
         <n-card title="元信息" :bordered="false" class="no-background-card">
           <n-flex vertical>
-            <n-text>最近更新时间：2025-07-22</n-text>
-            <n-text>更新内容：首页标签</n-text>
+            <n-text>最近更新时间：2025-09-01</n-text>
+            <n-text>更新内容：项目架构优化-使用 UnoCSS & Biome</n-text>
           </n-flex>
         </n-card>
       </n-flex>

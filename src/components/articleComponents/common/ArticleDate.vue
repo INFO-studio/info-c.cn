@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { NTime } from 'naive-ui'
+import { NTime } from "naive-ui";
 
 const props = defineProps<{
-  category: 'create' | 'modify'
-  date: Date
-}>()
-const category = props.category == 'create' ? '创建于' : '修改于'
+	category: "create" | "modify";
+	date: Date;
+}>();
+const category = props.category === "create" ? "创建于" : "修改于";
 </script>
 
 <template>
@@ -14,5 +14,3 @@ const category = props.category == 'create' ? '创建于' : '修改于'
     <n-time :time="props.date" format="yyyy-MM-dd HH:mm" />
   </div>
 </template>
-
-<style scoped></style>

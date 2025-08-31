@@ -1,34 +1,29 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import {
-  NCard,
-  NIcon,
-  NSpace,
-  NP
-} from 'naive-ui'
-import type { DocumentRouteTree } from '@/router/interfaces'
-import { useRouter } from 'vue-router'
-import { motionDiv } from '@/exports/motion.ts'
-import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
-import ArticleTag from '@/components/articleComponents/common/ArticleTag.vue'
+import { NCard, NIcon, NP, NSpace } from "naive-ui";
+import { computed, ref } from "vue";
+import { useRouter } from "vue-router";
+import ArticleGlowContainer from "@/components/articleComponents/common/ArticleGlowContainer.vue";
+import ArticleTag from "@/components/articleComponents/common/ArticleTag.vue";
+import { motionDiv } from "@/exports/motion.ts";
+import type { DocumentRouteTree } from "@/router/interfaces";
 
 const props = defineProps<{
-  article: DocumentRouteTree
-  blur?: boolean
-}>()
+	article: DocumentRouteTree;
+	blur?: boolean;
+}>();
 
-const router = useRouter()
+const router = useRouter();
 
-const isHover = ref<boolean>(false)
+const isHover = ref<boolean>(false);
 
-const isBlur = computed(() => props.blur)
+const isBlur = computed(() => props.blur);
 </script>
 
 <template>
   <article-glow-container
     :glow-size="100"
     @click="() => router.push(props.article.path)"
-    class="article-card-glow-container"
+    class="cursor-pointer"
     :class="{ blur: isBlur }"
     @mouseenter="isHover = true"
     @mouseleave="isHover = false"
@@ -68,9 +63,3 @@ const isBlur = computed(() => props.blur)
     </motion-div>
   </article-glow-container>
 </template>
-
-<style scoped>
-.article-card-glow-container {
-  cursor: pointer;
-}
-</style>

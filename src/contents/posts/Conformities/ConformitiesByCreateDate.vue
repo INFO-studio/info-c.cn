@@ -1,20 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import {
-  NTabs,
-  NTabPane,
-  NSpace,
-} from 'naive-ui'
-import { useConformities } from '@/hooks/conformities.ts'
-import { ArticleCard, ArticleContent } from '@/components'
-const conformities = useConformities()
+import { NSpace, NTabPane, NTabs } from "naive-ui";
+import { ref } from "vue";
+import { ArticleCard, ArticleContent } from "@/components";
+import { useConformities } from "@/hooks/conformities.ts";
 
-const articleListConformitied = conformities.getArticleListConformitied(
-  'createDate',
-  (val: Date) => `${val.getFullYear()} - ${val.getMonth() + 1}`,
-)
+const conformities = useConformities();
 
-const hoverPath = ref<string | null>(null)
+const articleListConformitied = conformities.getArticleListConformitied("createDate", (val: Date) => `${val.getFullYear()} - ${val.getMonth() + 1}`);
+
+const hoverPath = ref<string | null>(null);
 </script>
 
 <template>

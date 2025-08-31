@@ -1,58 +1,43 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, h } from 'vue'
-import {
-  useDialog,
-  NFloatButtonGroup,
-  NFloatButton,
-  NIcon
-} from 'naive-ui'
-import { ChevronUp, CircleArrowOutUpRight } from 'lucide-vue-next'
-import { motionDiv } from '@/exports/motion.ts'
-import ArticleShare from '@/components/articleComponents/common/ArticleShare.vue'
+import { throttle } from "lodash";
+import { ChevronUp, CircleArrowOutUpRight } from "lucide-vue-next";
+import { NFloatButton, NFloatButtonGroup, NIcon, useDialog } from "naive-ui";
+import { h, onMounted, onUnmounted, ref } from "vue";
+import ArticleShare from "@/components/articleComponents/common/ArticleShare.vue";
+import { motionDiv } from "@/exports/motion.ts";
 
-const isBackTopShow = ref<boolean>(false)
-const floatButtonGroup = ref()
-const parent = ref<HTMLElement>()
-let scrollHandler: () => void
+const isBackTopShow = ref<boolean>(false);
+const floatButtonGroup = ref();
+const parent = ref<HTMLElement>();
+let scrollHandler: () => void;
 
-const dialog = useDialog()
+const dialog = useDialog();
 
 const handleShare = () => {
-  dialog.create({
-    title: '分享给朋友',
-    content: () => h(ArticleShare),
-    icon: () => h(NIcon, { size: 24 }, { default: () => h(CircleArrowOutUpRight) }),
-    iconPlacement: 'top'
-  })
-}
+	dialog.create({
+		title: "分享给朋友",
+		content: () => h(ArticleShare),
+		icon: () => h(NIcon, { size: 24 }, { default: () => h(CircleArrowOutUpRight) }),
+		iconPlacement: "top",
+	});
+};
 
 const handleBackTop = () => {
-  parent.value?.scrollTo({ top: 0, behavior: 'smooth' })
-}
-
-const throttle = (fn: Function, delay: number) => {
-  let lastCall = 0
-  return (...args: any[]) => {
-    const now = Date.now()
-    if (now - lastCall < delay) return
-    lastCall = now
-    fn(...args)
-  }
-}
+	parent.value?.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 onMounted(() => {
-  parent.value =
-    floatButtonGroup.value?.$el?.closest('.n-scrollbar-container') || document.documentElement
-  scrollHandler = throttle(() => {
-    isBackTopShow.value = (parent.value?.scrollTop ?? 0) >= 200
-  }, 100)
+	parent.value = floatButtonGroup.value?.$el?.closest(".n-scrollbar-container") || document.documentElement;
+	scrollHandler = throttle(() => {
+		isBackTopShow.value = (parent.value?.scrollTop ?? 0) >= 200;
+	}, 100);
 
-  parent.value?.addEventListener('scroll', scrollHandler)
-})
+	parent.value?.addEventListener("scroll", scrollHandler);
+});
 
 onUnmounted(() => {
-  parent.value?.removeEventListener('scroll', scrollHandler)
-})
+	parent.value?.removeEventListener("scroll", scrollHandler);
+});
 </script>
 
 <template>
@@ -75,7 +60,7 @@ onUnmounted(() => {
       }"
       style="will-change: transform, opacity"
     >
-      <n-float-button @click="handleShare" class="article-float-button">
+      <n-float-button @click="handleShare" class="backface-hidden">
         <n-icon>
           <CircleArrowOutUpRight />
         </n-icon>
@@ -96,7 +81,7 @@ onUnmounted(() => {
       }"
       style="will-change: transform, opacity"
     >
-      <n-float-button @click="handleBackTop" class="article-float-button">
+      <n-float-button @click="handleBackTop" class="backface-hidden">
         <n-icon>
           <ChevronUp />
         </n-icon>
@@ -104,10 +89,3 @@ onUnmounted(() => {
     </motion-div>
   </n-float-button-group>
 </template>
-
-<style scoped>
-.article-float-button {
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
-</style>

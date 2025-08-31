@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BackhandIndexPointingUp from '@/assets/emojis/raw/backhand-index-pointing-up.webp'
+import BackhandIndexPointingUp from "@/assets/emojis/raw/backhand-index-pointing-up.webp";
 </script>
 
 <template>

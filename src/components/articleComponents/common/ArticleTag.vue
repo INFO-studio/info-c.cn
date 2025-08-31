@@ -1,22 +1,20 @@
 <script setup lang="ts">
-import {
-  NTag,
-  NFlex,
-  NIcon
-} from 'naive-ui'
-import { Tag } from 'lucide-vue-next'
-import ArticleGlowContainer from '@/components/articleComponents/common/ArticleGlowContainer.vue'
+import { Tag } from "lucide-vue-next";
+import { NFlex, NIcon, NTag } from "naive-ui";
+import ArticleGlowContainer from "@/components/articleComponents/common/ArticleGlowContainer.vue";
 
-const props = defineProps({
-  glow: {
-    type: Boolean,
-    default: true,
-  }
-})
+const props = withDefaults(
+	defineProps<{
+		glow?: boolean;
+	}>(),
+	{
+		glow: true,
+	},
+);
 </script>
 
 <template>
-  <article-glow-container v-if="props.glow" class="container">
+  <article-glow-container v-if="props.glow" class="rounded-full">
     <n-tag round :bordered="false">
       <n-flex align="center" size="small">
         <slot />
@@ -31,9 +29,3 @@ const props = defineProps({
     </n-flex>
   </n-tag>
 </template>
-
-<style scoped>
-.container {
-  border-radius: max(100vh, 100vw);
-}
-</style>

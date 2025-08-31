@@ -1,19 +1,19 @@
-import type { DocumentRoute } from '@/router/interfaces'
-import { routes as routesChattering } from '@/router/routes/chattering'
-import { routes as routesProjects } from '@/router/routes/projects'
-import { routes as routesLearning } from '@/router/routes/learning'
-import { routes as routesConformities } from '@/router/routes/conformities'
-import { routes as routesLinkExchange } from '@/router/routes/linkExchange'
-import { House } from 'lucide-vue-next'
+import { House } from "lucide-vue-next";
+import type { DocumentRoute } from "@/router/interfaces";
+import { routes as routesChattering } from "@/router/routes/chattering";
+import { routes as routesConformities } from "@/router/routes/conformities";
+import { routes as routesLearning } from "@/router/routes/learning";
+import { routes as routesLinkExchange } from "@/router/routes/linkExchange";
+import { routes as routesProjects } from "@/router/routes/projects";
 
-const AppHome = () => import('@/contents/posts/AppHome.vue')
+const AppHome = () => import("@/contents/posts/AppHome.vue");
 
 export const routes: DocumentRoute = {
-  path: '/',
-  name: '首页',
-  component: AppHome,
-  icon: House,
-  isSidebarHome: true,
-  isConformitiesHidden: true,
-  children: [routesChattering, routesProjects, routesLearning, routesConformities, routesLinkExchange],
-}
+	path: "/",
+	name: "首页",
+	component: AppHome,
+	icon: House,
+	isSidebarHome: true,
+	isConformitiesHidden: true,
+	children: [routesChattering, routesProjects, routesLearning, routesConformities, routesLinkExchange],
+};

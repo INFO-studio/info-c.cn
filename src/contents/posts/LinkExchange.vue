@@ -1,73 +1,63 @@
 <script setup lang="ts">
-import { type Component, onUnmounted, ref, markRaw } from 'vue'
-import {
-  NList,
-  NListItem,
-  NThing,
-  NAvatar,
-  NIcon,
-  NP,
-  NCode,
-  NTag,
-  NSpace
-} from 'naive-ui'
-import { Link } from 'lucide-vue-next'
-import IconCharwind from '@/assets/images/link_exchange/icon-charwind.svg?component'
-import IconSealParadise from '@/assets/images/link_exchange/icon-sealparadise.png'
-import IconAzrmedit0x from '@/assets/images/link_exchange/icon-AzrMedit0x.jpg'
-import IconZesuy from '@/assets/images/link_exchange/icon-zesuy.jpg'
-import { ArticleContent } from '@/components'
+import { Link } from "lucide-vue-next";
+import { NAvatar, NCode, NIcon, NList, NListItem, NP, NSpace, NTag, NThing } from "naive-ui";
+import { type Component, markRaw, onUnmounted, ref } from "vue";
+import IconAzrmedit0x from "@/assets/images/link_exchange/icon-AzrMedit0x.jpg";
+import IconCharwind from "@/assets/images/link_exchange/icon-charwind.svg?component";
+import IconSealParadise from "@/assets/images/link_exchange/icon-sealparadise.png";
+import IconZesuy from "@/assets/images/link_exchange/icon-zesuy.jpg";
+import { ArticleContent } from "@/components";
 
 interface FriendLink {
-  name: string
-  url: string
-  tag?: string[]
-  icon?: Component
-  favicon?: string
+	name: string;
+	url: string;
+	tag?: string[];
+	icon?: Component;
+	favicon?: string;
 }
 
 const friendLinks = ref<FriendLink[]>([
-  {
-    name: 'gy的笔记本',
-    url: 'https://charwind.top/',
-    tag: ['个人博客', '前端', '嵌入式'],
-    icon: markRaw(IconCharwind),
-  },
-  {
-    name: 'SealParadise',
-    url: 'https://sealparadise.github.io/',
-    tag: ['个人博客', '路边小熊'],
-    favicon: IconSealParadise,
-  },
-  {
-    name: 'AzrMedit0x,冥思构造体',
-    url: 'https://www.azrmedit0x.top/',
-    tag: ['个人博客', 'AI4DB'],
-    favicon: IconAzrmedit0x,
-  },
-  {
-    name: 'zesuy',
-    url: 'https://blog.zesuy.top/',
-    tag: ['个人博客', '软路由'],
-    favicon: IconZesuy,
-  },
-])
+	{
+		name: "gy的笔记本",
+		url: "https://charwind.top/",
+		tag: ["个人博客", "前端", "嵌入式"],
+		icon: markRaw(IconCharwind),
+	},
+	{
+		name: "SealParadise",
+		url: "https://sealparadise.github.io/",
+		tag: ["个人博客", "路边小熊"],
+		favicon: IconSealParadise,
+	},
+	{
+		name: "AzrMedit0x,冥思构造体",
+		url: "https://www.azrmedit0x.top/",
+		tag: ["个人博客", "AI4DB"],
+		favicon: IconAzrmedit0x,
+	},
+	{
+		name: "zesuy",
+		url: "https://blog.zesuy.top/",
+		tag: ["个人博客", "软路由"],
+		favicon: IconZesuy,
+	},
+]);
 
-const displayHeaderExtra = ref<boolean>(window.innerWidth > 600)
+const displayHeaderExtra = ref<boolean>(window.innerWidth > 600);
 
 const updateDisplayHeaderExtra = () => {
-  displayHeaderExtra.value = window.innerWidth > 600
-}
+	displayHeaderExtra.value = window.innerWidth > 600;
+};
 
-window.addEventListener('resize', updateDisplayHeaderExtra)
+window.addEventListener("resize", updateDisplayHeaderExtra);
 
 const openLink = (url: string) => {
-  window.open(url, '_blank', 'noopener')
-}
+	window.open(url, "_blank", "noopener");
+};
 
 onUnmounted(() => {
-  window.removeEventListener('resize', updateDisplayHeaderExtra)
-})
+	window.removeEventListener("resize", updateDisplayHeaderExtra);
+});
 </script>
 
 <template>

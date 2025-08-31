@@ -1,52 +1,42 @@
 <script setup lang="ts">
-import { type Component, h } from 'vue'
+import { ArrowRight, Link } from "lucide-vue-next";
+import { NAlert, NButton, NDataTable, NFlex, NIcon, NP, NTabPane, NTabs, NText } from "naive-ui";
+import { type Component, h } from "vue";
+import { ArticleCodeCard, ArticleContent, ArticleTitle } from "@/components";
 import {
-  NP,
-  NAlert,
-  NText,
-  NTabs,
-  NTabPane,
-  NButton,
-  NIcon,
-  NFlex,
-  NDataTable
-} from 'naive-ui'
-import {
-  Canvas01,
-  Canvas02,
-  Canvas03,
-  Canvas04,
-  Canvas05,
-  Canvas06,
-  Canvas07,
-  code_01_html,
-  code_01_vue3,
-  code_01_react,
-  code_01_javascript,
-  code_02,
-  code_03,
-  code_04,
-  code_05,
-  code_06,
-  code_07,
-  code_08,
-} from '@/components/articleComponents/specific/learning/canvasBasic'
-import { Link, ArrowRight } from 'lucide-vue-next'
-import { ArticleCodeCard, ArticleContent, ArticleTitle } from '@/components'
+	Canvas01,
+	Canvas02,
+	Canvas03,
+	Canvas04,
+	Canvas05,
+	Canvas06,
+	Canvas07,
+	code_01_html,
+	code_01_javascript,
+	code_01_react,
+	code_01_vue3,
+	code_02,
+	code_03,
+	code_04,
+	code_05,
+	code_06,
+	code_07,
+	code_08,
+} from "@/components/articleComponents/specific/learning/canvasBasic";
 
-const renderCode = (code: string) => h(NText, { code: true }, () => code)
+const renderCode = (code: string) => h(NText, { code: true }, () => code);
 const renderLink = (href: string) =>
-  h(
-    NButton,
-    {
-      text: true,
-      onClick: () => window.open(href, '_blank'),
-    },
-    {
-      default: () => h(NIcon, { style: 'vertical-align: middle;' }, { default: () => h(Link) }),
-    },
-  )
-const renderIcon = (icon: Component) => h(NIcon, {size: 12}, { default: () => h(icon) })
+	h(
+		NButton,
+		{
+			text: true,
+			onClick: () => window.open(href, "_blank"),
+		},
+		{
+			default: () => h(NIcon, { style: "vertical-align: middle;" }, { default: () => h(Link) }),
+		},
+	);
+const renderIcon = (icon: Component) => h(NIcon, { size: 12 }, { default: () => h(icon) });
 </script>
 
 <template>

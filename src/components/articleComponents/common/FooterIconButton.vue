@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { NButton, NIcon, NTooltip } from 'naive-ui'
-import { useAttrs } from 'vue'
+import { NButton, NIcon, NTooltip } from "naive-ui";
+import { useAttrs } from "vue";
 
 const props = defineProps<{
-  link?: string
-  tooltip: string
-}>()
+	link?: string;
+	tooltip: string;
+}>();
 
-const attrs = useAttrs()
+const attrs = useAttrs();
 </script>
 
 <template>
@@ -29,5 +29,3 @@ const attrs = useAttrs()
     <span>{{ tooltip }}</span>
   </n-tooltip>
 </template>
-
-<style scoped></style>

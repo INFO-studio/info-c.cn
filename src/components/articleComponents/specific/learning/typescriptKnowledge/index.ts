@@ -1,1 +1,1 @@
-export * from '@/components/articleComponents/specific/learning/typescriptKnowledge/codes'
+export * from "@/components/articleComponents/specific/learning/typescriptKnowledge/codes";

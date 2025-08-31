@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-const canvas = ref()
-onMounted(() => {
-  const ctx = canvas.value.getContext('2d')
-  ctx.beginPath()
-  ctx.moveTo(10, 10)
-  ctx.lineTo(190, 190)
-  ctx.lineTo(120, 180)
-  ctx.closePath()
-  ctx.stroke()
+import { onMounted, ref } from "vue";
 
-  ctx.beginPath()
-  ctx.moveTo(190, 10)
-  ctx.lineTo(10, 190)
-  ctx.lineWidth = 10
-  ctx.strokeStyle = 'red'
-  ctx.stroke()
-})
+const canvas = ref();
+onMounted(() => {
+	const ctx = canvas.value.getContext("2d");
+	ctx.beginPath();
+	ctx.moveTo(10, 10);
+	ctx.lineTo(190, 190);
+	ctx.lineTo(120, 180);
+	ctx.closePath();
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(190, 10);
+	ctx.lineTo(10, 190);
+	ctx.lineWidth = 10;
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+});
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FaceWithMonocle from '@/assets/emojis/raw/face-with-monocle.webp'
+import FaceWithMonocle from "@/assets/emojis/raw/face-with-monocle.webp";
 </script>
 
 <template>

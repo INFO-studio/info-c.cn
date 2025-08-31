@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { type Component, ref } from 'vue'
-import { NFlex, NIcon } from 'naive-ui'
-import { motionDiv } from '@/exports/motion.ts'
+import { NFlex, NIcon } from "naive-ui";
+import { type Component, ref } from "vue";
+import { motionDiv } from "@/exports/motion.ts";
 
 const props = defineProps<{
-  title: string
-  color?: string
-  icon: Component
-}>()
+	title: string;
+	color?: string;
+	icon: Component;
+}>();
 
-const isHover = ref(false)
+const isHover = ref(false);
 </script>
 
 <template>
