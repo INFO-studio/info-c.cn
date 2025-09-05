@@ -4,9 +4,12 @@ import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
 import { type AnchorItem, useAnchorStore } from "@/stores/anchor";
 
-const props = defineProps({
-	h: { type: Number, default: 3 },
-	href: { type: String },
+const props = withDefaults(defineProps<{
+  title: string,
+	h?: number,
+	href?: string,
+}>(), {
+  h: 3,
 });
 
 const themeVars = useThemeVars();
@@ -18,9 +21,10 @@ const anchorId = computed(() => anchorItem.value?.href || "");
 
 const anchorStore = useAnchorStore();
 
+const href = props.href ?? props.title.replaceAll('. ', '_').replaceAll('.', '_').replaceAll(' ', '_')
+
 onMounted(() => {
-	const titleText = titleRef.value?.$el.textContent;
-	anchorItem.value = anchorStore.addAnchor(titleText, props.h, props.href);
+	anchorItem.value = anchorStore.addAnchor(props.title, props.h, href);
 });
 
 onBeforeUnmount(() => {
@@ -36,21 +40,21 @@ onBeforeUnmount(() => {
     :id="anchorId"
     class="article-h1"
     ref="titleRef">
-    <slot />
+    {{props.title}}
   </n-h1>
   <n-h2
     v-else-if="props.h === 2"
     :id="anchorId"
     class="article-h2"
     ref="titleRef">
-    <slot />
+    {{props.title}}
   </n-h2>
   <n-h3
     v-else-if="props.h === 3"
     :id="anchorId"
     class="article-h3"
     ref="titleRef">
-    <slot />
+    {{props.title}}
   </n-h3>
   <n-h4
     v-else-if="props.h === 4"
@@ -58,21 +62,21 @@ onBeforeUnmount(() => {
     :id="anchorId"
     class="article-h4"
     ref="titleRef">
-    <slot />
+    {{props.title}}
   </n-h4>
   <n-h5
     v-else-if="props.h === 5"
     :id="anchorId"
     class="article-h5"
     ref="titleRef">
-    <slot />
+    {{props.title}}
   </n-h5>
   <n-h6
     v-else-if="props.h === 6"
     :id="anchorId"
     class="article-h6"
     ref="titleRef">
-    <slot />
+    {{props.title}}
   </n-h6>
 </template>
 

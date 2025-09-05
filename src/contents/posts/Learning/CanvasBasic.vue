@@ -44,7 +44,7 @@ const renderIcon = (icon: Component) => h(NIcon, { size: 12 }, { default: () => 
     <n-p>
       <n-alert title="提醒" type="warning">目前文章尚未完成</n-alert>
     </n-p>
-    <article-title :h="3" href="1_背景">1. 背景</article-title>
+    <article-title :h="3" title="1. 背景"/>
     <n-p>
       <n-text code>Canvas</n-text>
       是
@@ -71,8 +71,8 @@ const renderIcon = (icon: Component) => h(NIcon, { size: 12 }, { default: () => 
       <n-text code>Canvas</n-text>
       绘制的图像属于位图格式，放大时可能产生锯齿。
     </n-p>
-    <article-title :h="3" href="2_基础">2. 基础</article-title>
-    <article-title :h="4" href="2_1_渲染上下文">2.1 渲染上下文</article-title>
+    <article-title :h="3" title="2. 基础"/>
+    <article-title :h="4" title="2.1 渲染上下文"/>
     <n-p>
       <n-alert title="约定" type="info">
         未进行特殊提示时，本文以下所有关于
@@ -107,7 +107,7 @@ const renderIcon = (icon: Component) => h(NIcon, { size: 12 }, { default: () => 
         为对象
       </n-alert>
     </n-p>
-    <article-title :h="4" href="2_2_坐标系">2.2 坐标系</article-title>
+    <article-title :h="4" title="2.2 坐标系"/>
     <n-p>
       <n-text code>canvas</n-text>
       的坐标系以左上角为原点
@@ -118,7 +118,7 @@ const renderIcon = (icon: Component) => h(NIcon, { size: 12 }, { default: () => 
       <n-text code>y</n-text>
       轴
     </n-p>
-    <article-title :h="4" href="2_3_绘制线段">2.3 绘制线段</article-title>
+    <article-title :h="4" title="2.3 绘制线段"/>
     <n-p>
       <n-data-table
         :columns="[
@@ -199,7 +199,7 @@ const renderIcon = (icon: Component) => h(NIcon, { size: 12 }, { default: () => 
     <n-p>
       <article-code-card title="绘制线段" language="JavaScript" :code="code_02" />
     </n-p>
-    <article-title :h="4" href="2_4_绘制封闭多边形">2.4 绘制封闭多边形</article-title>
+    <article-title :h="4" title="2.4 绘制封闭多边形"/>
     <n-p>
       <n-data-table
         :columns="[
@@ -250,7 +250,7 @@ const renderIcon = (icon: Component) => h(NIcon, { size: 12 }, { default: () => 
     <n-p>
       <article-code-card title="绘制封闭多边形" language="JavaScript" :code="code_03" />
     </n-p>
-    <article-title :h="4" href="2_5_绘制矩形">2.5 绘制矩形</article-title>
+    <article-title :h="4" title="2.5 绘制矩形"/>
     <n-p>
       <n-data-table
         :columns="[
@@ -299,7 +299,7 @@ const renderIcon = (icon: Component) => h(NIcon, { size: 12 }, { default: () => 
     <n-p>
       <article-code-card title="绘制矩形" language="JavaScript" :code="code_04" />
     </n-p>
-    <article-title :h="4" href="2_6_绘制弧线">2.6 绘制弧线</article-title>
+    <article-title :h="4" title="2.6 绘制弧线"/>
     <n-p>
       <n-data-table
         :columns="[
@@ -360,7 +360,7 @@ const renderIcon = (icon: Component) => h(NIcon, { size: 12 }, { default: () => 
     <n-p>
       <article-code-card title="绘制弧线 arc" language="JavaScript" :code="code_06" />
     </n-p>
-    <article-title :h="4" href="2_7_绘制贝塞尔曲线">2.7 绘制贝塞尔曲线</article-title>
+    <article-title :h="4" title="2.7 绘制贝塞尔曲线"/>
     <n-p>
       <n-data-table
         :columns="[

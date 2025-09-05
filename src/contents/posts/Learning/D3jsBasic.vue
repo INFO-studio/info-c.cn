@@ -9,7 +9,7 @@ import { D3js01 } from "@/components/articleComponents/specific/learning/d3jsBas
     <n-p>
       <n-alert title="提醒" type="warning">目前文章完全没写</n-alert>
     </n-p>
-    <article-title :h="3" href="1_简介">1. 简介</article-title>
+    <article-title :h="3" title="1. 简介"/>
     <n-flex justify="center">
       <d3js01 />
     </n-flex>

@@ -2,7 +2,7 @@
 import { motion } from "motion-v";
 import { type CSSProperties, onBeforeUnmount, onMounted, ref } from "vue";
 
-const MotionLi = motion.li
+const MotionLi = motion.li;
 
 const initialOrder = ["#ff0088", "#dd00ee", "#9911ff", "#0d63f8"];
 

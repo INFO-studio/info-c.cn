@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { motion } from "motion-v";
 
-const MotionSvg = motion.svg
-const MotionCircle = motion.circle
-const MotionLine = motion.line
-const MotionRect = motion.rect
+const MotionSvg = motion.svg;
+const MotionCircle = motion.circle;
+const MotionLine = motion.line;
+const MotionRect = motion.rect;
 
 const draw = {
 	hidden: { pathLength: 0, opacity: 0 },
@@ -17,11 +17,11 @@ const draw = {
 			transition: {
 				pathLength: {
 					delay,
-					type: 'spring' as const,
+					type: "spring" as const,
 					duration: 1.5,
 					bounce: 0,
 					repeat: Infinity,
-					repeatType: 'reverse' as const,
+					repeatType: "reverse" as const,
 				},
 				opacity: { delay, duration: 0.01 },
 			},

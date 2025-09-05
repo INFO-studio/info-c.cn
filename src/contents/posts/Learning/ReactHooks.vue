@@ -14,13 +14,13 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
       <n-text code>useState</n-text>
       状态钩子
     </article-title>
-    <article-title :h="4" href="1_1_使用场景">1.1 使用场景</article-title>
+    <article-title :h="4" title="1.1 使用场景"/>
     <n-p>
       当一个数据需要响应式呈现到页面上时，需要使用
       <n-text code>useState</n-text>
       状态声明钩子来告知 React 监听数据，从而实现页面的数据动态更新
     </n-p>
-    <article-title :h="4" href="1_2_使用方式">1.2 使用示例</article-title>
+    <article-title :h="4" title="1.2 使用示例"/>
     <article-code-card title="使用方式" language="TSX" :code="code_01" />
     <n-p>
       声明方法为
@@ -56,8 +56,8 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
       <n-text code>func</n-text>
       的返回值作为新的数据
     </n-p>
-    <article-title :h="4" href="1_3_注意事项">1.3 注意事项</article-title>
-    <article-title :h="5" href="1_3_1_修改状态会导致组件重新执行">1.3.1 修改状态会导致组件重新执行</article-title>
+    <article-title :h="4" title="1.3 注意事项"/>
+    <article-title :h="5" title="1.3.1 修改状态会导致组件重新执行"/>
     <n-p>当组件的一个状态被修改时，React 会调用方法重新渲染组件</n-p>
     <article-code-card title="举例" language="TSX" :code="code_02" />
     <n-p>
@@ -78,7 +78,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
       <n-text code>count</n-text>
       变量本身是已经改变了的
     </n-p>
-    <article-title :h="5" href="1_3_2_修改状态是异步操作">1.3.2 修改状态是异步操作</article-title>
+    <article-title :h="5" title="1.3.2 修改状态是异步操作"/>
     <n-p>
       <n-text code>setVal</n-text>
       函数会将内容存放于微队列中，在同步代码执行结束后再执行
@@ -131,7 +131,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
       <n-text code>count</n-text>
       已被上一次状态修改函数修改完毕，故取到的是新值，理所当然地，控制台输出等操作也会输出正确的新值
     </n-p>
-    <article-title :h="5" href="1_3_3_状态具有缓存能力">1.3.3 状态具有缓存能力</article-title>
+    <article-title :h="5" title="1.3.3 状态具有缓存能力"/>
     <n-p>
       每一个状态都被缓存在 Fiber 节点的
       <n-text code>memoizedState</n-text>

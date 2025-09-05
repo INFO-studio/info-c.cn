@@ -34,7 +34,7 @@ const ThemeVars = useThemeVars();
     <n-p>
       <n-alert title="提醒" type="warning">目前文章尚未完成</n-alert>
     </n-p>
-    <article-title :h="3" href="1_何时会发生跨域问题">1. 何时会发生跨域问题</article-title>
+    <article-title :h="3" title="1. 何时会发生跨域问题"/>
     <n-p> 定义「源」为「协议 + 根域名 + 端口号」 </n-p>
     <n-p>
       若一个请求的客户端与服务端的源的三部分均完全相同，则称其为同源请求，否则称其为非同源（异源、跨域）
@@ -96,25 +96,25 @@ const ThemeVars = useThemeVars();
         </span>
       </n-space>
     </n-p>
-    <article-title :h="3" href="2_跨域的限制">2. 跨域的限制</article-title>
-    <article-title :h="4" href="2_1_限制DOM访问">2.1 限制 DOM 访问</article-title>
+    <article-title :h="3" title="2. 跨域的限制"/>
+    <article-title :h="4" title="2.1 限制 DOM 访问"/>
     <article-code-card title="限制 DOM 访问" language="HTML" :code="code_01" />
     <article-code-card title="点击时报错" language="plaintext" language-name="ErrorLog" :code="code_02" />
-    <article-title :h="4" href="2_2_限制Cookie获取">2.2 限制 Cookie 获取</article-title>
+    <article-title :h="4" title="2.2 限制 Cookie 获取"/>
     <article-code-card title="限制 Cookie 获取" language="HTML" :code="code_03" />
-    <article-title :h="4" href="2_3_限制网络请求">2.3 限制网络请求</article-title>
+    <article-title :h="4" title="2.3 限制网络请求"/>
     <article-mermaid :chart="mermaid_01" />
-    <article-title :h="3" href="3_特征">3. 特征</article-title>
-    <article-title :h="4" href="3_1_仅存在于浏览器端">3.1 仅存在于浏览器端</article-title>
+    <article-title :h="3" title="3. 特征"/>
+    <article-title :h="4" title="3.1 仅存在于浏览器端"/>
     <n-p>跨域限制仅在浏览器端生效，服务器端不存在跨域限制</n-p>
-    <article-title :h="4" href="3_2_发出请求正常">3.2 发出请求正常</article-title>
+    <article-title :h="4" title="3.2 发出请求正常"/>
     <n-p>即使发出跨域请求，该请求会从浏览器正常发出，浏览器也会正常接收返回数据，但不会将违反跨域限制的响应返回给 JavaScript</n-p>
     <n-p>
       详见
       <n-a href="#2_3_限制网络请求">2.3</n-a>
       图表
     </n-p>
-    <article-title :h="4" href="3_3_部分标签请求正常">3.3 部分标签请求正常</article-title>
+    <article-title :h="4" title="3.3 部分标签请求正常"/>
     <n-p>
       如果是
       <n-text code>&lt;link&gt;</n-text>
@@ -131,8 +131,8 @@ const ThemeVars = useThemeVars();
       <n-a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/CSP">CSP 内容安全策略</n-a>
       进行限制
     </n-p>
-    <article-title :h="3" href="4_修改服务器解决跨域问题">4. 修改服务器解决跨域问题</article-title>
-    <article-title :h="4" href="4_1_原生CORS">4.1 原生 CORS</article-title>
+    <article-title :h="3" title="4. 修改服务器解决跨域问题"/>
+    <article-title :h="4" title="4.1 原生 CORS"/>
     <n-p>
       可以通过 CORS 跨域资源共享
       <n-text code>Cross-Origin Resource Sharing</n-text>
@@ -141,7 +141,7 @@ const ThemeVars = useThemeVars();
     <n-p>
       CORS 是用于控制浏览器校验跨域请求的一套规范，服务器依照 CORS 规范添加特定响应头来控制浏览器校验
     </n-p>
-    <article-title :h="5" href="4_1_1_区分简单请求与复杂请求">4.1.1 区分简单请求与复杂请求</article-title>
+    <article-title :h="5" title="4.1.1 区分简单请求与复杂请求"/>
     <n-p>
       Fetch 规范将请求分为了简单请求与复杂请求，简单请求即不会触发 CORS 预检请求 的请求，详见
       <n-a href="#4_1_3_解决复杂请求">4.1.3</n-a>
@@ -183,7 +183,7 @@ const ThemeVars = useThemeVars();
     <n-p>
       除简单请求的所有请求均为复杂请求
     </n-p>
-    <article-title :h="5" href="4_1_2_解决简单请求">4.1.2 解决简单请求</article-title>
+    <article-title :h="5" title="4.1.2 解决简单请求"/>
     <n-p>
       在响应头中，设置字段
       <n-text code>Access-Control-Allow-Origin</n-text>
@@ -193,7 +193,7 @@ const ThemeVars = useThemeVars();
     </n-p>
     <article-code-card title="客户端" language="JavaScript" :code="code_04" />
     <article-code-card title="服务端" language="JavaScript" language-name="Node.js" :code="code_05" />
-    <article-title :h="5" href="4_1_3_解决复杂请求">4.1.3 解决复杂请求</article-title>
+    <article-title :h="5" title="4.1.3 解决复杂请求"/>
     <n-p>在发送复杂请求前，浏览器会先发送一次预检请求，用于向服务端确认是否允许接下来的复杂跨域请求</n-p>
     <n-p>
       预检请求是一个
@@ -248,17 +248,17 @@ const ThemeVars = useThemeVars();
     </n-p>
     <article-code-card title="客户端" language="JavaScript" :code="code_06" />
     <article-code-card title="服务端" language="JavaScript" language-name="Node.js" :code="code_07" />
-    <article-title :h="4" href="4_2_后端中间件">4.2 后端中间件</article-title>
-    <article-title :h="5" href="4_2_1_cors库-Nodejs">4.2.1 cors 库 - Node.js</article-title>
+    <article-title :h="4" title="4.2 后端中间件"/>
+    <article-title :h="5" title="4.2.1 cors 库 - Node.js"/>
     <article-code-card title="安装 cors" language="Bash" :code="code_08" />
     <article-code-card title="配置 cors" language="JavaScript" language-name="Node.js" :code="code_09" />
-    <article-title :h="5" href="4_2_2_SpringBoot自带-Java">4.2.2 SpringBoot自带 - Java</article-title>
+    <article-title :h="5" title="4.2.2 SpringBoot自带 - Java"/>
     <article-code-card title="全局配置" language="Java" :code="code_10" />
     <article-code-card title="单 Controller 配置" language="Java" :code="code_11" />
-    <article-title :h="5" href="4_2_3_Gin自带-Go">4.2.3 Gin自带 - Go</article-title>
+    <article-title :h="5" title="4.2.3 Gin自带 - Go"/>
     <article-code-card title="安装" language="Bash" :code="code_12" />
     <article-code-card title="配置" language="Go" :code="code_13" />
-    <article-title :h="4" href="4_3_JSONP">4.3 JSONP</article-title>
+    <article-title :h="4" title="4.3 JSONP"/>
     <n-alert type="warning">
       JSONP 是过期技术，不建议任何情况下使用
     </n-alert>
@@ -271,7 +271,7 @@ const ThemeVars = useThemeVars();
       <n-text code>GET</n-text>
       请求来避免跨域问题
     </n-p>
-    <article-title :h="5" href="4_3_1_JSONP的原理">4.3.1 JSONP的原理</article-title>
+    <article-title :h="5" title="4.3.1 JSONP的原理"/>
     <n-p>
       浏览器在读取到
       <n-text code>&lt;script src="abc"&gt;&lt;/script&gt;</n-text>
@@ -285,18 +285,18 @@ const ThemeVars = useThemeVars();
     </n-p>
     <article-code-card title="客户端" language="HTML" :code="code_14" />
     <article-code-card title="服务端" language="JavaScript" language-name="Node.js" :code="code_15" />
-    <article-title :h="5" href="4_3_2_原生JSONP">4.3.2 原生 JSONP</article-title>
+    <article-title :h="5" title="4.3.2 原生 JSONP"/>
     <article-code-card title="客户端" language="HTML" :code="code_16" />
     <article-code-card title="服务端" language="JavaScript" language-name="Node.js" :code="code_17" />
-    <article-title :h="5" href="4_3_3_jQuery封装的JSONP">4.3.3 jQuery 封装的 JSONP</article-title>
+    <article-title :h="5" title="4.3.3 jQuery 封装的 JSONP"/>
     <article-code-card title="客户端" language="HTML" :code="code_18" />
-    <article-title :h="3" href="5_配置代理服务器解决跨域问题">5. 配置代理服务器解决跨域问题</article-title>
+    <article-title :h="3" title="5. 配置代理服务器解决跨域问题"/>
     <n-p>
       根据
       <n-a href="#3_1_仅存在于浏览器端">3.1</n-a>
       的性质，发送跨域请求到同源服务器上，并由服务器进行转发即可解决跨域问题
     </n-p>
-    <article-title :h="4" href="5_1_使用代理中间件">5.1 使用代理中间件</article-title>
+    <article-title :h="4" title="5.1 使用代理中间件"/>
     <article-code-card title="安装代理中间件" language="Bash" :code="code_19" />
     <article-code-card title="配置代理中间件" language="JavaScript" language-name="Node.js" :code="code_20" />
     <n-p>
@@ -305,9 +305,9 @@ const ThemeVars = useThemeVars();
       ，即可通过代理服务器发送请求至
       <n-text code>https://www.b.com/aaa</n-text>
     </n-p>
-    <article-title :h="4" href="5_2_使用 Nginx">5.1 使用 Nginx</article-title>
+    <article-title :h="4" title="5.1 使用 Nginx"/>
     <n-p>还没写</n-p>
-    <article-title :h="4" href="5_3_使用脚手架">5.1 使用脚手架</article-title>
+    <article-title :h="4" title="5.1 使用脚手架"/>
     <n-p>还没写</n-p>
   </article-content>
 </template>

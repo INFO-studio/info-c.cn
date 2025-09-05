@@ -99,8 +99,8 @@ const tagsFavour = ["Vocaloid", "魔女之旅", "Project Sekai", "Maimai", "神�
         </n-card>
         <n-card title="元信息" :bordered="false" class="no-background-card">
           <n-flex vertical>
-            <n-text>最近更新时间：2025-09-01</n-text>
-            <n-text>更新内容：项目架构优化-使用 UnoCSS & Biome</n-text>
+            <n-text>最近更新时间：2025-09-06</n-text>
+            <n-text>更新内容：项目架构优化-修复整合逻辑，优化标题组件</n-text>
           </n-flex>
         </n-card>
       </n-flex>

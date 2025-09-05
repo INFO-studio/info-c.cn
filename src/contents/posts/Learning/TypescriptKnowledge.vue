@@ -49,12 +49,12 @@ import { code_01, code_02, code_03, code_04, code_05, code_06, code_07, code_08,
       返回做进一步处理，以保证返回的内容不会作为行为判据
     </n-p>
     <article-code-card title="示例" language="TypeScript" :code="code_03" />
-    <article-title :h="3" href="2_装饰器的执行顺序">2. 装饰器的执行顺序</article-title>
+    <article-title :h="3" title="2. 装饰器的执行顺序"/>
     <n-p>当具有多个装饰器时，会先从上到下执行装饰器工厂，后从下到上执行装饰器</n-p>
     <article-code-card title="示例" language="TypeScript" :code="code_04" />
     <n-p>执行结果如下</n-p>
     <article-code-card title="执行结果" language="text" :code="code_05" />
-    <article-title :h="3" href="3_类内函数的两种声明方式的差异">3. 函数的两种声明方式的差异</article-title>
+    <article-title :h="3" title="3. 函数的两种声明方式的差异"/>
     <n-p>
       函数有两种声明方式，分别为
       <n-text code>method</n-text>
