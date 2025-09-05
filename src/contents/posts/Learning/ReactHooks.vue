@@ -9,7 +9,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
     <n-p>
       <n-alert title="提醒" type="warning">目前文章尚未完成</n-alert>
     </n-p>
-    <article-title :h="3" href="1_useState状态钩子">
+    <article-title :h="3" title="1. useState状态钩子">
       1.
       <n-text code>useState</n-text>
       状态钩子
@@ -142,7 +142,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
       <n-text code>useState</n-text>
       钩子接收到的默认值就会覆盖原有状态，此钩子就无任何意义了
     </n-p>
-    <article-title :h="3" href="2_useEffect外部作用钩子">
+    <article-title :h="3" title="2. useEffect外部作用钩子">
       2.
       <n-text code>useEffect</n-text>
       外部作用钩子
@@ -150,7 +150,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
     <n-p>
       还没写
     </n-p>
-    <article-title :h="3" href="3_useContext上下文钩子">
+    <article-title :h="3" title="3. useContext上下文钩子">
       3.
       <n-text code>useContext</n-text>
       上下文钩子
@@ -158,7 +158,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
     <n-p>
       还没写
     </n-p>
-    <article-title :h="3" href="4_useReducer值管理钩子">
+    <article-title :h="3" title="4. useReducer值管理钩子">
       4.
       <n-text code>useReducer</n-text>
       值管理钩子
@@ -166,7 +166,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
     <n-p>
       还没写
     </n-p>
-    <article-title :h="3" href="5_useCallback函数缓存钩子">
+    <article-title :h="3" title="5. useCallback函数缓存钩子">
       5.
       <n-text code>useCallback</n-text>
       函数缓存钩子
@@ -174,7 +174,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
     <n-p>
       还没写
     </n-p>
-    <article-title :h="3" href="6_useMemo值缓存钩子">
+    <article-title :h="3" title="6. useMemo值缓存钩子">
       6.
       <n-text code>useMemo</n-text>
       值缓存钩子
@@ -182,7 +182,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
     <n-p>
       还没写
     </n-p>
-    <article-title :h="3" href="7_useRef引用钩子">
+    <article-title :h="3" title="7. useRef引用钩子">
       7.
       <n-text code>useRef</n-text>
       引用钩子
@@ -190,7 +190,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
     <n-p>
       还没写
     </n-p>
-    <article-title :h="3" href="8_useTransition后台渲染钩子">
+    <article-title :h="3" title="8. useTransition后台渲染钩子">
       8.
       <n-text code>useTransition</n-text>
       后台渲染钩子
@@ -198,7 +198,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
     <n-p>
       还没写
     </n-p>
-    <article-title :h="3" href="9_useOptimistic乐观更新钩子">
+    <article-title :h="3" title="9. useOptimistic乐观更新钩子">
       9.
       <n-text code>useOptimistic</n-text>
       乐观更新钩子
@@ -206,7 +206,7 @@ import { code_01, code_02, code_03, code_04 } from "@/components/articleComponen
     <n-p>
       还没写
     </n-p>
-    <article-title :h="3" href="10_useDeferredValue延迟更新钩子">
+    <article-title :h="3" title="10. useDeferredValue延迟更新钩子">
       10.
       <n-text code>useDeferredValue</n-text>
       延迟更新钩子

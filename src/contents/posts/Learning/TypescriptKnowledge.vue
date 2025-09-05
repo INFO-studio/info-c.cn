@@ -6,7 +6,7 @@ import { code_01, code_02, code_03, code_04, code_05, code_06, code_07, code_08,
 
 <template>
   <article-content>
-    <article-title :h="3" href="1_类型声明函数返回值void的特殊情况">
+    <article-title :h="3" title="1. 类型声明函数返回值void的特殊情况">
       1. 类型声明函数返回值
       <n-text code>void</n-text>
       的特殊情况
