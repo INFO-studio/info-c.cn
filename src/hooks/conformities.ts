@@ -15,8 +15,8 @@ const useConformities = () => {
 	const getArticleListConformitied = <T extends keyof DocumentRouteTree>(
 		key: T,
 		getGroup: (val: Exclude<UnwrapArray<DocumentRouteTree[T]>, undefined>) => string = (val) => String(val),
+    sortBy: (val: string) => string | string[] = (val) => val,
 		defaultGroup: string = "未分类",
-		sortBy: (val: string) => string | string[] = (val) => val,
 	): ArticleList => {
 		const routeTree = getRouteTree(routes);
 
@@ -62,12 +62,10 @@ const useConformities = () => {
 			}
 		});
 
-		console.log(allArticles);
-
-		return lSortBy(Object.entries(groupMap), sortBy).map(([groupKey, articles]) => ({
-			key: groupKey,
-			articles: articles,
-		}));
+		return lSortBy(Object.entries(groupMap), ([groupName]) => sortBy(groupName)).map(([groupName, groupArticles]) => ({
+      key: groupName,
+      articles: groupArticles
+    }))
 	};
 
 	return {
