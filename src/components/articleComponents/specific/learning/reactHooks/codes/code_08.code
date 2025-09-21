@@ -1,0 +1,36 @@
+import { useReducer } from 'react'
+
+// 定义状态类型和动作类型
+type State = { count: number }
+type Action = 
+  | { type: 'increment' }
+  | { type: 'decrement' }
+  | { type: 'reset' }
+
+// 定义reducer函数
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 }
+    case 'decrement':
+      return { count: state.count - 1 }
+    case 'reset':
+      return { count: 0 }
+    default:
+      return state
+  }
+}
+
+const Counter = () => {
+  // 使用useReducer，传入reducer函数和初始状态
+  const [state, dispatch] = useReducer(reducer, { count: 0 })
+  
+  return (
+    <div>
+      <p>计数: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>增加</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>减少</button>
+      <button onClick={() => dispatch({ type: 'reset' })}>重置</button>
+    </div>
+  )
+}

@@ -1,0 +1,17 @@
+import { useState, useEffect } from 'react'
+
+const MyComponent = () => {
+  const [count, setCount] = useState<number>(0)
+  
+  // 组件挂载时和count变化时执行
+  useEffect(() => {
+    document.title = `点击了 ${count} 次`
+    console.log('副作用执行')
+  }, [count]) // 依赖数组中包含count
+  
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      点击次数: {count}
+    </button>
+  )
+}

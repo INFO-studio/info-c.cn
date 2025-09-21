@@ -1,0 +1,35 @@
+import { useState, useCallback, memo } from 'react'
+
+// 使用memo包装子组件以避免不必要的重新渲染
+const Button = memo(({ onClick, children }) => {
+  console.log(`${children} 组件渲染`)
+  return <button onClick={onClick}>{children}</button>
+})
+
+const Counter = () => {
+  const [count1, setCount1] = useState(0)
+  const [count2, setCount2] = useState(0)
+  
+  // 使用useCallback缓存函数，只有当count1变化时才会创建新函数
+  const handleClick1 = useCallback(() => {
+    setCount1(count1 + 1)
+  }, [count1])
+  
+  // 不使用useCallback，每次父组件渲染都会创建新函数
+  const handleClick2 = () => {
+    setCount2(count2 + 1)
+  }
+  
+  return (
+    <div>
+      <p>使用useCallback的按钮点击次数: {count1}</p>
+      <p>不使用useCallback的按钮点击次数: {count2}</p>
+      
+      {/* 使用缓存的回调函数，只有当count1变化时Button才会重新渲染 */}
+      <Button onClick={handleClick1}>使用useCallback的按钮</Button>
+      
+      {/* 每次父组件渲染都会导致Button重新渲染 */}
+      <Button onClick={handleClick2}>不使用useCallback的按钮</Button>
+    </div>
+  )
+}

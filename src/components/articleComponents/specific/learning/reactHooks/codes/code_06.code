@@ -1,0 +1,29 @@
+import { useState, useEffect } from 'react'
+
+const MyComponent = () => {
+  const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine)
+  
+  useEffect(() => {
+    // 设置事件监听器
+    const handleOnline = () => setIsOnline(true)
+    const handleOffline = () => setIsOnline(false)
+    
+    window.addEventListener('online', handleOnline)
+    window.addEventListener('offline', handleOffline)
+    
+    console.log('添加了事件监听')
+    
+    // 返回清理函数
+    return () => {
+      window.removeEventListener('online', handleOnline)
+      window.removeEventListener('offline', handleOffline)
+      console.log('移除了事件监听')
+    }
+  }, []) // 空依赖数组，仅在组件挂载和卸载时执行
+  
+  return (
+    <div>
+      当前网络状态: {isOnline ? '在线' : '离线'}
+    </div>
+  )
+}

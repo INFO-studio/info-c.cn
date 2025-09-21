@@ -1,0 +1,40 @@
+import { useRef, useState, useEffect } from 'react'
+
+const TextInputWithFocusButton = () => {
+  // 创建一个ref来存储input元素的引用
+  const inputRef = useRef<HTMLInputElement>(null)
+  
+  // 创建一个ref来存储渲染次数（不会触发重新渲染）
+  const renderCountRef = useRef<number>(0)
+  
+  const [text, setText] = useState<string>('')
+  
+  // 点击按钮时聚焦输入框
+  const handleFocus = () => {
+    // 使用ref访问DOM元素
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  }
+  
+  useEffect(() => {
+    // 每次渲染后增加计数
+    renderCountRef.current += 1
+    console.log(`组件已渲染 ${renderCountRef.current} 次`)
+  })
+  
+  return (
+    <div>
+      <input
+        ref={inputRef}
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="请输入文本"
+      />
+      <button onClick={handleFocus}>聚焦输入框</button>
+      <p>当前文本: {text}</p>
+      <p>渲染次数: {renderCountRef.current}</p>
+    </div>
+  )
+}

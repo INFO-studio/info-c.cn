@@ -1,0 +1,50 @@
+import { useState, useDeferredValue, useMemo } from 'react'
+
+const SearchResults = () => {
+  // 用户输入的搜索词
+  const [query, setQuery] = useState<string>('')
+  
+  // 延迟更新的搜索词，用于耗时的渲染操作
+  const deferredQuery = useDeferredValue(query)
+  
+  // 模拟大量数据
+  const allItems = Array.from({ length: 10000 }, (_, i) => `项目 ${i + 1}`)
+  
+  // 使用延迟值进行过滤，避免阻塞用户输入
+  const filteredItems = useMemo(() => {
+    console.log(`使用延迟值过滤: ${deferredQuery}`)
+    if (!deferredQuery) return []
+    return allItems.filter(item =>
+      item.toLowerCase().includes(deferredQuery.toLowerCase())
+    )
+  }, [deferredQuery])
+  
+  // 检查是否正在等待延迟值更新
+  const isStale = query !== deferredQuery
+  
+  return (
+    <div>
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="搜索项目..."
+      />
+      
+      <div style={{ opacity: isStale ? 0.7 : 1 }}>
+        <p>
+          {isStale ? '正在更新结果...' : `找到 ${filteredItems.length} 个结果`}
+        </p>
+        
+        <ul>
+          {filteredItems.slice(0, 100).map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+          {filteredItems.length > 100 && 
+            <p>显示前100项，共 {filteredItems.length} 项</p>
+          }
+        </ul>
+      </div>
+    </div>
+  )
+}

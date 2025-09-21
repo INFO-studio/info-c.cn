@@ -12,7 +12,6 @@ const props = defineProps({
 
 const themeVars = useThemeVars();
 const primaryColor = computed(() => themeVars.value.primaryColor);
-const borderRadius = computed(() => themeVars.value.borderRadius);
 
 const { x, y } = useMouse();
 
@@ -58,7 +57,6 @@ const radialSize = computed(() => `${props.glowSize}px`);
 .glow-container {
   position: relative;
   padding: 1px;
-  border-radius: v-bind(borderRadius);
 
   &::before {
     content: '';

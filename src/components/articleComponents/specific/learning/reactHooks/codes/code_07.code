@@ -1,0 +1,40 @@
+import { createContext, useContext, useState } from 'react'
+
+// 创建上下文
+const ThemeContext = createContext<'light' | 'dark'>('light')
+
+// 父组件提供上下文
+const App = () => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  
+  const toggleTheme = () => {
+    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light')
+  }
+  
+  return (
+    <ThemeContext.Provider value={theme}>
+      <div>
+        <button onClick={toggleTheme}>切换主题</button>
+        <ThemedButton />
+      </div>
+    </ThemeContext.Provider>
+  )
+}
+
+// 子组件消费上下文
+const ThemedButton = () => {
+  const theme = useContext(ThemeContext)
+  
+  const style = {
+    background: theme === 'dark' ? '#333' : '#fff',
+    color: theme === 'dark' ? '#fff' : '#333',
+    padding: '10px',
+    borderRadius: '4px'
+  }
+  
+  return (
+    <button style={style}>
+      当前主题: {theme}
+    </button>
+  )
+}

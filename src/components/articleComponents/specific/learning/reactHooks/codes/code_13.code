@@ -1,0 +1,63 @@
+import { useState, useOptimistic } from 'react'
+
+const TodoList = () => {
+  // 服务器数据状态
+  const [todos, setTodos] = useState<Array<{ id: number; text: string; completed: boolean }>>(
+    [
+      { id: 1, text: '学习React', completed: false },
+      { id: 2, text: '学习TypeScript', completed: true },
+    ]
+  )
+  
+  // 乐观更新状态
+  const [optimisticTodos, addOptimisticTodo] = useOptimistic(
+    todos,
+    (state, newTodo: { id: number; text: string; completed: boolean }) => {
+      // 返回乐观更新后的状态
+      return [...state, newTodo]
+    }
+  )
+  
+  // 模拟API请求添加待办事项
+  const addTodo = async (text: string) => {
+    // 创建新的待办事项
+    const newTodo = {
+      id: Date.now(),
+      text,
+      completed: false
+    }
+    
+    // 立即进行乐观更新
+    addOptimisticTodo(newTodo)
+    
+    try {
+      // 模拟API请求延迟
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // 请求成功后更新实际状态
+      setTodos(prevTodos => [...prevTodos, newTodo])
+      console.log('待办事项添加成功')
+    } catch (error) {
+      // 请求失败时，乐观更新会自动回滚
+      console.error('添加待办事项失败', error)
+      // 注意：不需要手动回滚，useOptimistic会自动处理
+    }
+  }
+  
+  return (
+    <div>
+      <h3>待办事项列表</h3>
+      <button onClick={() => addTodo('新的待办事项')}>添加待办事项</button>
+      <p><small>点击添加后会立即显示在列表中（乐观更新），实际保存有2秒延迟</small></p>
+      
+      <ul>
+        {optimisticTodos.map(todo => (
+          <li key={todo.id}>
+            {todo.text}
+            {todo.completed ? ' ✓' : ''}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}

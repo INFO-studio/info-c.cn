@@ -60,9 +60,9 @@ export const routes: DocumentRoute = {
 			name: "React Hooks 使用",
 			component: ReactHooks,
 			title: "常见 React Hooks 的使用细节",
-			tags: ["前端", "React", "未完成"],
+			tags: ["前端", "React"],
 			createDate: new Date(2025, 4, 1, 15, 58),
-			modifyDate: new Date(2025, 4, 4, 1, 16),
+			modifyDate: new Date(2025, 8, 22, 4, 28),
 		},
 		{
 			path: "d3js_basic",

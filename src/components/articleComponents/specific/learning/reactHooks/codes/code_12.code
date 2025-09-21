@@ -1,0 +1,54 @@
+import { useState, useTransition } from 'react'
+
+const FilterableList = () => {
+  // 用于存储输入框的值
+  const [inputValue, setInputValue] = useState<string>('')
+  
+  // 用于存储过滤后的列表
+  const [filteredList, setFilteredList] = useState<string[]>([])
+  
+  // 使用useTransition标记状态更新为非紧急
+  const [isPending, startTransition] = useTransition()
+  
+  // 生成一个大列表
+  const allItems = Array.from({ length: 10000 }, (_, i) => `项目 ${i + 1}`)
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    
+    // 立即更新输入值（高优先级）
+    setInputValue(value)
+    
+    // 将过滤操作标记为非紧急（低优先级）
+    startTransition(() => {
+      // 在后台进行耗时的过滤操作
+      const filtered = allItems.filter(item => 
+        item.toLowerCase().includes(value.toLowerCase())
+      )
+      setFilteredList(filtered)
+    })
+  }
+  
+  return (
+    <div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleChange}
+        placeholder="搜索项目..."
+      />
+      
+      {/* 显示加载状态 */}
+      {isPending ? (
+        <p>正在加载结果...</p>
+      ) : (
+        <ul>
+          {filteredList.slice(0, 100).map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+          {filteredList.length > 100 && <p>显示前100项，共 {filteredList.length} 项</p>}
+        </ul>
+      )}
+    </div>
+  )
+}

@@ -1,0 +1,37 @@
+import { useState, useMemo } from 'react'
+
+const ExpensiveCalculation = () => {
+  const [count, setCount] = useState<number>(0)
+  const [wordIndex, setWordIndex] = useState<number>(0)
+  
+  const words = ['React', 'JavaScript', 'TypeScript', 'Hooks', 'Components']
+  
+  // 模拟昂贵的计算过程
+  const expensiveComputation = (num: number) => {
+    console.log('执行昂贵计算...')
+    // 模拟耗时操作
+    let result = 0
+    for (let i = 0; i < 1000000; i++) {
+      result += num
+    }
+    return result
+  }
+  
+  // 使用useMemo缓存计算结果，只有当count变化时才重新计算
+  const computedValue = useMemo(() => {
+    return expensiveComputation(count)
+  }, [count])
+  
+  return (
+    <div>
+      <p>当前计数: {count}</p>
+      <p>计算结果: {computedValue}</p>
+      <p>当前单词: {words[wordIndex]}</p>
+      
+      <button onClick={() => setCount(count + 1)}>增加计数</button>
+      <button onClick={() => setWordIndex((wordIndex + 1) % words.length)}>
+        切换单词 (不会触发重新计算)
+      </button>
+    </div>
+  )
+}
