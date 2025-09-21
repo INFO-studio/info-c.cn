@@ -1,7 +1,22 @@
 <script setup lang="ts">
 import { NAlert, NLi, NOl, NP, NText, NUl } from "naive-ui";
 import { ArticleCodeCard, ArticleContent, ArticleTitle } from "@/components";
-import { code_01, code_02, code_03, code_04, code_05, code_06, code_07, code_08, code_09, code_10, code_11, code_12, code_13, code_14 } from "@/components/articleComponents/specific/learning/reactHooks";
+import {
+	code_01,
+	code_02,
+	code_03,
+	code_04,
+	code_05,
+	code_06,
+	code_07,
+	code_08,
+	code_09,
+	code_10,
+	code_11,
+	code_12,
+	code_13,
+	code_14,
+} from "@/components/articleComponents/specific/learning/reactHooks";
 </script>
 
 <template>
