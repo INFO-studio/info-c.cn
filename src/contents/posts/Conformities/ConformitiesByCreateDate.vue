@@ -6,7 +6,11 @@ import { useConformities } from "@/hooks/conformities.ts";
 
 const conformities = useConformities();
 
-const articleListConformitied = conformities.getArticleListConformitied("createDate", (val: Date) => `${val.getFullYear()} - ${val.getMonth() + 1}`);
+const articleListConformitied = conformities.getArticleListConformitied(
+	"createDate",
+	(val: Date) => `${val.getFullYear()} - ${val.getMonth() + 1}`,
+	(val: string) => val.split(" - "),
+);
 
 const hoverPath = ref<string | null>(null);
 </script>

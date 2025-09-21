@@ -1,4 +1,4 @@
-import { isArray } from "lodash";
+import { isArray, sortBy as lSortBy } from "lodash";
 
 import type { DocumentRouteTree } from "@/router/interfaces";
 import { routes } from "@/router/routes";
@@ -14,8 +14,9 @@ const useConformities = () => {
 
 	const getArticleListConformitied = <T extends keyof DocumentRouteTree>(
 		key: T,
-		getGroup: (val: Exclude<UnwrapArray<DocumentRouteTree[T]>, undefined>) => string = (v) => String(v),
+		getGroup: (val: Exclude<UnwrapArray<DocumentRouteTree[T]>, undefined>) => string = (val) => String(val),
 		defaultGroup: string = "未分类",
+		sortBy: (val: string) => string | string[] = (val) => val,
 	): ArticleList => {
 		const routeTree = getRouteTree(routes);
 
@@ -63,9 +64,9 @@ const useConformities = () => {
 
 		console.log(allArticles);
 
-		return Object.entries(groupMap).map(([groupKey, arts]) => ({
+		return lSortBy(Object.entries(groupMap), sortBy).map(([groupKey, articles]) => ({
 			key: groupKey,
-			articles: arts,
+			articles: articles,
 		}));
 	};
 
