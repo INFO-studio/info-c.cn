@@ -36,3 +36,37 @@ html {
 pre.__code__ {
   font-family: "Fira Code", "Monaco", "Consolas", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", monospace;
 }
+
+
+/* Chrome / Safari / Edge */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dark *::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox */
+* {
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}

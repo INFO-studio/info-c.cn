@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NAvatar, NCard, NDivider, NFlex, NP, NSpace, NTag, useThemeVars } from "naive-ui";
+import { NA, NAvatar, NCard, NDivider, NFlex, NP, NSpace, NTag, useThemeVars } from "naive-ui";
 import { computed, ref } from "vue";
 import { DavinciResolve, Electron, Mysql, Node, Python, React, Rust, TypeScript, Vitest, Vue } from "@/assets/icons/brand";
 import avatar from "@/assets/images/index/avatar.jpg";
@@ -99,8 +99,14 @@ const tagsFavour = ["Vocaloid", "魔女之旅", "Project Sekai", "Maimai", "神�
         </n-card>
         <n-card title="元信息" :bordered="false" class="no-background-card">
           <n-flex vertical>
-            <n-text>最近更新时间：2025-09-22</n-text>
-            <n-text>更新内容：新增整合排序逻辑</n-text>
+            <n-text>最近更新时间：2025-09-24</n-text>
+            <n-text>
+              更新内容：开个
+              <router-link to="/learning/rust_basic" #="{ navigate, href }" custom>
+                <n-a :href="href" @click="navigate">新坑</n-a>
+              </router-link>
+              学习Rust
+            </n-text>
           </n-flex>
         </n-card>
       </n-flex>

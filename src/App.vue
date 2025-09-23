@@ -64,7 +64,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <n-config-provider :theme="themeStore.theme" :theme-overrides="themeOverrides" :hljs="hljs">
+  <n-config-provider :theme="themeStore.theme" :theme-overrides="themeOverrides" :hljs="hljs" :class="themeStore.isDarkTheme ? 'dark' : ''">
     <n-message-provider>
       <n-dialog-provider>
         <n-layout vertical :content-style="LayoutStyle">

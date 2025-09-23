@@ -8,6 +8,7 @@ const TypescriptTypeChallenges = () => import("@/contents/posts/Learning/Typescr
 const CrossDomain = () => import("@/contents/posts/Learning/CrossDomain.vue");
 const ReactHooks = () => import("@/contents/posts/Learning/ReactHooks.vue");
 const D3jsBasic = () => import("@/contents/posts/Learning/D3jsBasic.vue");
+const RustBasic = () => import("@/contents/posts/Learning/RustBasic.vue");
 
 export const routes: DocumentRoute = {
 	path: "learning",
@@ -72,6 +73,15 @@ export const routes: DocumentRoute = {
 			tags: ["前端", "可视化", "D3.js", "未完成"],
 			createDate: new Date(2025, 4, 3, 21, 44),
 			modifyDate: new Date(2025, 4, 3, 22, 53),
+		},
+		{
+			path: "rust_basic",
+			name: "Rust 从零开始",
+			component: RustBasic,
+			title: "Rust 从零开始",
+			tags: ["Rust", "未完成"],
+			createDate: new Date(2025, 8, 24, 2, 22),
+			modifyDate: new Date(2025, 8, 24, 2, 22),
 		},
 	],
 };

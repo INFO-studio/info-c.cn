@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useWindowSize } from "@vueuse/core";
-import { NAnchor, NAnchorLink, NCard, NCollapse, NCollapseItem } from "naive-ui";
+import { NAnchor, NAnchorLink, NCard, NCollapse, NCollapseItem, NScrollbar } from "naive-ui";
 import { computed, onMounted, ref } from "vue";
 import { motionDiv } from "@/exports/motion.ts";
 import { type AnchorItem, useAnchorStore } from "@/stores/anchor.ts";
@@ -61,29 +61,33 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList));
       :animate="anchorMode ? { opacity: 1 } : { opacity: 0 }"
       :style="{ pointerEvents: isFixed ? (anchorMode ? 'auto' : 'none') : 'auto' }"
     >
-      <n-anchor
-        :listen-to="scrollElement"
-        ref="anchor"
-        :offset-target="scrollElement"
-        ignore-gap
-        :bound="180"
-        class="article-anchor-fixed z-1 fixed top-20px left-50px"
+      <n-scrollbar
+        class="z-1 fixed top-20px left-50px bottom-20px max-w-[calc(50vw-480px)] xxl:max-w-[calc(50vw-680px)] of-y-auto"
       >
-        <n-anchor-link v-for="node1 in anchorTree" :title="node1.title" :href="`#${node1.href}`">
-          <n-anchor-link
-            v-for="node2 in node1.children"
-            :title="node2.title"
-            :href="`#${node2.href}`"
-          >
+        <n-anchor
+          :listen-to="scrollElement"
+          ref="anchor"
+          :offset-target="scrollElement"
+          ignore-gap
+          :bound="180"
+          class="w-[calc(100%-10px)]"
+        >
+          <n-anchor-link v-for="node1 in anchorTree" :title="node1.title" :href="`#${node1.href}`">
             <n-anchor-link
-              v-for="node3 in node2.children"
-              :title="node3.title"
-              :href="`#${node3.href}`"
+              v-for="node2 in node1.children"
+              :title="node2.title"
+              :href="`#${node2.href}`"
             >
+              <n-anchor-link
+                v-for="node3 in node2.children"
+                :title="node3.title"
+                :href="`#${node3.href}`"
+              >
+              </n-anchor-link>
             </n-anchor-link>
           </n-anchor-link>
-        </n-anchor-link>
-      </n-anchor>
+        </n-anchor>
+      </n-scrollbar>
     </motion-div>
     <motion-div
       v-else
@@ -120,12 +124,3 @@ const anchorTree = computed(() => buildAnchorTree(anchorStore.anchorList));
     </motion-div>
   </div>
 </template>
-
-<style scoped>
-.article-anchor-fixed {
-  max-width: calc(50vw - 480px);
-  @media (min-width: 1800px) {
-    max-width: calc(50vw - 660px);
-  }
-}
-</style>
